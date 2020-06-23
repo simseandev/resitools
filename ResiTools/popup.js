@@ -25,9 +25,22 @@ function navigateTab(evt, tabName){
 
 //TWoS Calculator Functionality
 let calculateBtn = document.getElementById("calculateBtn");
-
 if (calculateBtn) {
     calculateBtn.addEventListener("click", calculateTimeWithoutService);
+}
+
+let copyAmount = document.getElementById("copyAmount");
+if (copyAmount) {
+    calculateBtn.addEventListener("click", copyAmountToClipboard);
+}
+
+let copyString = document.getElementById("copyString");
+if (copyString) {
+    calculateBtn.addEventListener("click", copyStringToClipboard);
+}
+
+function isInteger(value) {
+    return /^\d+$/.test(value);
 }
 
 function calculateTimeWithoutService() {
@@ -56,21 +69,28 @@ function calculateTimeWithoutService() {
         return;
     }
     
-    let reversalAmount = (monthlyCosts / 30.44 * timeWithoutService).toFixed(2);
+    let reversalAmount = ((monthlyCosts * 12 / 365) * timeWithoutService).toFixed(2);
 
-    document.getElementById("resultAmount").value = "$" + reversalAmount;
+    document.getElementById("resultAmount").value = reversalAmount;
 
     document.getElementById("resultString").value = "Hi team. Please reverse $" + reversalAmount + " for " + timeWithoutService + " days of TWoS. Approved by " + approvedBy + ".";
 }
 
-function copyAmount() {
-
+function copyAmountToClipboard() {
+    var text = document.getElementById("resultAmount").value;
+    navigator.clipboard.writeText(text).then(function(){
+        console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+    });
 }
 
-function copyString() {
-
+function copyStringToClipboard() {
+    var text = document.getElementById("resultString").value;
+    navigator.clipboard.writeText(text).then(function(){
+        console.log('Async: Copying to clipboard was successful!');
+    }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+    });
 }
 
-function isInteger(value) {
-    return /^\d+$/.test(value);
-  }

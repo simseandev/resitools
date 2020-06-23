@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <header>
         <h1>TWoS Calculator</h1>
@@ -6,35 +7,42 @@
         <table class="center">
             <tr>
                 <td>Monthly Costs:</td>
-                <td><input type="text" id="fullname" size="5"></td>
+                <td><input type="text" id="monthlyCosts" size="5"></td>
             </tr>
             <tr>
                 <td>TWoS:</td>
-                <td><input type="text" id="email" size="5"></td>
+                <td><input type="text" id="timeWithoutService" size="5"></td>
             </tr>
             <tr>
                 <td>Approved by:</td>
-                <td><input type="text" id="email" size="5"></td>
+                <td><input type="text" id="approvedBy" size="5"></td>
             </tr>
         </table>
         
         <br/>
         
-        <button id="calculateButton">Calculate</button>
+        <button id="calculateBtn">Calculate</button>
 
         <br/><br/>
-        
-        <textarea rows="5" cols="25"></textarea>
-        
-        <br/><br/>
+        <table class="center">
+            <tr>
+                <td>Amount:</td>
+                <td><input type="text" id="resultAmount" size="5"> <button id="copyAmount">Copy</button></td>
+            </tr>
+            
+        </table>
 
-        <button id="copy">Copy</button>
         <br/>
+        
+        <textarea id="resultString" rows="5" cols="25"></textarea>
+        
+        <br/><br/>
 
-        <script src="popup.js"></script>
+        <button id="copyString">Copy</button>
+        <br/><br/>
+
+        <script src="popup.js" defer></script>
     </body>
-    <footer>
-    </footer>
 </html>
 <style>
     body {
@@ -43,11 +51,7 @@
         background-color: #009ed8;
         text-align: center;
         color: #ffffff;
-        border: black;
-        border-width: 1px;
         margin: 0;
-        padding: 10;
-        border-style: solid;
     }
 
     table.center {

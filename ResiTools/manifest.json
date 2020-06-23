@@ -6,8 +6,8 @@
     "browser_action": {
         "default_popup": "popup.html"
     },
-    "permissions": ["activeTab"],
     "background": {
+        "persistent": true,
         "scripts": ["popup.js"]
     }
 }

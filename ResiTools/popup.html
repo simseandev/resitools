@@ -1,7 +1,69 @@
 <html>
-    <header></header>
-    <body></body>
-    <footer></footer>
+    <header>
+        <h1>TWoS Calculator</h1>
+    </header>
+    <body>
+        <table class="center">
+            <tr>
+                <td>Monthly Costs:</td>
+                <td><input type="text" id="fullname" size="5"></td>
+            </tr>
+            <tr>
+                <td>TWoS:</td>
+                <td><input type="text" id="email" size="5"></td>
+            </tr>
+            <tr>
+                <td>Approved by:</td>
+                <td><input type="text" id="email" size="5"></td>
+            </tr>
+        </table>
+        
+        <br/>
+        
+        <button id="calculateButton">Calculate</button>
+
+        <br/><br/>
+        
+        <textarea rows="5" cols="25"></textarea>
+        
+        <br/><br/>
+
+        <button id="copy">Copy</button>
+        <br/>
+
+        <script src="popup.js"></script>
+    </body>
+    <footer>
+    </footer>
 </html>
 <style>
+    body {
+        width: 250px;
+        height: 300px;
+        background-color: #009ed8;
+        text-align: center;
+        color: #ffffff;
+        border: black;
+        border-width: 1px;
+        margin: 0;
+        padding: 10;
+        border-style: solid;
+    }
+
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer {
+        position: fixed;
+        left: 5;
+        bottom: 5;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    textarea {
+        resize: none;
+    }
 </style>

@@ -1,53 +1,125 @@
 <!DOCTYPE html>
 <html>
-    <header>
-        <h1>TWoS Calculator</h1>
-    </header>
+    <head>
+        <!-- Tab button links -->
+        <div class="tab">
+            <button class="tablinks" onclick="navigateTab(event, 'launcher')">Launcher</button>
+            <button class="tablinks" onclick="navigateTab(event, 'templates')">Templates</button>
+            <button class="tablinks" onclick="navigateTab(event, 'emails')">Email</button>
+            <button class="tablinks" onclick="navigateTab(event, 'TWoS')">TWos Calculator</button>
+        </div>
+    </head>
+
     <body>
-        <table class="center">
-            <tr>
-                <td>Monthly Costs:</td>
-                <td><input type="text" id="monthlyCosts" size="5"></td>
-            </tr>
-            <tr>
-                <td>TWoS:</td>
-                <td><input type="text" id="timeWithoutService" size="5"></td>
-            </tr>
-            <tr>
-                <td>Approved by:</td>
-                <td><input type="text" id="approvedBy" size="5"></td>
-            </tr>
-        </table>
-        
-        <br/>
-        
-        <button id="calculateBtn">Calculate</button>
+        <!-- Tab content -->
+        <div id="launcher" class="tabcontent">
 
-        <br/><br/>
-        <table class="center">
-            <tr>
-                <td>Amount:</td>
-                <td><input type="text" id="resultAmount" size="5"> <button id="copyAmount">Copy</button></td>
-            </tr>
+        </div>
+
+        <div id="templates" class="tabcontent">
+
+        </div>
+
+        <div id="emails" class="tabcontent">
+
+        </div>
+
+
+        <div id="TWoS" class="tabcontent"> 
+            <table class="center">
+                <br/>
+                <h1> TWoS Calculator</h1>
+                <tr>
+                    <td>Monthly Costs:</td>
+                    <td><input type="text" id="monthlyCosts" size="5"></td>
+                </tr>
+                <tr>
+                    <td>TWoS:</td>
+                    <td><input type="text" id="timeWithoutService" size="5"></td>
+                </tr>
+                <tr>
+                    <td>Approved by:</td>
+                    <td><input type="text" id="approvedBy" size="5"></td>
+                </tr>
+            </table>
             
-        </table>
-
-        <br/>
-        
-        <textarea id="resultString" rows="5" cols="25"></textarea>
-        
-        <br/><br/>
-
-        <button id="copyString">Copy</button>
-        <br/><br/>
+            <br/>
+            
+            <button id="calculateBtn">Calculate</button>
+    
+            <br/><br/>
+            <table class="center">
+                <tr>
+                    <td>Amount:</td>
+                    <td><input type="text" id="resultAmount" size="5"> <button id="copyAmount">Copy</button></td>
+                </tr>
+                
+            </table>
+    
+            <br/>
+            
+            <textarea id="resultString" rows="5" cols="25"></textarea>
+            
+            <br/><br/>
+    
+            <button id="copyString">Copy</button>
+            <br/><br/>
+        </div>
 
         <script src="popup.js" defer></script>
+
     </body>
 </html>
+
+
 <style>
+    /* ======== Adding CSS for TABS ======== */
+
+    * {box-sizing: border-box}
+
+    .tab {
+        float: left;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        width: 30%;
+        height: 400px;
+    }
+
+    .tab button {
+        display: block;
+        background-color: inherit;
+        color: black;
+        padding: 22px 16px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    /* Style the tab content */
+    /* .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    } */
+
+    /* ====== CSS for HTML extension body ====== */
     body {
-        width: 250px;
-        height: 300px;
+        width: 600px;
+        height: 400px;
         background-color: #009ed8;
         text-align: center;
         color: #ffffff;

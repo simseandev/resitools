@@ -1,3 +1,9 @@
+//Utils
+
+function isInteger(value) { // returns true if integer
+    return /^\d+$/.test(value);
+}
+
 
 // TAB Control functionality, will hide and show tabs on button click
 
@@ -31,16 +37,12 @@ if (calculateBtn) {
 
 let copyAmount = document.getElementById("copyAmount");
 if (copyAmount) {
-    calculateBtn.addEventListener("click", copyAmountToClipboard);
+    copyAmount.addEventListener("click", copyAmountToClipboard);
 }
 
 let copyString = document.getElementById("copyString");
 if (copyString) {
-    calculateBtn.addEventListener("click", copyStringToClipboard);
-}
-
-function isInteger(value) {
-    return /^\d+$/.test(value);
+    copyString.addEventListener("click", copyStringToClipboard);
 }
 
 function calculateTimeWithoutService() {

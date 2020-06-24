@@ -3,29 +3,32 @@
     <head>
         <!-- Tab button links -->
         <div class="tab">
-            <button class="tablinks" onclick="navigateTab(event, 'launcher')">Launcher</button>
-            <button class="tablinks" onclick="navigateTab(event, 'templates')">Templates</button>
-            <button class="tablinks" onclick="navigateTab(event, 'emails')">Email</button>
-            <button class="tablinks" onclick="navigateTab(event, 'TWoS')">TWos Calculator</button>
+            <button id="launcherBtn">Launcher</button>
+            <button id="templatesBtn">Templates</button>
+            <button id="emailsBtn">Email</button>
+            <button id="TWoSBtn">TWoS Calculator</button>
         </div>
+        
     </head>
 
     <body>
         <!-- Tab content -->
-        <div id="launcher" class="tabcontent">
-
+        <div id="launcherDiv">
+            <br/>
+            <h1>launcher</h1>
         </div>
 
-        <div id="templates" class="tabcontent">
-
+        <div id="templatesDiv">
+            <br/>
+            <h1>templates</h1>
         </div>
 
-        <div id="emails" class="tabcontent">
-
+        <div id="emailsDiv">
+            <br/>
+            <h1>email</h1>
         </div>
 
-
-        <div id="TWoS" class="tabcontent"> 
+        <div id="TWoSDiv"> 
             <table class="center">
                 <br/>
                 <h1> TWoS Calculator</h1>
@@ -42,27 +45,19 @@
                     <td><input type="text" id="approvedBy" size="5"></td>
                 </tr>
             </table>
-            
             <br/>
-            
             <button id="calculateBtn">Calculate</button>
-    
             <br/><br/>
             <table class="center">
                 <tr>
                     <td>Amount:</td>
-                    <td><input type="text" id="resultAmount" size="5"> <button id="copyAmount">Copy</button></td>
+                    <td><input type="text" id="resultAmount" size="5"> <button id="copyAmountBtn">Copy</button></td>
                 </tr>
-                
             </table>
-    
             <br/>
-            
             <textarea id="resultString" rows="5" cols="25"></textarea>
-            
             <br/><br/>
-    
-            <button id="copyString">Copy</button>
+            <button id="copyStringBtn">Copy</button>
             <br/><br/>
         </div>
 
@@ -81,7 +76,7 @@
         float: left;
         border: 1px solid #ccc;
         background-color: #f1f1f1;
-        width: 30%;
+        width: 25%;
         height: 400px;
     }
 

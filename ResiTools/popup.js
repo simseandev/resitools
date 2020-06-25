@@ -1,11 +1,11 @@
-// ============================================================================================
-// ====================================== Utils ===============================================
-// ============================================================================================
+//=============================================================================================
+//======================================= Utils ===============================================
+//=============================================================================================
 
 //these should really go in another file but we'll leave them here for now
 
-function isInteger(value) { // returns true if integer
-    return /^\d+$/.test(value);
+function isStringNumber(value) { //string value eg "8.42"
+    return parseFloat(value.match(/^-?\d*(\.\d+)?$/))>0;
 }
 
 function copyText(elementId) { //copy elements value to clipboard
@@ -17,9 +17,9 @@ function copyText(elementId) { //copy elements value to clipboard
     });
 }
 
-// ============================================================================================
-// =================================== Tab Control ============================================
-// ============================================================================================
+//=============================================================================================
+//==================================== Tab Control ============================================
+//=============================================================================================
 
 //Lines of code to ensure the page is blank on startup and only shows welcome page
 document.getElementById("launcherDiv").style.display = "none";
@@ -28,7 +28,6 @@ document.getElementById("emailsDiv").style.display = "none";
 document.getElementById("TWoSDiv").style.display = "none";
 
 document.getElementById("welcomeDiv").style.display = "block";
-
 
 let launcherBtn = document.getElementById("launcherBtn");
 if (launcherBtn) {
@@ -61,9 +60,9 @@ function clickTab(elementId) {
     document.getElementById(elementId).style.display = "block";
 }
 
-// ============================================================================================
-// ========================= TWoS Calculator Functionality ====================================
-// ============================================================================================
+//=============================================================================================
+//========================== TWoS Calculator Functionality ====================================
+//=============================================================================================
 
 let calculateBtn = document.getElementById("calculateBtn");
 if (calculateBtn) {
@@ -88,15 +87,15 @@ function calculateTimeWithoutService() {
     if (monthlyCosts === "") {
         alert("Monthly Costs field cannot be empty!");
         return;
-    } else if (!isInteger(monthlyCosts)) {
+    } else if (!isStringNumber(monthlyCosts)) {
         alert("Monthly Costs field must be a number!");
         return;
-    }
+    } 
 
     if (timeWithoutService === "") {
         alert("Time Without Service field cannot be empty!");
         return;
-    } else if (!isInteger(timeWithoutService)) {
+    } else if (!isStringNumber(timeWithoutService)) {
         alert("Time Without Service field must be a number!");
         return;
     }

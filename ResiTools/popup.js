@@ -21,6 +21,15 @@ function copyText(elementId) { //copy elements value to clipboard
 // =================================== Tab Control ============================================
 // ============================================================================================
 
+//Lines of code to ensure the page is blank on startup and only shows welcome page
+document.getElementById("launcherDiv").style.display = "none";
+document.getElementById("templatesDiv").style.display = "none";
+document.getElementById("emailsDiv").style.display = "none";
+document.getElementById("TWoSDiv").style.display = "none";
+
+document.getElementById("welcomeDiv").style.display = "block";
+
+
 let launcherBtn = document.getElementById("launcherBtn");
 if (launcherBtn) {
     launcherBtn.addEventListener("click", function () {clickTab("launcherDiv")});
@@ -47,6 +56,7 @@ function clickTab(elementId) {
     document.getElementById("templatesDiv").style.display = "none";
     document.getElementById("emailsDiv").style.display = "none";
     document.getElementById("TWoSDiv").style.display = "none";
+    document.getElementById("welcomeDiv").style.display = "none";
 
     document.getElementById(elementId).style.display = "block";
 }

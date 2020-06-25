@@ -12,10 +12,21 @@
     </head>
 
     <body>
+        <!-- Welcome Tab -->
+        <div id="welcomeDiv">
+            <br/><br/><br/>
+            <!-- <h1>Welcome to ResiTools</h1> -->
+            <img src="Images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:300px;height:300px;">
+        </div>
+
         <!-- Tab content -->
         <div id="launcherDiv">
             <br/>
             <h1>launcher</h1>
+            <div>
+                <button> open launcher in new tab</button>
+            </div>
+
         </div>
 
         <div id="templatesDiv">
@@ -103,22 +114,23 @@
         background-color: #ccc;
     }
 
-    /* Style the tab content */
-    /* .tabcontent {
-        display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
-        border-top: none;
-    } */
-
     /* ====== CSS for HTML extension body ====== */
+
+    .IMGcentre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
     body {
         width: 600px;
         height: 400px;
-        background-color: #009ed8;
+        background-color: white;
         text-align: center;
-        color: #ffffff;
+        color: black;
         margin: 0;
+        overflow-y : auto;
     }
 
     table.center {

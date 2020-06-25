@@ -26,6 +26,7 @@ document.getElementById("launcherDiv").style.display = "none";
 document.getElementById("templatesDiv").style.display = "none";
 document.getElementById("emailsDiv").style.display = "none";
 document.getElementById("TWoSDiv").style.display = "none";
+document.getElementById("mySettingsDiv").style.display = "none";
 
 document.getElementById("welcomeDiv").style.display = "block";
 
@@ -49,6 +50,11 @@ if (TWoSBtn) {
     TWoSBtn.addEventListener("click", function () {clickTab("TWoSDiv")});
 }
 
+let mySettingsBtn = document.getElementById("mySettingsBtn");
+if (mySettingsBtn) {
+    mySettingsBtn.addEventListener("click", function () {clickTab("mySettingsDiv")});
+}
+
 function clickTab(elementId) {
 
     document.getElementById("launcherDiv").style.display = "none";
@@ -56,8 +62,28 @@ function clickTab(elementId) {
     document.getElementById("emailsDiv").style.display = "none";
     document.getElementById("TWoSDiv").style.display = "none";
     document.getElementById("welcomeDiv").style.display = "none";
+    document.getElementById("mySettingsDiv").style.display = "none";
 
     document.getElementById(elementId).style.display = "block";
+}
+
+//=============================================================================================
+//============================== Internal Email Templates =====================================
+//=============================================================================================
+
+//this is just a test atm
+
+let emailExceptionBtn = document.getElementById("emailExceptionBtn");
+if (emailExceptionBtn) {
+    emailExceptionBtn.addEventListener("click", function () {promptEmail("WFM@2degrees.nz", "Exception", "Hi team,%0D%0DI have been doing X from X:XX to " + new Date().toLocaleString() + "%0D%0DPlease make an exception for this.%0D%0DThanks,")});
+}
+
+
+//base email template, rather than populating many functions
+function promptEmail(mailTo, subject, body) {
+
+    //replace /n with %0D%0 for new line
+    window.open('mailto:' + mailTo + '?subject=' + subject +'&body=' + body);
 }
 
 //=============================================================================================

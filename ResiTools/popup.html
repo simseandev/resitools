@@ -5,8 +5,9 @@
         <div class="tab">
             <button id="launcherBtn">Launcher</button>
             <button id="templatesBtn">Templates</button>
-            <button id="emailsBtn">Email</button>
+            <button id="emailsBtn">Internal Emails</button>
             <button id="TWoSBtn">TWoS Calculator</button>
+            <button id="mySettingsBtn">Settings</button>
         </div>
     </head>
 
@@ -14,8 +15,8 @@
         <!-- Welcome Tab -->
         <div id="welcomeDiv">
             <br/><br/><br/>
-            <!-- <h1>Welcome to ResiTools</h1> -->
-            <img src="Images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:300px;height:300px;">
+            <img src="Images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:325px;height:325px;">
+
             By Simon Lorimer and Sean Madondo
         </div>
 
@@ -37,6 +38,8 @@
         <div id="emailsDiv">
             <br/>
             <h1>Email Templates</h1>
+
+            <button id="emailExceptionBtn">Exception</button> <button id="emailLMNPBtn">Email lmnp</button>
         </div>
 
         <div id="TWoSDiv"> 
@@ -70,6 +73,33 @@
             <br/><br/>
             <button id="copyStringBtn">Copy</button>
             <br/><br/>
+        </div>
+
+        <div id="mySettingsDiv">
+            <br/>
+            
+            <table class="center">
+
+                <h1>Settings</h1>
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" id="firstName" size="5"></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" id="lastName" size="5"></td>
+                </tr>
+                <tr>
+                    <td>Work Email:</td>
+                    <td><input type="text" id="workEmail" size="5"></td>
+                </tr>
+
+            </table>
+
+            <br/>
+
+            <button id="saveSettingsBtn">Save</button>
+
         </div>
 
         <script src="popup.js" defer></script>

@@ -1,4 +1,19 @@
 //=============================================================================================
+//====================================== Startup ==============================================
+//=============================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+//=============================================================================================
 //======================================= Utils ===============================================
 //=============================================================================================
 
@@ -11,10 +26,19 @@ function isStringNumber(value) { //string value eg "8.42"
 function copyText(elementId) { //copy elements value to clipboard
     var text = document.getElementById(elementId).value;
     navigator.clipboard.writeText(text).then(function () {
-        console.log('Async: Copying to clipboard was successful!');
+        console.log("Copying to clipboard was successful!");
     }, function (err) {
-        console.error('Async: Could not copy text: ', err);
+        console.error("Could not copy text: ", err);
     });
+}
+
+function getStorage(key) {
+
+}
+
+function setStorage(key, value) {
+
+
 }
 
 //=============================================================================================
@@ -135,4 +159,31 @@ function calculateTimeWithoutService() {
 
     document.getElementById("resultAmount").value = reversalAmount;
     document.getElementById("resultString").value = "Hi team. Please reverse $" + reversalAmount + " for " + timeWithoutService + " days of TWoS. Approved by " + approvedBy + ".";
+}
+
+//=============================================================================================
+//============================== Settings Functionality =======================================
+//=============================================================================================
+
+let saveSettingsBtn = document.getElementById("saveSettingsBtn");
+if (saveSettingsBtn) {
+    saveSettingsBtn.addEventListener("click", function () {saveSettings()});
+}
+
+function saveSettings() {
+    console.log("saveSettings function called");
+    let firstName = document.getElementById("firstName").value;
+    let lastName = document.getElementById("lastName").value;
+    let workEmail = document.getElementById("workEmail").value;
+
+    chrome.storage.sync.set({
+        "firstName": firstName,
+        "lastName": lastName,
+        "workEmail": workEmail
+    }, function () {
+        console.log("saveSettings function saved");
+    });
+
+
+
 }

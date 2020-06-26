@@ -9,5 +9,6 @@
     "background": {
         "persistent": true,
         "scripts": ["popup.js"]
-    }
+    },
+    "permissions": ["storage"]
 }

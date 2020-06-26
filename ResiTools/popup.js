@@ -94,22 +94,26 @@ function clickTab(elementId) {
 function loadSettings() {
 
     //firstName
-    chrome.storage.sync.get(null, function (result) {
-        console.log(result);
-        allData = result;
-        document.getElementById("firstName").value = result.firstName;
+    chrome.storage.sync.get(["firstName"], function (result) {
+        if (result.firstName != undefined) {
+            document.getElementById("firstName").value = result.firstName;
+        }
       });
 
     //lastName
     chrome.storage.sync.get(["lastName"], function (result) {
         console.log("Retrieved Storage from Chrome: lastName");
-        document.getElementById("lastName").value = result.lastName;
+        if (result.lastName != undefined) {
+            document.getElementById("lastName").value = result.lastName;
+        }
       });
 
     //workEmail
     chrome.storage.sync.get(["workEmail"], function (result) {
         console.log("Retrieved Storage from Chrome: workEmail");
-        document.getElementById("workEmail").value = result.workEmail;
+        if (result.workEmail != undefined) {
+            document.getElementById("workEmail").value = result.workEmail;
+        }
       });
 
 }

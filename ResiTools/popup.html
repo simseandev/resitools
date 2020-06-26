@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--BOOTSTRAP-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!--FONT AWESOME ICONS-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+
         <!-- Tab button links -->
         <div class="tab">
-            <button id="launcherBtn">Launcher</button>
-            <button id="templatesBtn">Templates</button>
-            <button id="emailsBtn">Internal Emails</button>
-            <button id="TWoSBtn">TWoS Calculator</button>
-            <button id="mySettingsBtn">Settings</button>
+            <button id="launcherBtn"> <i class="fa fa-plus-circle"></i> Launcher</button>
+            <button id="templatesBtn"> <i class="fa fa-list-alt"></i> Templates</button>
+            <button id="emailsBtn"> <i class="fa fa-envelope"></i> Emails</button>
+            <button id="TWoSBtn"> <i class="fa fa-calculator"></i> TWoS</button>
+            <button id="mySettingsBtn"> <i class="fa fa-cog"></i> Settings</button>
         </div>
     </head>
 
     <body>
         <!-- Welcome Tab -->
         <div id="welcomeDiv">
-            <br/><br/><br/>
-            <img src="Images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:325px;height:325px;">
-            By Simon Lorimer and Sean Madondo
+            <br/><br/>
+            <img src="Images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:250px;height:250px;">
+            <i class="fa fa-copyright"></i> Simon Lorimer & Sean Madondo
+            <br/>
+            <span class="badge badge-secondary">SimSeanDev</span>
         </div>
 
         <!-- Tab content -->
         <div id="launcherDiv">
             <br/>
-            <h1>Launcher</h1>
             <div>
-                <button>Open Launcher (new-tab)</button>
+                <button href="https://www.google.com" target="_blank" class="btn btn-primary btn-sm">Open Launcher (new-tab)</button>
             </div>
 
         </div>
@@ -44,33 +56,34 @@
         <div id="TWoSDiv"> 
             <table class="center">
                 <br/>
-                <h1> TWoS Calculator</h1>
+                <h6> Please type in values</h6>
                 <tr>
-                    <td>Monthly Costs:</td>
-                    <td><input type="text" id="monthlyCosts" size="5"></td>
+                    <!-- <td>Monthly Costs: </td>  -->
+                    <td><input class="form-control" type="text" id="monthlyCosts" placeholder="Monthly Cost..."></td>
                 </tr>
                 <tr>
-                    <td>TWoS:</td>
-                    <td><input type="text" id="timeWithoutService" size="5"></td>
+                    <!-- <td>TWoS:</td> -->
+                    <td><input class="form-control" type="text" id="timeWithoutService" placeholder="Days with no service..."></td>
                 </tr>
                 <tr>
-                    <td>Approved by:</td>
-                    <td><input type="text" id="approvedBy" size="5"></td>
+                    <!-- <td>Approved by:</td> -->
+                    <td><input class="form-control" type="text" id="approvedBy" placeholder="Approved by...."></td>
                 </tr>
             </table>
             <br/>
-            <button id="calculateBtn">Calculate</button>
+            <button id="calculateBtn" class="btn btn-primary btn-sm">Calculate</button>
             <br/><br/>
             <table class="center">
                 <tr>
                     <td>Amount:</td>
-                    <td><input type="text" id="resultAmount" size="5"> <button id="copyAmountBtn">Copy</button></td>
+                    <td><input type="text" class="form-control" id="resultAmount" size="5"></td>
+                    <td><button id="copyAmountBtn" class="btn btn-outline-primary btn-sm">Copy</button></td>
                 </tr>
             </table>
             <br/>
-            <textarea id="resultString" rows="5" cols="25"></textarea>
+            <textarea id="resultString" rows="4" cols="35"></textarea>
             <br/><br/>
-            <button id="copyStringBtn">Copy</button>
+            <button id="copyStringBtn" class="btn btn-outline-primary btn-sm">Copy</button>
             <br/><br/>
         </div>
 
@@ -81,23 +94,23 @@
 
                 <h1>Settings</h1>
                 <tr>
-                    <td>First Name:</td>
-                    <td><input type="text" id="firstName" size="25"></td>
+                    <!-- <td>First Name:</td> -->
+                    <td><input type="text" class="form-control" id="firstName" placeholder="First Name..." size="25"></td>
                 </tr>
                 <tr>
-                    <td>Last Name:</td>
-                    <td><input type="text" id="lastName" size="25"></td>
+                    <!-- <td>Last Name:</td> -->
+                    <td><input type="text" class="form-control" id="lastName" placeholder="Surname..."size="25"></td>
                 </tr>
                 <tr>
-                    <td>Work Email:</td>
-                    <td><input type="text" id="workEmail" size="25"></td>
+                    <!-- <td>Work Email:</td> -->
+                    <td><input type="text" class="form-control" id="workEmail" placeholder="Work Email..." size="25"></td>
                 </tr>
 
             </table>
 
             <br/>
 
-            <button id="saveSettingsBtn">Save</button>
+            <button id="saveSettingsBtn" class="btn btn-outline-primary">Save</button>
 
         </div>
 
@@ -117,7 +130,7 @@
         border: 1px solid #ccc;
         background-color: #f1f1f1;
         width: 25%;
-        height: 400px;
+        height: 500px;
     }
 
     .tab button {
@@ -135,7 +148,7 @@
 
     /* Change background color of buttons on hover */
     .tab button:hover {
-        background-color: #ddd;
+        background-color: #38b6ff;
     }
 
     /* Create an active/current tablink class */
@@ -154,12 +167,13 @@
 
     body {
         width: 600px;
-        height: 400px;
+        height: 500px;
         background-color: white;
         text-align: center;
         color: black;
         margin: 0;
         overflow-y : auto;
+        font-size: 15px;
     }
 
     table.center {

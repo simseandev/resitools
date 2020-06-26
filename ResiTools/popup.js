@@ -2,16 +2,25 @@
 //====================================== Startup ==============================================
 //=============================================================================================
 
+//show only welcomeDiv on startup, set others to hidden
 
+let launcherDiv = document.getElementById("launcherDiv");
+if (launcherDiv) { launcherDiv.style.display = "none"; }
 
+let templatesDiv = document.getElementById("templatesDiv");
+if (templatesDiv) { templatesDiv.style.display = "none"; }
 
+let emailsDiv = document.getElementById("emailsDiv");
+if (emailsDiv) { emailsDiv.style.display = "none"; }
 
+let TWoSDiv = document.getElementById("TWoSDiv");
+if (TWoSDiv) { TWoSDiv.style.display = "none"; }
 
+let mySettingsDiv = document.getElementById("mySettingsDiv");
+if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
 
-
-
-
-
+let welcomeDiv = document.getElementById("welcomeDiv");
+if (welcomeDiv) { welcomeDiv.style.display = "block"; } 
 
 //=============================================================================================
 //======================================= Utils ===============================================
@@ -32,27 +41,15 @@ function copyText(elementId) { //copy elements value to clipboard
     });
 }
 
-function getStorage(key) {
-
-}
-
-function setStorage(key, value) {
-
-
+function setStorage(keyValues) {
+    chrome.storage.sync.set(keyValues, function () {
+        console.log("Storage has successfully been set.");
+    });
 }
 
 //=============================================================================================
 //==================================== Tab Control ============================================
 //=============================================================================================
-
-//Lines of code to ensure the page is blank on startup and only shows welcome page
-document.getElementById("launcherDiv").style.display = "none";
-document.getElementById("templatesDiv").style.display = "none";
-document.getElementById("emailsDiv").style.display = "none";
-document.getElementById("TWoSDiv").style.display = "none";
-document.getElementById("mySettingsDiv").style.display = "none";
-
-document.getElementById("welcomeDiv").style.display = "block";
 
 let launcherBtn = document.getElementById("launcherBtn");
 if (launcherBtn) {
@@ -76,7 +73,10 @@ if (TWoSBtn) {
 
 let mySettingsBtn = document.getElementById("mySettingsBtn");
 if (mySettingsBtn) {
-    mySettingsBtn.addEventListener("click", function () {clickTab("mySettingsDiv")});
+    mySettingsBtn.addEventListener("click", function () {
+        clickTab("mySettingsDiv");
+        loadSettings();
+    });
 }
 
 function clickTab(elementId) {
@@ -89,6 +89,29 @@ function clickTab(elementId) {
     document.getElementById("mySettingsDiv").style.display = "none";
 
     document.getElementById(elementId).style.display = "block";
+}
+
+function loadSettings() {
+
+    //firstName
+    chrome.storage.sync.get(null, function (result) {
+        console.log(result);
+        allData = result;
+        document.getElementById("firstName").value = result.firstName;
+      });
+
+    //lastName
+    chrome.storage.sync.get(["lastName"], function (result) {
+        console.log("Retrieved Storage from Chrome: lastName");
+        document.getElementById("lastName").value = result.lastName;
+      });
+
+    //workEmail
+    chrome.storage.sync.get(["workEmail"], function (result) {
+        console.log("Retrieved Storage from Chrome: workEmail");
+        document.getElementById("workEmail").value = result.workEmail;
+      });
+
 }
 
 //=============================================================================================
@@ -171,19 +194,30 @@ if (saveSettingsBtn) {
 }
 
 function saveSettings() {
-    console.log("saveSettings function called");
-    let firstName = document.getElementById("firstName").value;
-    let lastName = document.getElementById("lastName").value;
-    let workEmail = document.getElementById("workEmail").value;
+    let firstName = document.getElementById("firstName");
+    let lastName = document.getElementById("lastName");
+    let workEmail = document.getElementById("workEmail");
 
-    chrome.storage.sync.set({
-        "firstName": firstName,
-        "lastName": lastName,
-        "workEmail": workEmail
-    }, function () {
-        console.log("saveSettings function saved");
+    //inputs must not be empty
+    if (firstName.value == "") {
+        alert("First name cannot be empty!");
+        firstName.focus();
+        return;
+    } else if (lastName.value === "") {
+        alert("Last name cannot be empty!");
+        lastName.focus();
+        return;
+    } else if (workEmail.value === "") {
+        alert("Work email cannot be empty!");
+        workEmail.focus();
+        return;
+    }
+
+    setStorage({
+        "firstName": firstName.value,
+        "lastName": lastName.value,
+        "workEmail": workEmail.value
     });
 
-
-
+    alert("Settings successfully updated!");
 }

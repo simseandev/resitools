@@ -43,7 +43,45 @@
 
         <div id="templatesDiv">
             <br/>
-            <h1>Templates</h1>
+            <h6>Templates</h6>
+            <br/>
+                <div class="list-group">
+                    <!--<a href="#" class="list-group-item list-group-item-action active">No DSL Sync</a>
+                    <a href="#" class="list-group-item list-group-item-action">Frequent Disconnections</a>
+                    <a href="#" class="list-group-item list-group-item-action">Low Sync</a>
+                    <a href="#" class="list-group-item list-group-item-action">No Optical</a>
+                    <a href="#" class="list-group-item list-group-item-action">ONT PSU</a>
+                    <a href="#" class="list-group-item list-group-item-action">SIF</a>
+                    <a href="#" class="list-group-item list-group-item-action">SIF (W&M)</a>
+                    <a href="#" class="list-group-item list-group-item-action">SIF (Fibre)</a> -->
+                    
+                </div>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTemplate">Add Template</button>
+                <button id="editTemplateBtn" type="button" class="btn btn-warning">Edit</button>
+                <button id="removeBtn" type="button" class="btn btn-danger">Remove</button>
+
+                <!-- Modal -->
+                <div id="addTemplate" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title">Add Template</h6>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="templateName" placeholder="Template Name" cols="20"><p></p>
+                                <textarea id="templateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
+                            </div>
+                            <div class="modal-footer">
+                            <button id="addTemplateBtn" type="button" class="btn btn-success">Add Template</button> 
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         </div>
 
         <div id="emailsDiv">
@@ -56,18 +94,15 @@
         <div id="TWoSDiv"> 
             <table class="center">
                 <br/>
-                <h6> Please type in values</h6>
+                <h6>Time Without Service Calculator</h6>
                 <tr>
-                    <!-- <td>Monthly Costs: </td>  -->
-                    <td><input class="form-control" type="text" id="monthlyCosts" placeholder="Monthly Cost..."></td>
+                    <td><input class="form-control" type="text" id="monthlyCosts" placeholder="Monthly Cost"></td>
                 </tr>
                 <tr>
-                    <!-- <td>TWoS:</td> -->
-                    <td><input class="form-control" type="text" id="timeWithoutService" placeholder="Days with no service..."></td>
+                    <td><input class="form-control" type="text" id="timeWithoutService" placeholder="Time Without Service"></td>
                 </tr>
                 <tr>
-                    <!-- <td>Approved by:</td> -->
-                    <td><input class="form-control" type="text" id="approvedBy" placeholder="Approved by...."></td>
+                    <td><input class="form-control" type="text" id="approvedBy" placeholder="Approved by"></td>
                 </tr>
             </table>
             <br/>
@@ -75,7 +110,7 @@
             <br/><br/>
             <table class="center">
                 <tr>
-                    <td>Amount:</td>
+                    <td>Amount: </td>
                     <td><input type="text" class="form-control" id="resultAmount" size="5"></td>
                     <td><button id="copyAmountBtn" class="btn btn-outline-primary btn-sm">Copy</button></td>
                 </tr>
@@ -96,13 +131,13 @@
 
                 <h1>Settings</h1><br/>
                 <tr>
-                    <td><input type="text" class="form-control" id="firstName" placeholder="First Name.." size="25"></td>
+                    <td><input type="text" class="form-control" id="firstName" placeholder="First Name" size="25"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="form-control" id="lastName" placeholder="Surname.."size="25"></td>
+                    <td><input type="text" class="form-control" id="lastName" placeholder="Surname"size="25"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="form-control" id="workEmail" placeholder="Work Email.." size="25"></td>
+                    <td><textarea type="email" class="form-control" id="workEmail" placeholder="Work Email" rows="3"></textarea></td>
                 </tr>
 
             </table>
@@ -111,9 +146,15 @@
 
             <button id="saveSettingsBtn" class="btn btn-outline-primary">Save</button>
 
+            <br/>
+            <br/>
+
+            *Some settings may not work with empty fields
+
         </div>
 
         <script src="popup.js" defer></script>
+
 
     </body>
 </html>
@@ -191,4 +232,14 @@
     textarea {
         resize: none;
     }
+
+    /* for list-group overscroll */
+    .list-group{
+    max-height: 190px;
+    max-width: 300px;
+    margin-bottom: 10px;
+    overflow-y:auto;
+    -webkit-overflow-scrolling: touch;
+    text-align: left;
+}
 </style>

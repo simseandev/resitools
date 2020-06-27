@@ -58,7 +58,10 @@ if (launcherBtn) {
 
 let templatesBtn = document.getElementById("templatesBtn");
 if (templatesBtn) {
-    templatesBtn.addEventListener("click", function () {clickTab("templatesDiv")});
+    templatesBtn.addEventListener("click", function () {
+        clickTab("templatesDiv");
+        loadTemplates();
+    });
 }
 
 let emailBtn = document.getElementById("emailsBtn");
@@ -103,20 +106,94 @@ function loadSettings() {
 
     //lastName
     chrome.storage.sync.get(["lastName"], function (result) {
-        console.log("Retrieved Storage from Chrome: lastName");
         if (result.lastName != undefined) {
+            console.log("Retrieved Storage from Chrome: lastName");
             document.getElementById("lastName").value = result.lastName;
         }
       });
 
     //workEmail
     chrome.storage.sync.get(["workEmail"], function (result) {
-        console.log("Retrieved Storage from Chrome: workEmail");
         if (result.workEmail != undefined) {
+            console.log("Retrieved Storage from Chrome: workEmail");
             document.getElementById("workEmail").value = result.workEmail;
         }
       });
 
+}
+
+//=============================================================================================
+//================================== Default Templates ========================================
+//=============================================================================================
+
+let addTemplateBtn = document.getElementById("addTemplateBtn");
+if (addTemplateBtn) {
+    addTemplateBtn.addEventListener("click", addTemplate);
+}
+
+function addTemplate() {
+    let templateName = document.getElementById("templateName").value;
+    let templateDescription = document.getElementById("templateDescription").value;
+
+    //check not empty
+    if (templateName === "") {
+        alert("Template Name must not be empty!");
+        return;
+    } else if (templateDescription === "") {
+        alert("Template Description must not be empty!");
+        return;
+    }
+
+    //store template isn sync
+    storeTemplate(templateName, templateDescription);
+
+}
+
+function storeTemplate(name, description) {
+
+    //check if templates exist already
+    chrome.storage.sync.get(["myTemplates"], function (result) {
+        if (result.myTemplates != undefined) { //if templates don't exist, then create
+            console.log("Retrieved Storage from Chrome: myTemplates");
+            var myTemplates = result.myTemplates;
+            for (i = 0; i < myTemplates.length; i++) { // check doesn't exist
+                if (myTemplates[i][0] === name) {
+                    alert("Template Name already exists");
+                    return;
+                }
+            }
+            console.log("im still going");
+            myTemplates.push([name, description]);
+            setStorage({"myTemplates": myTemplates})
+            console.log("Template " + name + " has been saved");
+        } else { //if they exist, myTemplates += new template
+            setStorage({"myTemplates": [[name, description]]});
+            console.log("Template " + name + " has been saved");
+        }
+
+        //load new templates, close and reset modal
+        loadTemplates();
+        $('#addTemplate').modal('hide');
+        document.getElementById("templateName").value = "";
+        document.getElementById("templateDescription").value = "";
+    });
+}
+
+function loadTemplates() {
+    document.querySelector(".list-group").innerHTML = "";
+
+    chrome.storage.sync.get(["myTemplates"], function (result) {
+        if (result.myTemplates != undefined) { 
+            console.log("Retrieved Storage from Chrome: myTemplates");
+            var myTemplates = result.myTemplates;
+            var i;
+            for (i = 0; i < myTemplates.length; i++) {
+                document.querySelector(".list-group").innerHTML += "<a href='#' data-toggle='list' id='" + myTemplates[i][0] + "' class='list-group-item list-group-item-action'>" + myTemplates[i][0] + "</a>";
+            }
+        } else {
+            return;
+        }
+      });
 }
 
 //=============================================================================================

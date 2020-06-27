@@ -96,6 +96,7 @@ function loadSettings() {
     //firstName
     chrome.storage.sync.get(["firstName"], function (result) {
         if (result.firstName != undefined) {
+            console.log("Retrieved Storage from Chrome: firstName");
             document.getElementById("firstName").value = result.firstName;
         }
       });
@@ -126,9 +127,8 @@ function loadSettings() {
 
 let emailExceptionBtn = document.getElementById("emailExceptionBtn");
 if (emailExceptionBtn) {
-    emailExceptionBtn.addEventListener("click", function () {promptEmail("WFM@2degrees.nz", "Exception", "Hi team,%0D%0DI have been doing X from X:XX to " + new Date().toLocaleString() + "%0D%0DPlease make an exception for this.%0D%0DThanks,")});
+    emailExceptionBtn.addEventListener("click", function () {promptEmail("WFM@2degrees.nz", "Exception", "Hi team,%0D%0DI have been doing Emails from X:XX to " + new Date().toLocaleString() + "%0D%0DPlease make an exception for this.%0D%0DThanks,")});
 }
-
 
 //base email template, rather than populating many functions
 function promptEmail(mailTo, subject, body) {

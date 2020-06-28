@@ -47,7 +47,7 @@
                     
                 </div>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTemplate">Add Template</button>
-                <button id="editTemplateBtn" type="button" class="btn btn-warning">Edit</button>
+                <button id="editTemplateBtn" type="button" class="btn btn-warning">Edit Template</button>
                 <button id="deleteTemplateBtn" type="button" class="btn btn-danger">Delete</button>
                 
                 <br/><br/>
@@ -60,10 +60,27 @@
 
                 <button id=copyTemplateBtn>Copy</button>
 
-                <!-- Modal -->
+                <div id="editTemplate" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title">Edit Template</h6>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="editTemplateName" placeholder="Template Name" cols="20"><p></p>
+                                <textarea style="white-space: pre-wrap;" id="editTemplateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
+                            </div>
+                            <div class="modal-footer">
+                            <button id="updateTemplateBtn" type="button" class="btn btn-warning">Update Template</button> 
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="addTemplate" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-                        <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h6 class="modal-title">Add Template</h6>

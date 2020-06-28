@@ -148,14 +148,13 @@ function loadSettings() {
 //check for selected
 
 async function checkActive() {
-    console.log("hellocsadsad");
     try {
         await wait(10);
         let checkActive = document.getElementsByClassName("list-group-item active")[0];
-        console.log(checkActive);
         if (checkActive != undefined) {
             document.getElementById("editTemplateBtn").disabled = false;
             document.getElementById("deleteTemplateBtn").disabled = false;
+            document.getElementById("copyTemplateBtn").style.display = "block";
         }
     } catch {
         console.log("checkActive() Error: " + err);
@@ -227,7 +226,6 @@ function editTemplate() {
                 var myTemplates = result.myTemplates;
                 for (i = 0; i < myTemplates.length; i++) {
                     if (myTemplates[i][0] == templateId) {
-                        console.log("found at index " + i);
                         document.getElementById("editTemplateDescription").value = myTemplates[i][1].join('\n');
                     }
                 }
@@ -246,7 +244,6 @@ if (deleteTemplateBtn) {
 }
 
 function deleteTemplate() {
-    console.log("I have been clicked");
     try {
         var templateId = document.getElementsByClassName("list-group-item active")[0].id;
         var confirmDeletion = confirm('Do you wish to delete template: "' + templateId.replace(/-/g, ' ') + '"');
@@ -258,7 +255,6 @@ function deleteTemplate() {
                     var myTemplates = result.myTemplates;
                     for (i = 0; i < myTemplates.length; i++) {
                         if (myTemplates[i][0] == templateId) {
-                            console.log("found at index " + i);
                             myTemplates.splice(i, 1);
                             setStorage({"myTemplates": myTemplates});
                             loadTemplates();
@@ -341,10 +337,12 @@ function loadTemplates() {
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) { 
             console.log("Retrieved Storage from Chrome: myTemplates");
+
+            document.getElementById("editTemplateBtn").disabled = true;
+            document.getElementById("deleteTemplateBtn").disabled = true;
+            document.getElementById("copyTemplateBtn").style.display = "none";
+
             var myTemplates = result.myTemplates;
-            console.log(myTemplates);
-            let editBtn = document.getElementById("editTemplateBtn").disabled = true;
-            let deleteBtn = document.getElementById("deleteTemplateBtn").disabled = true;
 
             for (var i = 0; i < myTemplates.length; i++) {
                 document.querySelector(".list-group").innerHTML += "<a class='list-group-item list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
@@ -355,8 +353,6 @@ function loadTemplates() {
       });
 }
 
-
-//copy button
 let copyTemplateBtn = document.getElementById("copyTemplateBtn");
 if (copyTemplateBtn) {
     copyTemplateBtn.addEventListener("click", copyTemplate);
@@ -367,12 +363,10 @@ function copyTemplate() {
         var templateId = document.getElementsByClassName("list-group-item active")[0].id;
         var description = document.getElementById("list-" + templateId).value;
         copyTemplateText(description);
-    } catch {
-        console.log("Template has not been selected!");
-        alert("Template has not been selected!");
+    } catch(err) {
+        console.log("copyTemplate() Error: " + err);
         return;
     }
-    
 }
 
 //=============================================================================================

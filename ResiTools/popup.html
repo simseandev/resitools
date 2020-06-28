@@ -14,11 +14,11 @@
 
         <!-- Tab button links -->
         <div class="tab">
-            <button id="launcherBtn"> <i class="fa fa-plus-circle"></i> Launcher</button>
-            <button id="templatesBtn"> <i class="fa fa-list-alt"></i> Templates</button>
-            <button id="emailsBtn"> <i class="fa fa-envelope"></i> Emails</button>
-            <button id="TWoSBtn"> <i class="fa fa-calculator"></i> TWoS</button>
-            <button id="mySettingsBtn"> <i class="fa fa-cog"></i> Settings</button>
+            <button id="launcherBtn"> <i class="fa fa-plus-circle tabs"></i> Launcher</button>
+            <button id="templatesBtn"> <i class="fa fa-list-alt tabs"></i> Templates</button>
+            <button id="emailsBtn"> <i class="fa fa-envelope tabs"></i> Emails</button>
+            <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> TWoS</button>
+            <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button>
         </div>
     </head>
 
@@ -46,13 +46,13 @@
                 <div class="list-group" id="myTemplates" role="tablist">
                     
                 </div>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTemplate">Add Template</button>
-                <button id="editTemplateBtn" type="button" class="btn btn-warning">Edit Template</button>
-                <button id="deleteTemplateBtn" type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i> Add Template</button>
+                <button id="editTemplateBtn" type="button" class="btn btn-warning"><i class="fa fa-pen edit"></i> Edit</button>
+                <button id="deleteTemplateBtn" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
                 
                 <br/><br/>
 
-                <div class="tab-content" id="nav-tabContent" style="height: 100px;">
+                <div class="tab-content" id="nav-tabContent">
 
                 </div>
 
@@ -179,6 +179,9 @@
     /* ======== Adding CSS for TABS ======== */
 
     * {box-sizing: border-box}
+    i.tabs {
+        color: #2E2E2E;
+    }
 
     .tab {
         float: left;
@@ -250,14 +253,12 @@
 
     /* for list-group overscroll */
     .list-group {
-    max-height: 190px;
-    max-width: 300px;
-    min-width: 300px;
-    min-height: 190px;
-    margin-bottom: 10px;
-    overflow-y:auto;
-    -webkit-overflow-scrolling: touch;
-    text-align: left;
-}
+        max-height: 190px;
+        max-width: 300px;
+        margin-bottom: 10px;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        text-align: left;
+    }
 
 </style>

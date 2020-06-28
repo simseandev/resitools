@@ -25,11 +25,9 @@
     <body>
         <!-- Welcome Tab -->
         <div id="welcomeDiv">
-            <br/><br/>
-            <img src="Images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:250px;height:250px;">
-            <i class="fa fa-copyright"></i> Simon Lorimer & Sean Madondo
+            <br/><br/><br/>
+            <img src="Images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:350px;height:350px;">
             <br/>
-            <span class="badge badge-secondary">SimSeanDev</span>
         </div>
 
         <!-- Tab content -->
@@ -45,7 +43,7 @@
             <br/>
             <h6>Templates</h6>
             <br/>
-                <div class="list-group">
+                <div class="list-group" id="myTemplates" role="tablist">
                     <!--<a href="#" class="list-group-item list-group-item-action active">No DSL Sync</a>
                     <a href="#" class="list-group-item list-group-item-action">Frequent Disconnections</a>
                     <a href="#" class="list-group-item list-group-item-action">Low Sync</a>
@@ -59,6 +57,16 @@
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTemplate">Add Template</button>
                 <button id="editTemplateBtn" type="button" class="btn btn-warning">Edit</button>
                 <button id="removeBtn" type="button" class="btn btn-danger">Remove</button>
+                
+                <br/><br/>
+
+                <div class="tab-content" id="nav-tabContent">
+
+                </div>
+
+                <br/>
+
+                <button id=copyTemplateBtn>Copy</button>
 
                 <!-- Modal -->
                 <div id="addTemplate" class="modal fade" role="dialog">
@@ -72,7 +80,7 @@
                             </div>
                             <div class="modal-body">
                                 <input type="text" class="form-control" id="templateName" placeholder="Template Name" cols="20"><p></p>
-                                <textarea id="templateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
+                                <textarea style="white-space: pre-wrap;" id="templateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
                             </div>
                             <div class="modal-footer">
                             <button id="addTemplateBtn" type="button" class="btn btn-success">Add Template</button> 
@@ -137,7 +145,7 @@
                     <td><input type="text" class="form-control" id="lastName" placeholder="Surname"size="25"></td>
                 </tr>
                 <tr>
-                    <td><textarea type="email" class="form-control" id="workEmail" placeholder="Work Email" rows="3"></textarea></td>
+                    <td><input type="email" class="form-control" id="workEmail" placeholder="Work Email" size="25"></td>
                 </tr>
 
             </table>
@@ -234,12 +242,15 @@
     }
 
     /* for list-group overscroll */
-    .list-group{
+    .list-group {
     max-height: 190px;
     max-width: 300px;
+    min-width: 300px;
+    min-height: 190px;
     margin-bottom: 10px;
     overflow-y:auto;
     -webkit-overflow-scrolling: touch;
     text-align: left;
 }
+
 </style>

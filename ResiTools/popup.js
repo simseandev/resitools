@@ -41,6 +41,14 @@ function copyText(elementId) { //copy elements value to clipboard
     });
 }
 
+function copyTemplateText(description) {
+    navigator.clipboard.writeText(description).then(function () {
+        console.log("Copying to clipboard was successful!");
+    }, function (err) {
+        console.error("Could not copy text: ", err);
+    });
+}
+
 function setStorage(keyValues) {
     chrome.storage.sync.set(keyValues, function () {
         console.log("Storage has successfully been set.");
@@ -134,6 +142,10 @@ if (addTemplateBtn) {
 function addTemplate() {
     let templateName = document.getElementById("templateName").value;
     let templateDescription = document.getElementById("templateDescription").value;
+    
+
+    templateDescription = templateDescription.split('\n');
+    console.log(templateDescription);
 
     //check not empty
     if (templateName === "") {
@@ -144,8 +156,12 @@ function addTemplate() {
         return;
     }
 
+    storeName = templateName.replace(/\s+/g, '-')
+
+
+
     //store template isn sync
-    storeTemplate(templateName, templateDescription);
+    storeTemplate(storeName, templateDescription);
 
 }
 
@@ -162,7 +178,6 @@ function storeTemplate(name, description) {
                     return;
                 }
             }
-            console.log("im still going");
             myTemplates.push([name, description]);
             setStorage({"myTemplates": myTemplates})
             console.log("Template " + name + " has been saved");
@@ -181,19 +196,37 @@ function storeTemplate(name, description) {
 
 function loadTemplates() {
     document.querySelector(".list-group").innerHTML = "";
+    document.querySelector(".tab-content").innterHTML = "";
 
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) { 
             console.log("Retrieved Storage from Chrome: myTemplates");
             var myTemplates = result.myTemplates;
-            var i;
-            for (i = 0; i < myTemplates.length; i++) {
-                document.querySelector(".list-group").innerHTML += "<a href='#' data-toggle='list' id='" + myTemplates[i][0] + "' class='list-group-item list-group-item-action'>" + myTemplates[i][0] + "</a>";
+            for (var i = 0; i < myTemplates.length; i++) {
+                console.log(myTemplates[i][1]);
+                document.querySelector(".list-group").innerHTML += "<a class='list-group-item list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
+                document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='5' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>"
             }
-        } else {
-            return;
         }
+        return;
       });
+}
+
+let copyTemplateBtn = document.getElementById("copyTemplateBtn");
+if (copyTemplateBtn) {
+    copyTemplateBtn.addEventListener("click", copyTemplate);
+}
+
+function copyTemplate() {
+    try {
+        var templateId = document.getElementsByClassName("list-group-item active")[0].id;
+        var description = document.getElementById("list-" + templateId).value;
+        copyTemplateText(description);
+    } catch {
+        console.log("Template has not been selected.");
+        return;
+    }
+    
 }
 
 //=============================================================================================

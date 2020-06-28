@@ -134,6 +134,33 @@ function loadSettings() {
 //================================== Default Templates ========================================
 //=============================================================================================
 
+//delete button
+let deleteTemplateBtn = document.getElementById("deleteTemplateBtn");
+if (deleteTemplateBtn) {
+    deleteTemplateBtn.addEventListener("click", deleteTemplate);
+}
+
+function deleteTemplate() {
+    console.log("I have been clicked");
+    try {
+        var templateId = document.getElementsByClassName("list-group-item active")[0].id;
+        var confirmDeletion = confirm('Do you wish to delete template: "' + templateId.replace(/-/g, ' ') + '"');
+        if (confirmDeletion == true) {
+            //delete template
+            //reload page
+        }
+        return;
+
+    } catch {
+        console.log("Template has not been selected!");
+        alert("Template has not been selected!");
+        return;
+    }
+}
+
+
+
+//add template
 let addTemplateBtn = document.getElementById("addTemplateBtn");
 if (addTemplateBtn) {
     addTemplateBtn.addEventListener("click", addTemplate);
@@ -157,8 +184,6 @@ function addTemplate() {
     }
 
     storeName = templateName.replace(/\s+/g, '-')
-
-
 
     //store template isn sync
     storeTemplate(storeName, templateDescription);
@@ -196,7 +221,7 @@ function storeTemplate(name, description) {
 
 function loadTemplates() {
     document.querySelector(".list-group").innerHTML = "";
-    document.querySelector(".tab-content").innterHTML = "";
+    document.querySelector(".tab-content").innerHTML = "";
 
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) { 
@@ -212,6 +237,8 @@ function loadTemplates() {
       });
 }
 
+
+//copy button
 let copyTemplateBtn = document.getElementById("copyTemplateBtn");
 if (copyTemplateBtn) {
     copyTemplateBtn.addEventListener("click", copyTemplate);
@@ -223,7 +250,8 @@ function copyTemplate() {
         var description = document.getElementById("list-" + templateId).value;
         copyTemplateText(description);
     } catch {
-        console.log("Template has not been selected.");
+        console.log("Template has not been selected!");
+        alert("Template has not been selected!");
         return;
     }
     

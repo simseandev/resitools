@@ -6,6 +6,9 @@
     "browser_action": {
         "default_popup": "popup.html"
     },
+    "icons": {
+        "128": "images/128resitools.png"
+    },
     "background": {
         "persistent": true,
         "scripts": ["popup.js"]

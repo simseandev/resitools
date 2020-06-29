@@ -14,11 +14,11 @@
 
         <!-- Tab button links -->
         <div class="tab">
-            <button id="launcherBtn"> <i class="fa fa-plus-circle tabs" style="color:#38b6ff"></i> Launcher</button>
-            <button id="templatesBtn"> <i class="fa fa-list-alt tabs" style="color:#38b6ff"></i> Templates</button>
-            <button id="emailsBtn"> <i class="fa fa-envelope tabs" style="color:#38b6ff"></i> Emails</button>
-            <button id="TWoSBtn"> <i class="fa fa-calculator tabs" style="color:#38b6ff"></i> TWoS</button>
-            <button id="mySettingsBtn"> <i class="fa fa-cog tabs" style="color:#38b6ff"></i> Settings</button>
+            <button id="launcherBtn"> <i class="fa fa-plus-circle tabs"></i> Launcher</button>
+            <button id="templatesBtn"> <i class="fa fa-list-alt tabs"></i> Templates</button>
+            <button id="emailsBtn"> <i class="fa fa-envelope tabs"></i> Emails</button>
+            <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> TWoS</button>
+            <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button>
         </div>
     </head>
 
@@ -27,6 +27,14 @@
         <div id="welcomeDiv">
             <br/><br/><br/>
             <img src="images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:350px;height:350px;">
+
+            <div id="configOK" class="configuredOK">
+                <p><i class="configOK fa fa-check"></i> Settings configured successfully.</p>
+            </div>
+
+            <div id="configNOK" class="configuredNOK">
+                <p><i class="configNOK fa fa-exclamation"></i> Settings not configured.</p>
+            </div>
             <br/>
         </div>
 
@@ -40,25 +48,29 @@
         </div>
 
         <div id="templatesDiv">
-            <br/>
-            <h6>Templates</h6>
-            <br/>
+            <div class="templatesTitle">
+                <h6>Default Templates</h6>
+            </div>
+
+            <div class="templateButtons">
+                <button type="button" class="addTemplateBtn btn btn-success btn-sm" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i></button><br/><br/><br/><br/><br/>
+                <button id="editTemplateBtn" type="button" class="editTemplateBtn btn btn-warning btn-sm"><i class="fa fa-pen edit"></i></button><br/>
+                <button id="deleteTemplateBtn" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> </button>
+            </div>
+            
                 <div class="list-group" id="myTemplates" role="tablist">
                     
                 </div>
-                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i></button>
-                <button id="editTemplateBtn" type="button" class="btn btn-warning btn-sm"><i class="fa fa-pen edit"></i></button>
-                <button id="deleteTemplateBtn" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> </button>
-                
-                <br/><br/>
 
                 <div class="tab-content" id="nav-tabContent">
+                    
 
                 </div>
 
                 <br/>
-
-                <button id=copyTemplateBtn>Copy</button>
+                <div id="copyTemplateDiv">
+                    <button id="copyTemplateBtn" class="copyTemplateBtn btn btn-outline-primary btn-sm">Copy</button>
+                </div>
 
                 <div id="editTemplate" class="modal fade" role="dialog">
                     <div class="modal-dialog">
@@ -149,10 +161,10 @@
                     <td><input type="text" class="form-control" id="firstName" placeholder="First Name" size="25"></td>
                 </tr>
                 <tr>
-                    <td><input type="text" class="form-control" id="lastName" placeholder="Surname"size="25"></td>
+                    <td><input type="text" class="form-control" id="lastName" placeholder="Surname" size="25"></td>
                 </tr>
                 <tr>
-                    <td><input type="email" class="form-control" id="workEmail" placeholder="Work Email" size="25"></td>
+                    <td><input type="text" class="form-control" id="workEmail" placeholder="Work Email" size="25"></td>
                 </tr>
 
             </table>
@@ -179,8 +191,18 @@
     /* ======== Adding CSS for TABS ======== */
 
     * {box-sizing: border-box}
+
     i.tabs {
-        color: #2E2E2E;
+        color: #38b6ff;
+    }
+
+    i.configOK {
+        color: green;
+
+    }
+
+    i.configNOK {
+        color: red;
     }
 
     .tab {
@@ -254,12 +276,42 @@
 
     /* for list-group overscroll */
     .list-group {
+        min-height: 190px;
         max-height: 190px;
-        max-width: 300px;
+        background: whitesmoke;
+        margin-left: 160px;
         margin-bottom: 10px;
         overflow-y:auto;
         -webkit-overflow-scrolling: touch;
         text-align: left;
+    }
+
+    .tab-content {
+        text-align: center;
+        display: inline-block;
+    }
+    .templatesTitle {
+        text-align: left;
+        padding-left: 50px;
+        padding-top: 10px;
+        padding-left: 160px;
+    }
+    .templateButtons {
+        float: right;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    
+    .editTemplateBtn {
+        margin-bottom: 5px;
+    }
+
+    .addTemplateBtn {
+        margin-bottom: 3px;
+    }
+
+    .copyTemplateBtn {
+        margin-top: 9px
     }
 
 </style>

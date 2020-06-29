@@ -2,6 +2,9 @@
 //====================================== Startup ==============================================
 //=============================================================================================
 
+//config states not showing just yet
+
+
 //show only welcomeDiv on startup, set others to hidden
 
 let launcherDiv = document.getElementById("launcherDiv");
@@ -10,7 +13,6 @@ if (launcherDiv) { launcherDiv.style.display = "none"; }
 let templatesDiv = document.getElementById("templatesDiv");
 if (templatesDiv) {
      templatesDiv.style.display = "none";
-     templatesDiv.addEventListener("click", checkActive);
     }
 
 let emailsDiv = document.getElementById("emailsDiv");
@@ -23,11 +25,47 @@ let mySettingsDiv = document.getElementById("mySettingsDiv");
 if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
 
 let welcomeDiv = document.getElementById("welcomeDiv");
-if (welcomeDiv) { welcomeDiv.style.display = "block"; }
+if (welcomeDiv) {
+    getSettings();
+    welcomeDiv.style.display = "block"; 
+}
 
 //=============================================================================================
 //======================================= Utils ===============================================
 //=============================================================================================
+
+function getSettings() {
+
+    //firstName
+    chrome.storage.sync.get(["firstName"], function (result) {
+        if (result.firstName == undefined) {
+            document.getElementById("configOK").style.display = "none";
+            document.getElementById("configNOK").style.display = "block";
+            return;
+        }
+    });
+
+    //lastName
+    chrome.storage.sync.get(["lastName"], function (result) {
+        if (result.lastName == undefined) {
+            document.getElementById("configOK").style.display = "none";
+            document.getElementById("configNOK").style.display = "block";
+            return;
+        }
+    });
+
+    //workEmail
+    chrome.storage.sync.get(["workEmail"], function (result) {
+        if (result.workEmail == undefined) {
+            document.getElementById("configOK").style.display = "none";
+            document.getElementById("configNOK").style.display = "block";
+            return;
+        }
+    });
+    
+    document.getElementById("configOK").style.display = "block";
+    document.getElementById("configNOK").style.display = "none";
+}
 
 //these should really go in another file but we'll leave them here for now
 
@@ -138,7 +176,6 @@ function loadSettings() {
             document.getElementById("workEmail").value = result.workEmail;
         }
       });
-
 }
 
 //=============================================================================================
@@ -147,21 +184,6 @@ function loadSettings() {
 
 //check for selected
 
-async function checkActive() {
-    try {
-        await wait(10);
-        let checkActive = document.getElementsByClassName("list-group-item active")[0];
-        if (checkActive != undefined) {
-            document.getElementById("editTemplateBtn").disabled = false;
-            document.getElementById("deleteTemplateBtn").disabled = false;
-            document.getElementById("copyTemplateBtn").style.display = "block";
-        }
-    } catch {
-        console.log("checkActive() Error: " + err);
-        return;
-    }
-}
-
 //update template
 let updateTemplateBtn = document.getElementById("updateTemplateBtn");
 if (updateTemplateBtn) {
@@ -169,7 +191,6 @@ if (updateTemplateBtn) {
 }
 
 function updateTemplate () {
-    console.log("hello im here");
     let confirmUpdate = confirm("Do you wish to update temmplate?");
     if (confirmUpdate == false) {
         return;
@@ -196,9 +217,7 @@ function updateTemplate () {
             for (i = 0; i < myTemplates.length; i++) {
                 if (myTemplates[i][0] == templateId) {
                     myTemplates.splice(i, 1);
-                    console.log("removed" + myTemplates);
                     myTemplates.splice(i, 0, [updateName.replace(/\s+/g, '-'), updateDescription.split('\n')]);
-                    console.log("changed: " + myTemplates);
                     setStorage({"myTemplates": myTemplates});
                     loadTemplates();
                     $('#editTemplate').modal('hide');
@@ -280,10 +299,6 @@ if (addTemplateBtn) {
 function addTemplate() {
     let templateName = document.getElementById("templateName").value;
     let templateDescription = document.getElementById("templateDescription").value;
-    
-
-    templateDescription = templateDescription.split('\n');
-    console.log(templateDescription);
 
     //check not empty
     if (templateName === "") {
@@ -293,6 +308,8 @@ function addTemplate() {
         alert("Template Description must not be empty!");
         return;
     }
+
+    templateDescription = templateDescription.split('\n');
 
     storeName = templateName.replace(/\s+/g, '-');
 
@@ -338,15 +355,31 @@ function loadTemplates() {
         if (result.myTemplates != undefined) { 
             console.log("Retrieved Storage from Chrome: myTemplates");
 
-            document.getElementById("editTemplateBtn").disabled = true;
-            document.getElementById("deleteTemplateBtn").disabled = true;
-            document.getElementById("copyTemplateBtn").style.display = "none";
+            document.getElementById("editTemplateBtn").disabled = false;
+            document.getElementById("deleteTemplateBtn").disabled = false;
+            document.getElementById("copyTemplateBtn").disabled = false;
 
             var myTemplates = result.myTemplates;
 
+            if (myTemplates.length == 0) {
+                document.getElementById("copyTemplateBtn").disabled = true;
+                document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='9' cols='58'></textarea>";
+                document.getElementById("templateBlank").disabled = true;
+                document.getElementById("editTemplateBtn").disabled = true;
+                document.getElementById("deleteTemplateBtn").disabled = true;
+            }
+
             for (var i = 0; i < myTemplates.length; i++) {
+                if (i == 0) {
+                    document.querySelector(".list-group").innerHTML += "<a class='list-group-item active list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
+                    document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane show active' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='9' cols='58'>"+ myTemplates[i][1].join('\n') + "</textarea>";
+
+                } else {
+
+                
                 document.querySelector(".list-group").innerHTML += "<a class='list-group-item list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
-                document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='5' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>"
+                document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='9' cols='58'>"+ myTemplates[i][1].join('\n') + "</textarea>";
+                }
             }
         }
         return;

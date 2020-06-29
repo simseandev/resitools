@@ -14,11 +14,11 @@
 
         <!-- Tab button links -->
         <div class="tab">
-            <button id="launcherBtn"> <i class="fa fa-plus-circle tabs"></i> Launcher</button>
-            <button id="templatesBtn"> <i class="fa fa-list-alt tabs"></i> Templates</button>
-            <button id="emailsBtn"> <i class="fa fa-envelope tabs"></i> Emails</button>
-            <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> TWoS</button>
-            <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button>
+            <button id="launcherBtn"> <i class="fa fa-plus-circle tabs" style="color:#38b6ff"></i> Launcher</button>
+            <button id="templatesBtn"> <i class="fa fa-list-alt tabs" style="color:#38b6ff"></i> Templates</button>
+            <button id="emailsBtn"> <i class="fa fa-envelope tabs" style="color:#38b6ff"></i> Emails</button>
+            <button id="TWoSBtn"> <i class="fa fa-calculator tabs" style="color:#38b6ff"></i> TWoS</button>
+            <button id="mySettingsBtn"> <i class="fa fa-cog tabs" style="color:#38b6ff"></i> Settings</button>
         </div>
     </head>
 
@@ -46,9 +46,9 @@
                 <div class="list-group" id="myTemplates" role="tablist">
                     
                 </div>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i> Add Template</button>
-                <button id="editTemplateBtn" type="button" class="btn btn-warning"><i class="fa fa-pen edit"></i> Edit</button>
-                <button id="deleteTemplateBtn" type="button" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
+                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i> Add Template</button>
+                <button id="editTemplateBtn" type="button" class="btn btn-warning btn-sm"><i class="fa fa-pen edit"></i> Edit</button>
+                <button id="deleteTemplateBtn" type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
                 
                 <br/><br/>
 
@@ -206,7 +206,8 @@
 
     /* Change background color of buttons on hover */
     .tab button:hover {
-        background-color: #38b6ff;
+        /* background-color: #38b6ff; */
+        background-color: lightgrey;
     }
 
     /* Create an active/current tablink class */

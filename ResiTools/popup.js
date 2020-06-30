@@ -30,6 +30,9 @@ if (welcomeDiv) {
     welcomeDiv.style.display = "block"; 
 }
 
+let aboutDiv = document.getElementById("aboutDiv");
+    if (aboutDiv) { aboutDiv.style.display = "none"; }
+
 //=============================================================================================
 //======================================= Utils ===============================================
 //=============================================================================================
@@ -139,6 +142,11 @@ if (mySettingsBtn) {
     });
 }
 
+let aboutBtn = document.getElementById("aboutBtn");
+if (aboutBtn) { 
+    aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")});
+}
+
 function clickTab(elementId) {
 
     document.getElementById("launcherDiv").style.display = "none";
@@ -147,6 +155,7 @@ function clickTab(elementId) {
     document.getElementById("TWoSDiv").style.display = "none";
     document.getElementById("welcomeDiv").style.display = "none";
     document.getElementById("mySettingsDiv").style.display = "none";
+    document.getElementById("aboutDiv").style.display = "none";
 
     document.getElementById(elementId).style.display = "block";
 }
@@ -351,6 +360,7 @@ function loadTemplates() {
     document.querySelector(".list-group").innerHTML = "";
     document.querySelector(".tab-content").innerHTML = "";
 
+
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) { 
             console.log("Retrieved Storage from Chrome: myTemplates");
@@ -371,13 +381,13 @@ function loadTemplates() {
 
             for (var i = 0; i < myTemplates.length; i++) {
                 if (i == 0) {
-                    document.querySelector(".list-group").innerHTML += "<a class='list-group-item active list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
+                    document.querySelector(".list-group").innerHTML += "<a class='list-group-item py-2 active list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
                     document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane show active' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
 
                 } else {
 
                 
-                document.querySelector(".list-group").innerHTML += "<a class='list-group-item list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
+                document.querySelector(".list-group").innerHTML += "<a class='list-group-item py-2 list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
                 document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
                 }
             }
@@ -507,4 +517,39 @@ function saveSettings() {
     });
 
     alert("Settings successfully updated!");
+}
+
+//=============================================================================================
+//============================== About Page Functionality =====================================
+//=============================================================================================
+
+//Preset the two divs to show nothing just for now...
+let aboutMenuDiv = document.getElementById("aboutMenuDiv");
+if (aboutMenuDiv) { 
+    aboutMenuDiv.style.display = "none";
+
+}
+
+let reportMenuDiv = document.getElementById("reportMenuDiv");
+if (reportMenuDiv) { 
+    reportMenuDiv.style.display = "none"; 
+}
+
+//About Page Tab control functionality
+let aboutMenuTab = document.getElementById("aboutMenuTab");
+if (aboutMenuTab) {
+    aboutMenuTab.addEventListener("click", function () {clickNavTab("aboutMenuDiv")});
+}
+
+let reportMenuTab = document.getElementById("reportMenuTab");
+if (reportMenuTab) {
+    reportMenuTab.addEventListener("click", function () {clickNavTab("reportMenuDiv")});
+}
+
+function clickNavTab(elementId) {
+
+    document.getElementById("aboutMenuDiv").style.display = "none";
+    document.getElementById("reportMenuDiv").style.display = "none";
+
+    document.getElementById(elementId).style.display = "block";
 }

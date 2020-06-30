@@ -19,11 +19,15 @@
             <button id="emailsBtn"> <i class="fa fa-envelope tabs"></i> Emails</button>
             <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> TWoS</button>
             <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button>
+            <button id="aboutBtn"> <i class="fa fa-info-circle tabs"></i> About</button>
+
         </div>
     </head>
 
     <body>
-        <!-- Welcome Tab -->
+        <!-- =========================================================================== -->
+        <!-- =============================== WELCOME DIV =============================== -->
+        <!-- =========================================================================== -->
         <div id="welcomeDiv">
             <br/><br/><br/>
             <img src="images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:350px;height:350px;">
@@ -38,15 +42,24 @@
             <br/>
         </div>
 
+
         <!-- Tab content -->
+
+        <!-- =========================================================================== -->
+        <!-- ============================== LAUNCHER DIV =============================== -->
+        <!-- =========================================================================== -->
+
         <div id="launcherDiv">
             <br/>
             <div>
-                <button href="https://www.google.com/" target="_blank" class="btn btn-primary btn-sm">Open Launcher (new-tab)</button>
+                <button href="https://ajax.googleapis.com" target="_blank" class="btn btn-primary btn-sm">Open Launcher (new-tab)</button>
             </div>
 
         </div>
 
+        <!-- =========================================================================== -->
+        <!-- ============================== TEMPLATES DIV ============================== -->
+        <!-- =========================================================================== -->
         <div id="templatesDiv">
             <div class="templatesTitle">
                 <h6>Templates</h6>
@@ -64,10 +77,9 @@
                 <br/>
                 <div class="tab-content" id="nav-tabContent" rows="4" cols="35">
                     
-
                 </div>
-
-                <br/>
+                
+    
                 <div id="copyTemplateDiv">
                     <button id="copyTemplateBtn" class="copyTemplateBtn btn btn-outline-primary btn-sm">Copy</button>
                 </div>
@@ -118,6 +130,10 @@
             <button id="emailExceptionBtn">Exception</button> <button id="emailLMNPBtn">Email lmnp</button>
         </div>
 
+        <!-- ============================================================================= -->
+        <!-- ============================== CALCULATORS DIV ============================== -->
+        <!-- ============================================================================= -->
+
         <div id="TWoSDiv"> 
             <table class="center">
                 <br/>
@@ -149,6 +165,9 @@
             <br/><br/>
         </div>
 
+        <!-- ========================================================================== -->
+        <!-- ============================== SETTINGS DIV ============================== -->
+        <!-- ========================================================================== -->
         <div id="mySettingsDiv">
             <br/>
             
@@ -178,6 +197,30 @@
 
             *Some settings may not work with empty fields
 
+        </div>
+
+        <!-- ======================================================================= -->
+        <!-- ============================== ABOUT DIV ============================== -->
+        <!-- ======================================================================= -->
+        <div id="aboutDiv">
+            <br/>
+            <div class="nav nav-tabs">
+                <div class="nav-item">
+                    <a class="nav-link" id="aboutMenuTab" href="#about">About</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" id ="reportMenuTab" href="#report">Report</a>
+                </div>
+            </div>
+
+            <br/>
+            <div id=aboutMenuDiv>
+                About Stuff here
+            </div>
+
+            <div id="reportMenuDiv">
+                    Report stuff here
+            </div>
         </div>
 
         <script src="popup.js" defer></script>

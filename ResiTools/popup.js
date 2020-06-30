@@ -191,7 +191,7 @@ if (updateTemplateBtn) {
 }
 
 function updateTemplate () {
-    let confirmUpdate = confirm("Do you wish to update temmplate?");
+    let confirmUpdate = confirm("Do you wish to update template?");
     if (confirmUpdate == false) {
         return;
     }
@@ -363,7 +363,7 @@ function loadTemplates() {
 
             if (myTemplates.length == 0) {
                 document.getElementById("copyTemplateBtn").disabled = true;
-                document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='9' cols='58'></textarea>";
+                document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
                 document.getElementById("templateBlank").disabled = true;
                 document.getElementById("editTemplateBtn").disabled = true;
                 document.getElementById("deleteTemplateBtn").disabled = true;
@@ -372,13 +372,13 @@ function loadTemplates() {
             for (var i = 0; i < myTemplates.length; i++) {
                 if (i == 0) {
                     document.querySelector(".list-group").innerHTML += "<a class='list-group-item active list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
-                    document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane show active' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='9' cols='58'>"+ myTemplates[i][1].join('\n') + "</textarea>";
+                    document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane show active' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
 
                 } else {
 
                 
                 document.querySelector(".list-group").innerHTML += "<a class='list-group-item list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
-                document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='9' cols='58'>"+ myTemplates[i][1].join('\n') + "</textarea>";
+                document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
                 }
             }
         }

@@ -526,8 +526,7 @@ function saveSettings() {
 //Preset the two divs to show nothing just for now...
 let aboutMenuDiv = document.getElementById("aboutMenuDiv");
 if (aboutMenuDiv) { 
-    aboutMenuDiv.style.display = "none";
-
+    aboutMenuDiv.style.display = "block";
 }
 
 let reportMenuDiv = document.getElementById("reportMenuDiv");

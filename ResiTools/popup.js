@@ -107,6 +107,17 @@ function wait(time) { //MUST BE ASYNC FUNCTION TO CALL THIS
     });
 }
 
+function checkSpecialChar(title) {
+
+    var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    if (format.test(title)) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
 //=============================================================================================
 //==================================== Tab Control ============================================
 //=============================================================================================
@@ -316,6 +327,9 @@ function addTemplate() {
     } else if (templateDescription === "") {
         alert("Template Description must not be empty!");
         return;
+    } else if (checkSpecialChar(templateName)) {
+        alert("Template Name cannot contain special characters!")
+        return;
     }
 
     templateDescription = templateDescription.split('\n');
@@ -328,7 +342,6 @@ function addTemplate() {
 }
 
 function storeTemplate(name, description) {
-
     //check if templates exist already
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) { //if templates don't exist, then create
@@ -417,7 +430,6 @@ function copyTemplate() {
 //=============================================================================================
 
 //this is just a test atm
-
 let emailExceptionBtn = document.getElementById("emailExceptionBtn");
 if (emailExceptionBtn) {
     emailExceptionBtn.addEventListener("click", function () {promptEmail("WFM@2degrees.nz", "Exception", "Hi team,%0D%0DI have been doing Emails from X:XX to " + new Date().toLocaleString() + "%0D%0DPlease make an exception for this.%0D%0DThanks,")});

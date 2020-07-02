@@ -354,7 +354,7 @@ function storeTemplate(name, description) {
                 }
             }
             myTemplates.push([name, description]);
-            setStorage({"myTemplates": myTemplates})
+            setStorage({"myTemplates": myTemplates.sort()})
             console.log("Template " + name + " has been saved");
         } else { //if they exist, myTemplates += new template
             setStorage({"myTemplates": [[name, description]]});
@@ -373,10 +373,14 @@ function loadTemplates() {
     document.querySelector(".list-group").innerHTML = "";
     document.querySelector(".tab-content").innerHTML = "";
 
+    document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
+    document.getElementById("templateBlank").disabled = true;
 
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) { 
             console.log("Retrieved Storage from Chrome: myTemplates");
+
+            document.querySelector(".tab-content").innerHTML = "";
 
             document.getElementById("editTemplateBtn").disabled = false;
             document.getElementById("deleteTemplateBtn").disabled = false;
@@ -385,9 +389,9 @@ function loadTemplates() {
             var myTemplates = result.myTemplates;
 
             if (myTemplates.length == 0) {
-                document.getElementById("copyTemplateBtn").disabled = true;
                 document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
                 document.getElementById("templateBlank").disabled = true;
+                document.getElementById("copyTemplateBtn").disabled = true;
                 document.getElementById("editTemplateBtn").disabled = true;
                 document.getElementById("deleteTemplateBtn").disabled = true;
             }

@@ -17,7 +17,7 @@
             <button id="launcherBtn"> <i class="fa fa-plus-circle tabs"></i> Launcher</button>
             <button id="templatesBtn"> <i class="fa fa-list-alt tabs"></i> Templates</button>
             <button id="emailsBtn"> <i class="fa fa-envelope tabs"></i> Emails</button>
-            <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> TWoS</button>
+            <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> Calculators</button>
             <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button>
             <button id="aboutBtn"> <i class="fa fa-info-circle tabs"></i> About</button>
 
@@ -135,36 +135,55 @@
         <!-- ============================================================================= -->
 
         <div id="TWoSDiv"> 
-            <table class="center">
+            <br/>
+            <div class="nav nav-tabs">
+                <div class="nav-item" id="navTabs">
+                    <a class="nav-link" id="twosCalcTab" href="#twosCalcDiv">TWoS</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" id ="surchargeCalcTab" href="#surchargeCalcDiv">Surcharge</a>
+                </div>
+            </div>
+
+            <div id="twosCalcDiv">
+                <table class="center">
+                    <br/>
+                    <h6>Time Without Service Calculator</h6>
+                    <tr>
+                        <td><input class="form-control" type="text" id="monthlyCosts" placeholder="Monthly Cost"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="form-control" type="text" id="timeWithoutService" placeholder="Time Without Service"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="form-control" type="text" id="approvedBy" placeholder="Approved by"></td>
+                    </tr>
+                </table>
                 <br/>
-                <h6>Time Without Service Calculator</h6>
-                <tr>
-                    <td><input class="form-control" type="text" id="monthlyCosts" placeholder="Monthly Cost"></td>
-                </tr>
-                <tr>
-                    <td><input class="form-control" type="text" id="timeWithoutService" placeholder="Time Without Service"></td>
-                </tr>
-                <tr>
-                    <td><input class="form-control" type="text" id="approvedBy" placeholder="Approved by"></td>
-                </tr>
-            </table>
+                <button id="calculateBtn" class="btn btn-primary btn-sm">Calculate</button>
+                <br/><br/>
+                <table class="center">
+                    <tr>
+                        <td>Amount: </td>
+                        <td><input type="text" class="form-control" id="resultAmount" size="5"></td>
+                        <td><button id="copyAmountBtn" class="btn btn-outline-primary btn-sm">Copy</button></td>
+                    </tr>
+                </table>
+                <br/>
+                <textarea id="resultString" rows="4" cols="35"></textarea>
+                <br/><br/>
+                <button id="copyStringBtn" class="btn btn-outline-primary btn-sm">Copy</button>
+                <br/><br/>
+            </div>
+            
             <br/>
-            <button id="calculateBtn" class="btn btn-primary btn-sm">Calculate</button>
-            <br/><br/>
-            <table class="center">
-                <tr>
-                    <td>Amount: </td>
-                    <td><input type="text" class="form-control" id="resultAmount" size="5"></td>
-                    <td><button id="copyAmountBtn" class="btn btn-outline-primary btn-sm">Copy</button></td>
-                </tr>
-            </table>
-            <br/>
-            <textarea id="resultString" rows="4" cols="35"></textarea>
-            <br/><br/>
-            <button id="copyStringBtn" class="btn btn-outline-primary btn-sm">Copy</button>
-            <br/><br/>
+            <div id="surchargeCalcDiv">
+                This is the surcharge stuff.
+            </div>
+
         </div>
 
+                   
         <!-- ========================================================================== -->
         <!-- ============================== SETTINGS DIV ============================== -->
         <!-- ========================================================================== -->
@@ -234,7 +253,7 @@
                     <div class="card-body">
                         <p class="card-text">We're constantly working to improve this application and it's functionality. In the early stages bugs are bound to happen. Please take the time to fill out the form.
                         </p>
-                        <a href="https://forms.gle/Mrptc169mViXLWDX8">Submit Bug Report</a>
+                        <a href="https://forms.gle/Mrptc169mViXLWDX8" target="_blank">Submit Bug Report</a>
                     </div>
                 </div>
                 

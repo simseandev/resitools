@@ -444,9 +444,40 @@ function promptEmail(mailTo, subject, body) {
 }
 
 //=============================================================================================
-//========================== TWoS Calculator Functionality ====================================
+//========================== Calculators Functionality ====================================
 //=============================================================================================
 
+// --------- Preset the two divs... ----------
+let twosCalcDiv = document.getElementById("twosCalcDiv");
+if (twosCalcDiv) { 
+    twosCalcDiv.style.display = "none";
+}
+
+let surchargeCalcDiv = document.getElementById("surchargeCalcDiv");
+if (surchargeCalcDiv) { 
+    surchargeCalcDiv.style.display = "none"; 
+}
+
+//Calculators Page Tab control functionality
+let twosCalcTab = document.getElementById("twosCalcTab");
+if (twosCalcTab) {
+    twosCalcTab.addEventListener("click", function () {clickCalcTab("twosCalcDiv")});
+}
+
+let surchargeCalcTab = document.getElementById("surchargeCalcTab");
+if (surchargeCalcTab) {
+    surchargeCalcTab.addEventListener("click", function () {clickCalcTab("surchargeCalcDiv")});
+}
+
+function clickCalcTab(elementId) {
+
+    document.getElementById("twosCalcDiv").style.display = "none";
+    document.getElementById("surchargeCalcDiv").style.display = "none";
+
+    document.getElementById(elementId).style.display = "block";
+}
+
+// ---------- TWoS Calculator logic ----------
 let calculateBtn = document.getElementById("calculateBtn");
 if (calculateBtn) {
     calculateBtn.addEventListener("click", calculateTimeWithoutService);
@@ -563,5 +594,5 @@ function clickNavTab(elementId) {
     document.getElementById("aboutMenuDiv").style.display = "none";
     document.getElementById("reportMenuDiv").style.display = "none";
 
-    document.getElementById(elementId).style.display = "block";
+    document.getElementById(elementId).style.display = "block"; 
 }

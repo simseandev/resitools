@@ -148,7 +148,6 @@
             <div id="twosCalcDiv">
                 <table class="center">
                     <br/>
-                    <h6>Time Without Service Calculator</h6>
                     <tr>
                         <td><input class="form-control" type="text" id="monthlyCosts" placeholder="Monthly Cost"></td>
                     </tr>
@@ -165,24 +164,35 @@
                 <table class="center">
                     <tr>
                         <td>Amount: </td>
-                        <td><input type="text" class="form-control" id="resultAmount" size="5"></td>
+                        <td><input type="text" class="form-control" id="resultAmount" size="3"></td>
                         <td><button id="copyAmountBtn" class="btn btn-outline-primary btn-sm">Copy</button></td>
                     </tr>
                 </table>
                 <br/>
                 <textarea id="resultString" rows="4" cols="35"></textarea>
-                <br/><br/>
+                <br/>
                 <button id="copyStringBtn" class="btn btn-outline-primary btn-sm">Copy</button>
-                <br/><br/>
             </div>
             
             <br/>
             <div id="surchargeCalcDiv">
-                This is the surcharge stuff.
+                <table class="center">
+                    <br/>
+                    <tr>
+                        <td><input class="form-control" type="text" id="beforeSurcharge" placeholder="Amount"></td>
+                    </tr>
+                    <tr>
+                        <td><button id="calculateSurchargeBtn" class="btn btn-primary btn-sm">Calculate</button></td>
+                    </tr>
+                    <tr>
+                        <td><p id="surchargeAmount"></p></td>
+                    </tr>
+                    <tr>
+                        <td><button id="copySurchargeBtn" class="btn btn-primary btn-sm">Copy</button></td>
+                    </tr>
+                </table>
             </div>
-
         </div>
-
                    
         <!-- ========================================================================== -->
         <!-- ============================== SETTINGS DIV ============================== -->

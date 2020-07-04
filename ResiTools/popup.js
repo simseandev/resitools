@@ -2,9 +2,6 @@
 //====================================== Startup ==============================================
 //=============================================================================================
 
-//config states not showing just yet
-
-
 //show only welcomeDiv on startup, set others to hidden
 
 let launcherDiv = document.getElementById("launcherDiv");
@@ -523,6 +520,33 @@ function calculateTimeWithoutService() {
 
     document.getElementById("resultAmount").value = reversalAmount;
     document.getElementById("resultString").value = "Hi team. Please reverse $" + reversalAmount + " for " + timeWithoutService + " days of TWoS. Approved by " + approvedBy + ".";
+}
+
+// ---------- Surcharge Calculator logic ----------
+let calculateSurchargeBtn = document.getElementById("calculateSurchargeBtn");
+if (calculateSurchargeBtn) {
+    calculateSurchargeBtn.addEventListener("click", calculateSurcharge);
+}
+
+function calculateSurcharge () {
+    let amount = document.getElementById("beforeSurcharge").value;
+    
+    //check is number and not empty
+    if (amount == "") {
+        alert("Amount cannot be empty!");
+        return;
+    } else if (isStringNumber(amount) == false) {
+        alert("Amount must be a number!");
+        return;
+    }
+
+    document.getElementById("surchargeAmount").innerHTML = (parseInt(amount) * 1.0175).toFixed(2);
+}
+
+//copy button
+let copySurchargeBtn = document.getElementById("copySurchargeBtn");
+if (copySurchargeBtn) {
+    copySurchargeBtn.addEventListener("click", function () {copyText("surchargeAmount")});
 }
 
 //=============================================================================================

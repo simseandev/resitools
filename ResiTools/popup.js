@@ -447,7 +447,7 @@ function promptEmail(mailTo, subject, body) {
 // --------- Preset the two divs... ----------
 let twosCalcDiv = document.getElementById("twosCalcDiv");
 if (twosCalcDiv) { 
-    twosCalcDiv.style.display = "none";
+    twosCalcDiv.style.display = "block";
 }
 
 let surchargeCalcDiv = document.getElementById("surchargeCalcDiv");
@@ -540,7 +540,7 @@ function calculateSurcharge () {
         return;
     }
 
-    document.getElementById("surchargeAmount").innerHTML = (parseInt(amount) * 1.0175).toFixed(2);
+    document.getElementById("surchargeAmount").value = (parseInt(amount) * 1.0175).toFixed(2);
 }
 
 //copy button

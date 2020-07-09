@@ -1,486 +1,455 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #598a43; -webkit-text-stroke: #598a43}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 14.0px}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 18.0px; font: 12.0px Menlo; color: #cdad6a; -webkit-text-stroke: #cdad6a}
-    span.s1 {font-kerning: none; color: #6d6d6d; background-color: #171717; -webkit-text-stroke: 0px #6d6d6d}
-    span.s2 {font-kerning: none; background-color: #171717}
-    span.s3 {font-kerning: none; color: #cacaca; background-color: #171717; -webkit-text-stroke: 0px #cacaca}
-    span.s4 {font-kerning: none; color: #8cd3fe; background-color: #171717; -webkit-text-stroke: 0px #8cd3fe}
-    span.s5 {font-kerning: none; color: #4689cc; background-color: #171717; -webkit-text-stroke: 0px #4689cc}
-    span.s6 {font-kerning: none; color: #c27e65; background-color: #171717; -webkit-text-stroke: 0px #c27e65}
-    span.s7 {font-kerning: none}
-    span.s8 {font-kerning: none; color: #cdad6a; background-color: #171717; -webkit-text-stroke: 0px #cdad6a}
-    span.s9 {font-kerning: none; color: #a7c598; background-color: #171717; -webkit-text-stroke: 0px #a7c598}
-    span.s10 {font-kerning: none; color: #598a43; background-color: #171717; -webkit-text-stroke: 0px #598a43}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">&lt;!</span><span class="s2">DOCTYPE</span><span class="s3"> </span><span class="s4">html</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;</span><span class="s2">html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s5">head</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">meta</span><span class="s2"> </span><span class="s4">charset</span><span class="s2">=</span><span class="s6">"utf-8"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">meta</span><span class="s3"> </span><span class="s4">name</span><span class="s3">=</span><span class="s2">"viewport"</span><span class="s3"> </span><span class="s4">content</span><span class="s3">=</span><span class="s2">"width=device-width, initial-scale=1"</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!--BOOTSTRAP--&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">link</span><span class="s3"> </span><span class="s4">rel</span><span class="s3">=</span><span class="s2">"stylesheet"</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">script</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"</span><span class="s1">&gt;&lt;/</span><span class="s5">script</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">script</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"</span><span class="s1">&gt;&lt;/</span><span class="s5">script</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">script</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"</span><span class="s1">&gt;&lt;/</span><span class="s5">script</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!--FONT AWESOME ICONS--&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">link</span><span class="s3"> </span><span class="s4">rel</span><span class="s3">=</span><span class="s2">"stylesheet"</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"https://use.fontawesome.com/releases/v5.7.0/css/all.css"</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s4">integrity</span><span class="s3">=</span><span class="s2">"sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"</span><span class="s3"> </span><span class="s4">crossorigin</span><span class="s3">=</span><span class="s2">"anonymous"</span><span class="s1">&gt;</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- Tab button links --&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"tab"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"launcherBtn"</span><span class="s1">&gt;</span><span class="s3"> </span><span class="s1">&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-plus-circle tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s3"> Launcher</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"templatesBtn"</span><span class="s1">&gt;</span><span class="s3"> </span><span class="s1">&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-list-alt tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s3"> Templates</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"emailsBtn"</span><span class="s1">&gt;</span><span class="s3"> </span><span class="s1">&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-envelope tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s3"> Emails</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"TWoSBtn"</span><span class="s1">&gt;</span><span class="s3"> </span><span class="s1">&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-calculator tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s3"> Calculators</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"mySettingsBtn"</span><span class="s1">&gt;</span><span class="s3"> </span><span class="s1">&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-cog tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s3"> Settings</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"aboutBtn"</span><span class="s1">&gt;</span><span class="s3"> </span><span class="s1">&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-info-circle tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s3"> About</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/</span><span class="s5">head</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s5">body</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- =========================================================================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- =============================== WELCOME DIV =============================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- =========================================================================== --&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"welcomeDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"images/resiToolsLaunch.png"</span><span class="s3"> </span><span class="s4">alt</span><span class="s3">=</span><span class="s2">"ResiTools"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"IMGcentre"</span><span class="s3"> </span><span class="s4">style</span><span class="s3">=</span><span class="s2">"width:350px;height:350px;"</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"configOK"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"configuredOK"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">p</span><span class="s1">&gt;&lt;</span><span class="s5">i</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"configOK fa fa-check"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s2"> Settings configured successfully.</span><span class="s1">&lt;/</span><span class="s5">p</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"configNOK"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"configuredNOK"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">p</span><span class="s1">&gt;&lt;</span><span class="s5">i</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"configNOK fa fa-exclamation"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s2"> Settings not configured.</span><span class="s1">&lt;/</span><span class="s5">p</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- Tab content --&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- =========================================================================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ============================== LAUNCHER DIV =============================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- =========================================================================== --&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"launcherDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s2">&lt;!-- &lt;h5&gt;&lt;span class="badge badge-secondary"&gt;COMING SOON!&lt;/span&gt;&lt;/h5&gt; --&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"lfcDiv"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"card launcher"</span><span class="s3"> </span><span class="s4">style</span><span class="s3">=</span><span class="s2">"width: 26rem;"</span><span class="s1">&gt;</span><span class="s3"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card-header"</span><span class="s1">&gt;&lt;</span><span class="s5">i</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"fa fa-truck tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s2"> Wholesalers &amp; LFCs</span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card-body"</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s2">&lt;!-- &lt;img height="16" width="16" src="https://broadbandmap.nz/favicon.ico"/&gt;</span></p>
-<p class="p4"><span class="s2"><span class="Apple-converted-space">                        </span>&lt;a href="https://broadbandmap.nz" target="_blank"&gt; National Broadband Maps&lt;/a&gt;</span></p>
-<p class="p4"><span class="s2"><span class="Apple-converted-space">                        </span>&lt;br/&gt; --&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">height</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">width</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://ccm.wialus.co.nz/favicon.ico"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"https://portal.chorus.co.nz/chorus-ssp-web/pages/LandingPage"</span><span class="s3"> </span><span class="s4">target</span><span class="s3">=</span><span class="s2">"_blank"</span><span class="s1">&gt;</span><span class="s3"> Chorus UFB Portal</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">height</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">width</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://northpower.ufbportal.net.nz/favicon.ico"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"https://northpower.ufbportal.net.nz/v1-2-0"</span><span class="s3"> </span><span class="s4">target</span><span class="s3">=</span><span class="s2">"_blank"</span><span class="s1">&gt;</span><span class="s3"> NorthPower UFB Portal</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">height</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">width</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://ccm.wialus.co.nz/favicon.ico"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"https://www.chorus.co.nz/ont-cable-request"</span><span class="s3"> </span><span class="s4">target</span><span class="s3">=</span><span class="s2">"_blank"</span><span class="s1">&gt;</span><span class="s3"> Chorus ONT PSU</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">height</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">width</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://login1.chorus.co.nz/favicon.ico"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"https://gateway.chorus.co.nz/ch/secure/portal/chorus/faults"</span><span class="s3"> </span><span class="s4">target</span><span class="s3">=</span><span class="s2">"_blank"</span><span class="s1">&gt;</span><span class="s3"> Chorus Gateway</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">height</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">width</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://ccm.wialus.co.nz/favicon.ico"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s2"> </span><span class="s4">href</span><span class="s2">=</span><span class="s6">"https://www.chorus.co.nz/outages"</span><span class="s2"> </span><span class="s4">target</span><span class="s2">=</span><span class="s6">"_blank"</span><span class="s1">&gt;</span><span class="s2"> Chorus Outage Map</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">height</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">width</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://ibss.enable.net.nz/favicon.ico"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"https://ibss.enable.net.nz/order-management"</span><span class="s3"> </span><span class="s4">target</span><span class="s3">=</span><span class="s2">"_blank"</span><span class="s1">&gt;</span><span class="s3"> Enable UFB Portal</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">height</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">width</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://portal.ultrafastfibre.co.nz/portal/favicon.ico"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"https://portal.ultrafastfibre.co.nz/portal"</span><span class="s3"> </span><span class="s4">target</span><span class="s3">=</span><span class="s2">"_blank"</span><span class="s1">&gt;</span><span class="s3"> UFF UFB Portal</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">height</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">width</span><span class="s3">=</span><span class="s2">"16"</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"https://www.ultrafastfibre.co.nz/favicon.ico"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s2"> </span><span class="s4">href</span><span class="s2">=</span><span class="s6">"https://ultrafastfibre.statuspage.io/"</span><span class="s2"> </span><span class="s4">target</span><span class="s2">=</span><span class="s6">"_blank"</span><span class="s1">&gt;</span><span class="s2"> UFF Network Events</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span><span class="s2"><span class="Apple-converted-space">   </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- =========================================================================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ============================== TEMPLATES DIV ============================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- =========================================================================== --&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"templatesDiv"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"templatesTitle"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">h6</span><span class="s1">&gt;</span><span class="s2">Templates</span><span class="s1">&lt;/</span><span class="s5">h6</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"templateButtons"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"button"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"addTemplateBtn btn btn-success btn-sm"</span><span class="s3"> </span><span class="s4">data-toggle</span><span class="s3">=</span><span class="s2">"modal"</span><span class="s3"> </span><span class="s4">data-target</span><span class="s3">=</span><span class="s2">"#addTemplate"</span><span class="s1">&gt;&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-plus"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;&lt;/</span><span class="s5">button</span><span class="s1">&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"editTemplateBtn"</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"button"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"editTemplateBtn btn btn-warning btn-sm"</span><span class="s3"> </span><span class="s4">data-toggle</span><span class="s3">=</span><span class="s2">"tooltip"</span><span class="s3"> </span><span class="s4">title</span><span class="s3">=</span><span class="s2">"Edit"</span><span class="s1">&gt;&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-pen edit"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;&lt;/</span><span class="s5">button</span><span class="s1">&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"deleteTemplateBtn"</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"button"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"btn btn-danger btn-sm"</span><span class="s3"> </span><span class="s4">data-toggle</span><span class="s3">=</span><span class="s2">"tooltip"</span><span class="s3"> </span><span class="s4">title</span><span class="s3">=</span><span class="s2">"Delete"</span><span class="s1">&gt;&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-trash"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s3"> </span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"list-group"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"myTemplates"</span><span class="s3"> </span><span class="s4">role</span><span class="s3">=</span><span class="s2">"tablist"</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"tab-content"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"nav-tabContent"</span><span class="s3"> </span><span class="s4">rows</span><span class="s3">=</span><span class="s2">"4"</span><span class="s3"> </span><span class="s4">cols</span><span class="s3">=</span><span class="s2">"35"</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"copyTemplateDiv"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"copyTemplateBtn"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"copyTemplateBtn btn btn-outline-primary btn-sm"</span><span class="s1">&gt;</span><span class="s3">Copy</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"editTemplate"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"modal fade"</span><span class="s3"> </span><span class="s4">role</span><span class="s3">=</span><span class="s2">"dialog"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-dialog"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-content"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-header"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                                </span></span><span class="s1">&lt;</span><span class="s5">h6</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-title"</span><span class="s1">&gt;</span><span class="s2">Edit Template</span><span class="s1">&lt;/</span><span class="s5">h6</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                                </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s2"> </span><span class="s4">type</span><span class="s2">=</span><span class="s6">"button"</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"close"</span><span class="s2"> </span><span class="s4">data-dismiss</span><span class="s2">=</span><span class="s6">"modal"</span><span class="s1">&gt;</span><span class="s5">&amp;times;</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-body"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                                </span></span><span class="s1">&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"editTemplateName"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Template Name"</span><span class="s3"> </span><span class="s4">cols</span><span class="s3">=</span><span class="s2">"20"</span><span class="s1">&gt;&lt;</span><span class="s5">p</span><span class="s1">&gt;&lt;/</span><span class="s5">p</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                                </span></span><span class="s1">&lt;</span><span class="s5">textarea</span><span class="s3"> </span><span class="s4">style</span><span class="s3">=</span><span class="s2">"white-space: pre-wrap;"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"editTemplateDescription"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Template Description"</span><span class="s3"> </span><span class="s4">rows</span><span class="s3">=</span><span class="s2">"8"</span><span class="s3"> </span><span class="s4">cols</span><span class="s3">=</span><span class="s2">"60"</span><span class="s1">&gt;&lt;/</span><span class="s5">textarea</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">br</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-footer"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"updateTemplateBtn"</span><span class="s2"> </span><span class="s4">type</span><span class="s2">=</span><span class="s6">"button"</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"btn btn-warning"</span><span class="s1">&gt;</span><span class="s2">Update Template</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s2"> </span><span class="s4">type</span><span class="s2">=</span><span class="s6">"button"</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"btn btn-default"</span><span class="s2"> </span><span class="s4">data-dismiss</span><span class="s2">=</span><span class="s6">"modal"</span><span class="s1">&gt;</span><span class="s2">Close</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"addTemplate"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"modal fade"</span><span class="s3"> </span><span class="s4">role</span><span class="s3">=</span><span class="s2">"dialog"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-dialog"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-content"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-header"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                                </span></span><span class="s1">&lt;</span><span class="s5">h6</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-title"</span><span class="s1">&gt;</span><span class="s2">Add Template</span><span class="s1">&lt;/</span><span class="s5">h6</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                                </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s2"> </span><span class="s4">type</span><span class="s2">=</span><span class="s6">"button"</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"close"</span><span class="s2"> </span><span class="s4">data-dismiss</span><span class="s2">=</span><span class="s6">"modal"</span><span class="s1">&gt;</span><span class="s5">&amp;times;</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-body"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                                </span></span><span class="s1">&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"templateName"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Template Name"</span><span class="s3"> </span><span class="s4">cols</span><span class="s3">=</span><span class="s2">"20"</span><span class="s1">&gt;&lt;</span><span class="s5">p</span><span class="s1">&gt;&lt;/</span><span class="s5">p</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                                </span></span><span class="s1">&lt;</span><span class="s5">textarea</span><span class="s3"> </span><span class="s4">style</span><span class="s3">=</span><span class="s2">"white-space: pre-wrap;"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"templateDescription"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Template Description"</span><span class="s3"> </span><span class="s4">rows</span><span class="s3">=</span><span class="s2">"8"</span><span class="s3"> </span><span class="s4">cols</span><span class="s3">=</span><span class="s2">"60"</span><span class="s1">&gt;&lt;/</span><span class="s5">textarea</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">br</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"modal-footer"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"addTemplateBtn"</span><span class="s2"> </span><span class="s4">type</span><span class="s2">=</span><span class="s6">"button"</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"btn btn-success"</span><span class="s1">&gt;</span><span class="s2">Add Template</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s2"> </span><span class="s4">type</span><span class="s2">=</span><span class="s6">"button"</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"btn btn-default"</span><span class="s2"> </span><span class="s4">data-dismiss</span><span class="s2">=</span><span class="s6">"modal"</span><span class="s1">&gt;</span><span class="s2">Close</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"emailsDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">h1</span><span class="s1">&gt;</span><span class="s2">Email Templates</span><span class="s1">&lt;/</span><span class="s5">h1</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"emailExceptionBtn"</span><span class="s1">&gt;</span><span class="s2">Exception</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span><span class="s2"> </span><span class="s1">&lt;</span><span class="s5">button</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"emailLMNPBtn"</span><span class="s1">&gt;</span><span class="s2">Email lmnp</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ============================================================================= --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ============================== CALCULATORS DIV ============================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ============================================================================= --&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"TWoSDiv"</span><span class="s1">&gt;</span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"nav nav-tabs"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"nav-item"</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"navTabs"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"nav-link"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"twosCalcTab"</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"#twosCalcDiv"</span><span class="s1">&gt;</span><span class="s3">TWoS</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"nav-item"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"nav-link"</span><span class="s3"> </span><span class="s4">id</span><span class="s3"> =</span><span class="s2">"surchargeCalcTab"</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"#surchargeCalcDiv"</span><span class="s1">&gt;</span><span class="s3">Surcharge</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"twosCalcDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">table</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"center"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"monthlyCosts"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Monthly Cost"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"timeWithoutService"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Time Without Service"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"approvedBy"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Approved by"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">table</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"calculateBtn"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"btn btn-primary btn-sm"</span><span class="s1">&gt;</span><span class="s3">Calculate</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">table</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"center"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;</span><span class="s2">Amount: $ </span><span class="s1">&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"resultAmount"</span><span class="s3"> </span><span class="s4">size</span><span class="s3">=</span><span class="s2">"5"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"copyAmountBtn"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"btn btn-outline-primary btn-sm"</span><span class="s1">&gt;</span><span class="s3">Copy</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">table</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">textarea</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"resultString"</span><span class="s2"> </span><span class="s4">rows</span><span class="s2">=</span><span class="s6">"4"</span><span class="s2"> </span><span class="s4">cols</span><span class="s2">=</span><span class="s6">"35"</span><span class="s1">&gt;&lt;/</span><span class="s5">textarea</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"copyStringBtn"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"btn btn-outline-primary btn-sm"</span><span class="s1">&gt;</span><span class="s3">Copy</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"surchargeCalcDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">table</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"center"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"beforeSurcharge"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Amount"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"calculateSurchargeBtn"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"btn btn-primary btn-sm"</span><span class="s1">&gt;</span><span class="s3">Calculate</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">table</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"center"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;</span><span class="s2">Amount: $ </span><span class="s1">&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"surchargeAmount"</span><span class="s3"> </span><span class="s4">size</span><span class="s3">=</span><span class="s2">"5"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                            </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"copySurchargeBtn"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"btn btn-outline-primary btn-sm"</span><span class="s1">&gt;</span><span class="s3">Copy</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">table</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"alert alert-light"</span><span class="s3"> </span><span class="s4">role</span><span class="s3">=</span><span class="s2">"alert"</span><span class="s3"> </span><span class="s4">size</span><span class="s3">=</span><span class="s2">"6"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span>* Please note: Surcharge calculator is set to calculate 1.075% by default.</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">table</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                   </span></span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ========================================================================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ============================== SETTINGS DIV ============================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ========================================================================== --&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"mySettingsDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">table</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"center"</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">h1</span><span class="s1">&gt;</span><span class="s2">Settings</span><span class="s1">&lt;/</span><span class="s5">h1</span><span class="s1">&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"firstName"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"First Name"</span><span class="s3"> </span><span class="s4">size</span><span class="s3">=</span><span class="s2">"25"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"lastName"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Surname"</span><span class="s3"> </span><span class="s4">size</span><span class="s3">=</span><span class="s2">"25"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">td</span><span class="s1">&gt;&lt;</span><span class="s5">input</span><span class="s3"> </span><span class="s4">type</span><span class="s3">=</span><span class="s2">"text"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"form-control"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"workEmail"</span><span class="s3"> </span><span class="s4">placeholder</span><span class="s3">=</span><span class="s2">"Work Email"</span><span class="s3"> </span><span class="s4">size</span><span class="s3">=</span><span class="s2">"25"</span><span class="s1">&gt;&lt;/</span><span class="s5">td</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">tr</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">table</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">button</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"saveSettingsBtn"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"btn btn-outline-primary"</span><span class="s1">&gt;</span><span class="s3">Save</span><span class="s1">&lt;/</span><span class="s5">button</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span>*Some settings may not work with empty fields</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ======================================================================= --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ============================== ABOUT DIV ============================== --&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">&lt;!-- ======================================================================= --&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"aboutDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"nav nav-tabs"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"nav-item"</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"navTabs"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"nav-link"</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"aboutMenuTab"</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"#aboutMenuDiv"</span><span class="s1">&gt;</span><span class="s3">About</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"nav-item"</span><span class="s1">&gt;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"nav-link"</span><span class="s3"> </span><span class="s4">id</span><span class="s3"> =</span><span class="s2">"reportMenuTab"</span><span class="s3"> </span><span class="s4">href</span><span class="s3">=</span><span class="s2">"#reportMenuDiv"</span><span class="s1">&gt;</span><span class="s3">Bug Reports</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">id</span><span class="s2">=</span><span class="s6">"aboutMenuDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card"</span><span class="s2"> </span><span class="s4">style</span><span class="s2">=</span><span class="s6">"width: 26rem;"</span><span class="s2"> </span><span class="s4">text-center</span><span class="s1">&gt;</span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">img</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s2">"images/resiToolsLaunch.png"</span><span class="s3"> </span><span class="s4">alt</span><span class="s3">=</span><span class="s2">"ResiTools"</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"IMGcentre"</span><span class="s3"> </span><span class="s4">style</span><span class="s3">=</span><span class="s2">"width:125px;height:125px;"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card-header"</span><span class="s1">&gt;</span><span class="s2">Version 1.0 - Initial Release</span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card-body"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">p</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card-text"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span>ResiTools has been developed to make common residential team tasks quick and easy.</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                            </span>Developed and maintained by Simon Lorimer and Sean Madondo.</span><span class="s1">&lt;</span><span class="s5">br</span><span class="s1">/&gt;&lt;</span><span class="s5">br</span><span class="s1">/&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">i</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"fa fa-copyright tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s2"> SimSeanDev</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;/</span><span class="s5">p</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">id</span><span class="s3">=</span><span class="s2">"reportMenuDiv"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card"</span><span class="s2"> </span><span class="s4">style</span><span class="s2">=</span><span class="s6">"width: 26rem;"</span><span class="s2"> </span><span class="s4">text-center</span><span class="s1">&gt;</span><span class="s2"><span class="Apple-converted-space"> </span></span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"card-header"</span><span class="s1">&gt;&lt;</span><span class="s5">i</span><span class="s3"> </span><span class="s4">class</span><span class="s3">=</span><span class="s2">"fa fa-exclamation-circle tabs"</span><span class="s1">&gt;&lt;/</span><span class="s5">i</span><span class="s1">&gt;</span><span class="s3"> Submit Bug Report</span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;</span><span class="s5">div</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card-body"</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">p</span><span class="s2"> </span><span class="s4">class</span><span class="s2">=</span><span class="s6">"card-text"</span><span class="s1">&gt;</span><span class="s2">We're constantly working to improve this application and it's functionality. In the early stages bugs are bound to happen. Please take the time to fill out the form.</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;/</span><span class="s5">p</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                        </span></span><span class="s1">&lt;</span><span class="s5">a</span><span class="s2"> </span><span class="s4">href</span><span class="s2">=</span><span class="s6">"https://forms.gle/Mrptc169mViXLWDX8"</span><span class="s2"> </span><span class="s4">target</span><span class="s2">=</span><span class="s6">"_blank"</span><span class="s1">&gt;</span><span class="s2">Submit Bug Report</span><span class="s1">&lt;/</span><span class="s5">a</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">                </span></span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;/</span><span class="s5">div</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p1"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;</span><span class="s2">script</span><span class="s3"> </span><span class="s4">src</span><span class="s3">=</span><span class="s6">"popup.js"</span><span class="s3"> </span><span class="s4">defer</span><span class="s1">&gt;&lt;/</span><span class="s2">script</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;/</span><span class="s5">body</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/</span><span class="s2">html</span><span class="s1">&gt;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p1"><span class="s1">&lt;</span><span class="s2">style</span><span class="s1">&gt;</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">/* ======== Adding CSS for TABS ======== */</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s5">*</span><span class="s3"> {</span><span class="s2">box-sizing</span><span class="s3">: </span><span class="s6">border-box</span><span class="s3">}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s8">i.tabs</span><span class="s2"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">color</span><span class="s2">: </span><span class="s6">#38b6ff</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">i.configOK</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">color</span><span class="s2">: </span><span class="s6">green</span><span class="s2">;</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">i.configNOK</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">color</span><span class="s2">: </span><span class="s6">red</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s8">.tab</span><span class="s2"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">float</span><span class="s2">: </span><span class="s6">left</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">border</span><span class="s2">: </span><span class="s9">1px</span><span class="s2"> </span><span class="s6">solid</span><span class="s2"> </span><span class="s6">#ccc</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">background-color</span><span class="s3">: </span><span class="s6">#f1f1f1</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">width</span><span class="s2">: </span><span class="s9">25%</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">height</span><span class="s2">: </span><span class="s9">500px</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.tab</span><span class="s3"> </span><span class="s2">button</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">display</span><span class="s2">: </span><span class="s6">block</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">background-color</span><span class="s3">: </span><span class="s6">inherit</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">color</span><span class="s2">: </span><span class="s6">black</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">padding</span><span class="s2">: </span><span class="s9">22px</span><span class="s2"> </span><span class="s9">16px</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">width</span><span class="s2">: </span><span class="s9">100%</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">border</span><span class="s2">: </span><span class="s6">none</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">outline</span><span class="s2">: </span><span class="s6">none</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">text-align</span><span class="s2">: </span><span class="s6">left</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">cursor</span><span class="s2">: </span><span class="s6">pointer</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">transition</span><span class="s2">: </span><span class="s9">0.3s</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">/* Change background color of buttons on hover */</span></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.tab</span><span class="s3"> </span><span class="s2">button:hover</span><span class="s3"> {</span></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">/* background-color: #38b6ff; */</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">background-color</span><span class="s3">: </span><span class="s6">lightgrey</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">/* Create an active/current tablink class */</span></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.tab</span><span class="s3"> </span><span class="s2">button.active</span><span class="s3"> {</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">background-color</span><span class="s3">: </span><span class="s6">#ccc</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">/* ====== CSS for HTML extension body ====== */</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.IMGcentre</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">display</span><span class="s2">: </span><span class="s6">block</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">margin-left</span><span class="s2">: </span><span class="s6">auto</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">margin-right</span><span class="s3">: </span><span class="s6">auto</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">width</span><span class="s2">: </span><span class="s9">50%</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s8">body</span><span class="s2"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">width</span><span class="s2">: </span><span class="s9">600px</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">height</span><span class="s2">: </span><span class="s9">500px</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">background-color</span><span class="s3">: </span><span class="s6">white</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">text-align</span><span class="s2">: </span><span class="s6">center</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">color</span><span class="s2">: </span><span class="s6">black</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">margin</span><span class="s2">: </span><span class="s9">0</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">overflow-y</span><span class="s2"> : </span><span class="s6">auto</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">font-size</span><span class="s2">: </span><span class="s9">15px</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">table.center</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">margin-left</span><span class="s2">: </span><span class="s6">auto</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">margin-right</span><span class="s3">: </span><span class="s6">auto</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s8">footer</span><span class="s2"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">position</span><span class="s2">: </span><span class="s6">fixed</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">left</span><span class="s2">: </span><span class="s9">5</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">bottom</span><span class="s2">: </span><span class="s9">5</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">margin-left</span><span class="s2">: </span><span class="s6">auto</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">margin-right</span><span class="s3">: </span><span class="s6">auto</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">textarea</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">resize</span><span class="s2">: </span><span class="s6">none</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p4"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">/* for list-group overscroll */</span></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.list-group</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">min-height</span><span class="s2">: </span><span class="s9">190px</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">max-height</span><span class="s2">: </span><span class="s9">190px</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">background</span><span class="s2">: </span><span class="s6">whitesmoke</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">margin-left</span><span class="s2">: </span><span class="s9">160px</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">margin-bottom</span><span class="s3">: </span><span class="s9">10px</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">overflow-y</span><span class="s2">:</span><span class="s6">auto</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">-webkit-overflow-scrolling</span><span class="s3">: </span><span class="s6">touch</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">text-align</span><span class="s2">: </span><span class="s6">left</span><span class="s2">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.tab-content</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">text-align</span><span class="s2">: </span><span class="s6">center</span><span class="s2">;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s4">display</span><span class="s3">: </span><span class="s2">inline-block</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.templatesTitle</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">text-align</span><span class="s2">: </span><span class="s6">left</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">padding-left</span><span class="s3">: </span><span class="s9">50px</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">padding-top</span><span class="s2">: </span><span class="s9">10px</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">padding-left</span><span class="s3">: </span><span class="s9">160px</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.templateButtons</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">float</span><span class="s2">: </span><span class="s6">right</span><span class="s2">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">padding-right</span><span class="s3">: </span><span class="s9">10px</span><span class="s3">;</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">padding-left</span><span class="s3">: </span><span class="s9">10px</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.editTemplateBtn</span><span class="s3"> {</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">margin-bottom</span><span class="s3">: </span><span class="s9">5px</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.addTemplateBtn</span><span class="s3"> {</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">margin-bottom</span><span class="s3">: </span><span class="s9">3px</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p7"><span class="s3"><span class="Apple-converted-space">    </span></span><span class="s2">.copyTemplateBtn</span><span class="s3"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">margin-top</span><span class="s2">: </span><span class="s9">9px</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s8">.card</span><span class="s2"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">margin</span><span class="s2">: </span><span class="s9">0</span><span class="s2"> </span><span class="s6">auto</span><span class="s2">; </span><span class="s10">/* Added */</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">float</span><span class="s2">: </span><span class="s6">none</span><span class="s2">; </span><span class="s10">/* Added */</span></p>
-<p class="p6"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s2">margin-bottom</span><span class="s3">: </span><span class="s9">10px</span><span class="s3">; </span><span class="s10">/* Added */</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s8">.alert</span><span class="s2"> {</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s4">width</span><span class="s2">:</span><span class="s9">60%</span><span class="s2">;</span></p>
-<p class="p3"><span class="s3"><span class="Apple-converted-space">        </span></span><span class="s4">display</span><span class="s3">:</span><span class="s2">inline-block</span><span class="s3">;</span></p>
-<p class="p2"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p5"><span class="s7"></span><br></p>
-<p class="p1"><span class="s1">&lt;/</span><span class="s2">style</span><span class="s1">&gt;</span></p>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--BOOTSTRAP-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!--FONT AWESOME ICONS-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+
+        <!-- Tab button links -->
+        <div class="tab">
+            <button id="launcherBtn"> <i class="fa fa-plus-circle tabs"></i> Launcher</button>
+            <button id="templatesBtn"> <i class="fa fa-list-alt tabs"></i> Templates</button>
+            <button id="emailsBtn"> <i class="fa fa-envelope tabs"></i> Emails</button>
+            <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> Calculators</button>
+            <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button>
+            <button id="aboutBtn"> <i class="fa fa-info-circle tabs"></i> About</button>
+
+        </div>
+    </head>
+
+    <body>
+        <!-- =========================================================================== -->
+        <!-- =============================== WELCOME DIV =============================== -->
+        <!-- =========================================================================== -->
+        <div id="welcomeDiv">
+            <br/><br/><br/>
+            <img src="images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:350px;height:350px;">
+
+            <div id="configOK" class="configuredOK">
+                <p><i class="configOK fa fa-check"></i> Settings configured successfully.</p>
+            </div>
+
+            <div id="configNOK" class="configuredNOK">
+                <p><i class="configNOK fa fa-exclamation"></i> Settings not configured.</p>
+            </div>
+            <br/>
+        </div>
+
+
+        <!-- Tab content -->
+
+        <!-- =========================================================================== -->
+        <!-- ============================== LAUNCHER DIV =============================== -->
+        <!-- =========================================================================== -->
+
+        <div id="launcherDiv">
+            <br/>
+            <div>
+                <!-- <h5><span class="badge badge-secondary">COMING SOON!</span></h5> -->
+            </div>
+            <div id="lfcDiv">
+                <div class="card launcher" style="width: 26rem;"> 
+                    <div class="card-header"><i class="fa fa-truck tabs"></i> Wholesalers & LFCs</div>
+                    <div class="card-body">
+                        <!-- <img height="16" width="16" src="https://broadbandmap.nz/favicon.ico"/>
+                        <a href="https://broadbandmap.nz" target="_blank"> National Broadband Maps</a>
+                        <br/> -->
+                        <img height="16" width="16" src="https://ccm.wialus.co.nz/favicon.ico">
+                        <a href="https://portal.chorus.co.nz/chorus-ssp-web/pages/LandingPage" target="_blank"> Chorus UFB Portal</a>
+                        <br/>
+                        <img height="16" width="16" src="https://northpower.ufbportal.net.nz/favicon.ico">
+                        <a href="https://northpower.ufbportal.net.nz/v1-2-0" target="_blank"> NorthPower UFB Portal</a>
+                        <br/>
+                        <img height="16" width="16" src="https://ccm.wialus.co.nz/favicon.ico">
+                        <a href="https://www.chorus.co.nz/ont-cable-request" target="_blank"> Chorus ONT PSU</a>
+                        <br/>
+                        <img height="16" width="16" src="https://login1.chorus.co.nz/favicon.ico">
+                        <a href="https://gateway.chorus.co.nz/ch/secure/portal/chorus/faults" target="_blank"> Chorus Gateway</a>
+                        <br/>
+                        <img height="16" width="16" src="https://ccm.wialus.co.nz/favicon.ico">
+                        <a href="https://www.chorus.co.nz/outages" target="_blank"> Chorus Outage Map</a>
+                        <br/>
+                        <img height="16" width="16" src="https://ibss.enable.net.nz/favicon.ico">
+                        <a href="https://ibss.enable.net.nz/order-management" target="_blank"> Enable UFB Portal</a>
+                        <br/>
+                        <img height="16" width="16" src="https://portal.ultrafastfibre.co.nz/portal/favicon.ico">
+                        <a href="https://portal.ultrafastfibre.co.nz/portal" target="_blank"> UFF UFB Portal</a>
+                        <br/>
+                        <img height="16" width="16" src="https://www.ultrafastfibre.co.nz/favicon.ico">
+                        <a href="https://ultrafastfibre.statuspage.io/" target="_blank"> UFF Network Events</a>
+                    </div>
+                </div>   
+            </div>
+        </div>
+
+        <!-- =========================================================================== -->
+        <!-- ============================== TEMPLATES DIV ============================== -->
+        <!-- =========================================================================== -->
+        <div id="templatesDiv">
+            <div class="templatesTitle">
+                <h6>Templates</h6>
+            </div>
+
+            <div class="templateButtons">
+                <button type="button" class="addTemplateBtn btn btn-success btn-sm" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i></button><br/><br/><br/><br/><br/>
+                <button id="editTemplateBtn" type="button" class="editTemplateBtn btn btn-warning btn-sm" data-toggle="tooltip" title="Edit"><i class="fa fa-pen edit"></i></button><br/>
+                <button id="deleteTemplateBtn" type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i> </button>
+            </div>
+            
+                <div class="list-group" id="myTemplates" role="tablist">
+                    
+                </div>
+                <br/>
+                <div class="tab-content" id="nav-tabContent" rows="4" cols="35">
+                    
+                </div>
+                <br/>
+    
+                <div id="copyTemplateDiv">
+                    <button id="copyTemplateBtn" class="copyTemplateBtn btn btn-outline-primary btn-sm">Copy</button>
+                </div>
+
+                <div id="editTemplate" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title">Edit Template</h6>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="editTemplateName" placeholder="Template Name" cols="20"><p></p>
+                                <textarea style="white-space: pre-wrap;" id="editTemplateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
+                            </div>
+                            <div class="modal-footer">
+                            <button id="updateTemplateBtn" type="button" class="btn btn-warning">Update Template</button> 
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="addTemplate" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title">Add Template</h6>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" id="templateName" placeholder="Template Name" cols="20"><p></p>
+                                <textarea style="white-space: pre-wrap;" id="templateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
+                            </div>
+                            <div class="modal-footer">
+                            <button id="addTemplateBtn" type="button" class="btn btn-success">Add Template</button> 
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div id="emailsDiv">
+            <br/>
+            <h1>Email Templates</h1>
+
+            <button id="emailExceptionBtn">Exception</button> <button id="emailLMNPBtn">Email lmnp</button>
+        </div>
+
+        <!-- ============================================================================= -->
+        <!-- ============================== CALCULATORS DIV ============================== -->
+        <!-- ============================================================================= -->
+
+        <div id="TWoSDiv"> 
+            <br/>
+            <div class="nav nav-tabs">
+                <div class="nav-item" id="navTabs">
+                    <a class="nav-link" id="twosCalcTab" href="#twosCalcDiv">TWoS</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" id ="surchargeCalcTab" href="#surchargeCalcDiv">Surcharge</a>
+                </div>
+            </div>
+
+            <div id="twosCalcDiv">
+                <table class="center">
+                    <br/>
+                    <tr>
+                        <td><input class="form-control" type="text" id="monthlyCosts" placeholder="Monthly Cost"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="form-control" type="text" id="timeWithoutService" placeholder="Time Without Service"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="form-control" type="text" id="approvedBy" placeholder="Approved by"></td>
+                    </tr>
+                </table>
+                <br/>
+                <button id="calculateBtn" class="btn btn-primary btn-sm">Calculate</button>
+                <br/><br/>
+                <table class="center">
+                    <tr>
+                        <td>Amount: $ </td>
+                        <td><input type="text" class="form-control" id="resultAmount" size="5"></td>
+                        <td><button id="copyAmountBtn" class="btn btn-outline-primary btn-sm">Copy</button></td>
+                    </tr>
+                </table>
+                <br/>
+                <textarea id="resultString" rows="4" cols="35"></textarea>
+                <br/>
+                <button id="copyStringBtn" class="btn btn-outline-primary btn-sm">Copy</button>
+            </div>
+            
+            <div id="surchargeCalcDiv">
+                <table class="center">
+                    <br/>
+                    <tr>
+                        <td><input class="form-control" type="text" id="beforeSurcharge" placeholder="Amount"></td>
+                    </tr>
+                    <tr>
+                        <td><br/><button id="calculateSurchargeBtn" class="btn btn-primary btn-sm">Calculate</button></td>
+                    </tr>
+
+                    <table class="center">
+                        <br/>
+                        <tr>
+                            <td>Amount: $ </td>
+                            <td><input type="text" class="form-control" id="surchargeAmount" size="5"></td>
+                            <td><button id="copySurchargeBtn" class="btn btn-outline-primary btn-sm">Copy</button></td>
+                        </tr>
+                    </table>
+                    <div class="alert alert-light" role="alert" size="6">
+                        <br/>
+                        * Please note: Surcharge calculator is set to calculate 1.075% by default.
+                    </div>
+                </table>
+            </div>
+        </div>
+                   
+        <!-- ========================================================================== -->
+        <!-- ============================== SETTINGS DIV ============================== -->
+        <!-- ========================================================================== -->
+        <div id="mySettingsDiv">
+            <br/>
+            
+            <table class="center">
+
+                <br/>
+
+                <h1>Settings</h1><br/>
+                <tr>
+                    <td><input type="text" class="form-control" id="firstName" placeholder="First Name" size="25"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" id="lastName" placeholder="Surname" size="25"></td>
+                </tr>
+                <tr>
+                    <td><input type="text" class="form-control" id="workEmail" placeholder="Work Email" size="25"></td>
+                </tr>
+
+            </table>
+
+            <br/>
+
+            <button id="saveSettingsBtn" class="btn btn-outline-primary">Save</button>
+
+            <br/>
+            <br/>
+
+            *Some settings may not work with empty fields
+
+        </div>
+
+        <!-- ======================================================================= -->
+        <!-- ============================== ABOUT DIV ============================== -->
+        <!-- ======================================================================= -->
+        <div id="aboutDiv">
+            <br/>
+            <div class="nav nav-tabs">
+                <div class="nav-item" id="navTabs">
+                    <a class="nav-link" id="aboutMenuTab" href="#aboutMenuDiv">About</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" id ="reportMenuTab" href="#reportMenuDiv">Bug Reports</a>
+                </div>
+            </div>
+
+            <br/>
+            <div id="aboutMenuDiv">
+                <div class="card" style="width: 26rem;" text-center> 
+                    <img src="images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:125px;height:125px;">
+                    <div class="card-header">Version 1.0 - Initial Release</div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            ResiTools has been developed to make common residential team tasks quick and easy.
+                            Developed and maintained by Simon Lorimer and Sean Madondo.<br/><br/>
+                        <i class="fa fa-copyright tabs"></i> SimSeanDev
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reportMenuDiv">
+                <div class="card" style="width: 26rem;" text-center> 
+                    <div class="card-header"><i class="fa fa-exclamation-circle tabs"></i> Submit Bug Report</div>
+                    <div class="card-body">
+                        <p class="card-text">We're constantly working to improve this application and it's functionality. In the early stages bugs are bound to happen. Please take the time to fill out the form.
+                        </p>
+                        <a href="https://forms.gle/Mrptc169mViXLWDX8" target="_blank">Submit Bug Report</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <script src="popup.js" defer></script>
+
+
+    </body>
 </html>
+
+
+<style>
+    /* ======== Adding CSS for TABS ======== */
+
+    * {box-sizing: border-box}
+
+    i.tabs {
+        color: #38b6ff;
+    }
+
+    i.configOK {
+        color: green;
+
+    }
+
+    i.configNOK {
+        color: red;
+    }
+
+    .tab {
+        float: left;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        width: 25%;
+        height: 500px;
+    }
+
+    .tab button {
+        display: block;
+        background-color: inherit;
+        color: black;
+        padding: 22px 16px;
+        width: 100%;
+        border: none;
+        outline: none;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        /* background-color: #38b6ff; */
+        background-color: lightgrey;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+
+    /* ====== CSS for HTML extension body ====== */
+
+    .IMGcentre {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    body {
+        width: 600px;
+        height: 500px;
+        background-color: white;
+        text-align: center;
+        color: black;
+        margin: 0;
+        overflow-y : auto;
+        font-size: 15px;
+    }
+
+    table.center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer {
+        position: fixed;
+        left: 5;
+        bottom: 5;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    /* for list-group overscroll */
+    .list-group {
+        min-height: 190px;
+        max-height: 190px;
+        background: whitesmoke;
+        margin-left: 160px;
+        margin-bottom: 10px;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        text-align: left;
+    }
+
+    .tab-content {
+        text-align: center;
+        display: inline-block;
+    }
+    .templatesTitle {
+        text-align: left;
+        padding-left: 50px;
+        padding-top: 10px;
+        padding-left: 160px;
+    }
+    .templateButtons {
+        float: right;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    
+    .editTemplateBtn {
+        margin-bottom: 5px;
+    }
+
+    .addTemplateBtn {
+        margin-bottom: 3px;
+    }
+
+    .copyTemplateBtn {
+        margin-top: 9px
+    }
+
+    .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+    }
+    .alert {
+        width:60%;
+        display:inline-block;
+    }
+
+</style>

@@ -195,11 +195,33 @@
                 </div>
         </div>
 
-        <div id="emailsDiv">
-            <br/>
-            <h1>Email Templates</h1>
+        <!-- ============================================================================= -->
+        <!-- ================================ EMAILS DIV ================================= -->
+        <!-- ============================================================================= -->
 
-            <button id="emailExceptionBtn">Exception</button> <button id="emailLMNPBtn">Email lmnp</button>
+        <div id="emailsDiv">
+            <br/><br/>
+            <h2>Email Templates</h2><br/>
+            <div class="workforceEmails">
+                <h6>WFM:</h6>
+                <button id="emailExceptionBtn" class="btn btn-primary btn-sm">Exception</button>
+                <button id="finishedLateBtn" class="btn btn-primary btn-sm">Finished Late</button>
+                <button id="technicalDifficultiesBtn" class="btn btn-primary btn-sm">Technical Difficulties</button>
+
+            </div><br/>
+            <div class="provEmails">
+                <h6>Provisioning:</h6>
+                <button id="emailLMNPBtn" class="btn btn-primary btn-sm">Email lmnp</button>
+
+            </div><br/>
+            <div class="helpdeskEmails">
+                <h6>Helpdesk:</h6>
+                <button id="modemReturnBtn" class="btn btn-primary btn-sm">Confirm Modem Return</button>
+
+            </div>
+            
+
+             
         </div>
 
         <!-- ============================================================================= -->
@@ -210,7 +232,7 @@
             <br/>
             <div class="nav nav-tabs">
                 <div class="nav-item" id="navTabs">
-                    <a class="nav-link" id="twosCalcTab" href="#twosCalcDiv">TWoS</a>
+                    <a class="nav-link" id="twosCalcTab" href="#twosCalcDiv">Time Without Service</a>
                 </div>
                 <div class="nav-item">
                     <a class="nav-link" id ="surchargeCalcTab" href="#surchargeCalcDiv">Surcharge</a>
@@ -266,7 +288,7 @@
                     </table>
                     <div class="alert alert-light" role="alert" size="6">
                         <br/>
-                        * Please note: Surcharge calculator is set to calculate 1.75% by default.
+                        *Please note: Surcharge Calculator is set to calculate 1.75%.
                     </div>
                 </table>
             </div>
@@ -302,7 +324,9 @@
             <br/>
             <br/>
 
-            *Some settings may not work with empty fields
+            <div class="alert alert-light" role="alert" size="6">
+                *Emails may not work with empty fields
+            </div>
 
         </div>
 
@@ -316,7 +340,7 @@
                     <a class="nav-link" id="aboutMenuTab" href="#aboutMenuDiv">About</a>
                 </div>
                 <div class="nav-item">
-                    <a class="nav-link" id ="reportMenuTab" href="#reportMenuDiv">Bug Reports</a>
+                    <a class="nav-link" id ="reportMenuTab" href="#reportMenuDiv">Report Bug</a>
                 </div>
             </div>
 
@@ -328,8 +352,8 @@
                     <div class="card-body">
                         <p class="card-text">
                             ResiTools has been developed to make common residential team tasks quick and easy.
-                            Developed and maintained by Simon Lorimer and Sean Madondo.<br/><br/>
-                        <i class="fa fa-copyright tabs"></i> SimSeanDev
+                            <br/><br/>Developed and maintained by Simon Lorimer and Sean Madondo.<br/><br/>
+                            &#169 SimSeanDev
                         </p>
                     </div>
                 </div>
@@ -339,9 +363,9 @@
                 <div class="card" style="width: 26rem;" text-center> 
                     <div class="card-header"><i class="fa fa-exclamation-circle tabs"></i> Submit Bug Report</div>
                     <div class="card-body">
-                        <p class="card-text">We're constantly working to improve this application and it's functionality. In the early stages bugs are bound to happen. Please take the time to fill out the form.
+                        <p class="card-text">If you encounter a bug, please take the time to fill out the form, including as much detail as possible.
                         </p>
-                        <a href="https://forms.gle/Mrptc169mViXLWDX8" target="_blank">Submit Bug Report</a>
+                        <a href="https://forms.gle/Mrptc169mViXLWDX8" class="btn btn-outline-primary btn-sm" target="_blank">Submit Bug Report</a>
                     </div>
                 </div>
                 

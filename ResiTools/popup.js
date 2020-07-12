@@ -427,17 +427,72 @@ function copyTemplate() {
 //============================== Internal Email Templates =====================================
 //=============================================================================================
 
-//this is just a test atm
 let emailExceptionBtn = document.getElementById("emailExceptionBtn");
 if (emailExceptionBtn) {
-    emailExceptionBtn.addEventListener("click", function () {promptEmail("WFM@2degrees.nz", "Exception", "Hi team,%0D%0DI have been doing Emails from X:XX to " + new Date().toLocaleString() + "%0D%0DPlease make an exception for this.%0D%0DThanks,")});
+    emailExceptionBtn.addEventListener("click", function () {promptEmail(
+        "WFM@2degrees.nz",
+        " ",
+        "Exception - " + new Date().toLocaleDateString(), 
+        "Hi team,%0D%0DI have been doing X from X:XX to " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DPlease make an exception for this."
+    )});
+}
+
+let finishedLateBtn = document.getElementById("finishedLateBtn");
+if (finishedLateBtn) {
+    finishedLateBtn.addEventListener("click", function () {promptEmail(
+        "WFM@2degrees.nz", 
+        " ", 
+        "Finished Late - " + new Date().toLocaleDateString(), 
+        "Hi team,%0D%0DI have finished my shift at " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DCould I please have this time made up elsewhere, or alternatively may I submit an overtime form.", 
+    )});
+}
+
+let technicalDifficultiesBtn = document.getElementById("technicalDifficultiesBtn");
+if (technicalDifficultiesBtn) {
+    technicalDifficultiesBtn.addEventListener("click", function () {promptEmail(
+        "WFM@2degrees.nz",
+        " ",
+        "Technical Difficulties - " + new Date().toLocaleDateString(),
+        "Hi Team,%0D%0DI have been experiencing technical difficulties from X to " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DPlease make an exception for this."
+    )});
+}
+
+let emailLMNPBtn = document.getElementById("emailLMNPBtn");
+if (emailLMNPBtn) {
+    emailLMNPBtn.addEventListener("click", function () {promptEmail(
+        "lmnp@2degrees.nz",
+        " ",
+        "Port Number ASAP - *USER*/*CUSTNO.*", 
+        "Hi team,%0D%0DThe customer is now showing to be online.%0D%0DCould we please update the request to port their number over to ASAP.%0D%0DCustomer Details: X/X%0DPhone number: X"
+    )});
+}
+
+let modemReturnBtn = document.getElementById("modemReturnBtn");
+if (modemReturnBtn) {
+    modemReturnBtn.addEventListener("click", function () {promptEmail(
+        "nz.enquiries@brightstar.com",
+        "ResidentialHelpdesk@2degrees.nz",
+        "Confirm Modem Return - *B* NUMBER HERE*",
+        "Hi team,%0D%0DCould we please confirm that the modem has been returned:%0D%0D*B* NUMBER HERE*"
+    )});
 }
 
 //base email template, rather than populating many functions
-function promptEmail(mailTo, subject, body) {
+async function promptEmail(mailTo, cc, subject, body) {
+    var getFirstName;
+    chrome.storage.sync.get(["firstName"], function (result) {
+        if (result.firstName == undefined) {
+            getFirstName = "";
+        } else {
+            console.log("name:" + result.firstName);
+            getFirstName = "Kind regards,%0D" + result.firstName;
+        }
+    });
+
+    await wait(10);
 
     //replace /n with %0D%0 for new line
-    window.open('mailto:' + mailTo + '?subject=' + subject +'&body=' + body);
+    window.open('mailto:' + mailTo + '?cc=' + cc + '&subject=' + subject +'&body=' + body + "%0D%0D" + getFirstName);
 }
 
 //=============================================================================================

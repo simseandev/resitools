@@ -482,7 +482,7 @@ async function promptEmail(mailTo, cc, subject, body) {
     var getFirstName;
     chrome.storage.sync.get(["firstName"], function (result) {
         if (result.firstName == undefined) {
-            getFirstName = "";
+            getFirstName = "Kind regards";
         } else {
             console.log("name:" + result.firstName);
             getFirstName = "Kind regards,%0D" + result.firstName;

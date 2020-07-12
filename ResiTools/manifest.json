@@ -2,7 +2,7 @@
     "version": "1.0",
     "manifest_version": 2,
     "name": "ResiTools",
-    "description": "Residential Tool for Broadband",
+    "description": "Productivity Tool for Residential Broadband",
     "browser_action": {
         "default_popup": "popup.html"
     },

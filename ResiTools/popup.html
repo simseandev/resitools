@@ -24,19 +24,18 @@
 
         </div>
     </head>
-
     <body>
-
         <!-- Tab content -->
-
         <!-- =========================================================================== -->
         <!-- ============================== LAUNCHER DIV =============================== -->
         <!-- =========================================================================== -->
 
         <div id="remindMeDiv">
-            <div class="divTitle">
-                <h4>Remind me to... </h4> <br/>
-            </div>
+            <div class="divTitle"><h4>My Reminders</h4><br/></div>
+
+
+            <div class="divTitle"><h4>Add a reminder</h4><br/></div>
+
         </div>
 
         <!-- =========================================================================== -->
@@ -45,12 +44,7 @@
         <div id="templatesDiv">
 
             <div>
-                <div class="divTitle">
-                    <h4>Templates </h4> <br/>
-                </div>
-<!--                <div class="addTemplateBtn">-->
-<!--                    <button type="button" class=" btn btn-success btn-sm" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i></button>-->
-<!--                </div>-->
+                <div class="divTitle"><h4>Templates</h4><br/></div>
             </div>
 
 
@@ -71,6 +65,27 @@
                     <a data-toggle="collapse" data-target="#DSL">Template2</a>
                     <div id="DSL" class="collapse">
                         I'll probably rework these later
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="addTemplateBtn btn btn-success btn-sm" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i></button>
+
+            <div id="addTemplate" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title">Add Template</h6>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="form-control" id="templateName" placeholder="Template Name" cols="20"><p></p>
+                            <textarea style="white-space: pre-wrap;" id="templateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
+                        </div>
+                        <div class="modal-footer">
+                        <button id="addTemplateBtn" type="button" class="btn btn-success">Add Template</button> 
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>

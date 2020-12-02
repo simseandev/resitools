@@ -64,6 +64,18 @@ function clickTab(elementId) {
 //======================================= Utils ===============================================
 //=============================================================================================
 
+function getSync(key) { //get sync storage
+    chrome.storage.sync.get([key], function (result) {
+        return result;
+    });
+}
+
+function setSync(key, value) { //set sync storage
+    chrome.storage.sync.set({key: value}, function() {
+        console.log('Value is set to ' + value);
+      });
+}
+
 function isStringNumber(value) { //string value eg "8.42"
     return parseFloat(value.match(/^-?\d*(\.\d+)?$/))>0;
 }
@@ -113,6 +125,53 @@ function checkSpecialChar(title) {
 //=============================================================================================
 //===================================== Templates =============================================
 //=============================================================================================
+
+let addTemplateBtn = document.getElementById("addTemplateBtn");
+if (addTemplateBtn) { addTemplateBtn.addEventListener("click", function () {addTemplate()}); }
+
+function addTemplate() {
+
+    let templateName = document.getElementById("templateName").value;
+    let templateDescription = document.getElementById("templateDescription").value;
+
+    //TODO: other error checks, length and not already in use
+
+    //check inputs are valid
+    if (templateName === "") {
+        alert("Template Name must not be empty!");
+        return;
+    } else if (templateDescription === "") {
+        alert("Template Description must not be empty!");
+        return;
+    }
+
+    //try and get current templates
+    let templates = getSync('templates');
+
+    //if templates are null, create list
+
+    if (templates == null) {
+        console.log('hello');
+    }
+
+    //if templates exist, add to list
+
+
+
+    //setSync('templates');
+    
+
+
+
+
+
+}
+
+
+
+
+
+
 
 
 

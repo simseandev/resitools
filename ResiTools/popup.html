@@ -75,47 +75,6 @@
                 </div>
             </div>
 
-
-
-            <!-- EDIT TEMPLATE MODAL - might still be useful -->
-            <div id="editTemplate" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title">Edit Template</h6>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" class="form-control" id="editTemplateName" placeholder="Template Name" cols="20"><p></p>
-                            <textarea style="white-space: pre-wrap;" id="editTemplateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
-                        </div>
-                        <div class="modal-footer">
-                        <button id="updateTemplateBtn" type="button" class="btn btn-warning">Update Template</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ADD TEMPLATE MODAL - might still be useful -->
-            <div id="addTemplate" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title">Add Template</h6>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" class="form-control" id="templateName" placeholder="Template Name" cols="20"><p></p>
-                            <textarea style="white-space: pre-wrap;" id="templateDescription" class="form-control" placeholder="Template Description" rows="8" cols="60"></textarea></td><br>
-                        </div>
-                        <div class="modal-footer">
-                        <button id="addTemplateBtn" type="button" class="btn btn-success">Add Template</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- ============================================================================= -->
@@ -164,7 +123,7 @@
             
             <div id="surchargeCalcDiv">
                 <table class="center">
-                    <br/>
+                    <br/><br/><br/><br/>
                     <tr>
                         <td><input class="form-control" type="text" id="beforeSurcharge" placeholder="Amount"></td>
                     </tr>
@@ -177,7 +136,7 @@
                         <tr>
                             <td>Amount: $ </td>
                             <td><input type="text" class="form-control" id="surchargeAmount" size="5"></td>
-                            <td><button id="copySurchargeBtn" class="btn btn-outline-primary btn-sm">Copy</button></td>
+                            <td><button id="copySurchargeBtn" class="btn btn-outline-primary btn-sm" >Copy</button></td>
                         </tr>
                     </table>
                     <div class="alert alert-light" role="alert" size="6">
@@ -193,10 +152,24 @@
         <!-- ========================================================================== -->
         <div id="settingsDiv">
             <div class="divTitle">
-                <h4>My Settings </h4> <br/>
+                <h4>Settings</h4><br/>
             </div>
-        </div>
 
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown link
+                </a>
+              
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+
+
+            <button type="button" class="btn btn-primary">Save</button><button type="button" class="btn btn-danger">Reset</button>
+        </div>
         <!-- ======================================================================= -->
         <!-- ============================== ABOUT DIV ============================== -->
         <!-- ======================================================================= -->
@@ -210,7 +183,6 @@
                     <a class="nav-link" id ="reportMenuTab" href="#reportMenuDiv">Report Bug</a>
                 </div>
             </div>
-
             <br/>
             <div id="aboutMenuDiv">
                 <div class="card" style="width: 26rem;" text-center> 
@@ -225,7 +197,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="reportMenuDiv">
                 <div class="card" style="width: 26rem;" text-center> 
                     <div class="card-header"><i class="fa fa-exclamation-circle tabs"></i> Submit Bug Report</div>
@@ -235,17 +206,11 @@
                         <a href="https://forms.gle/Mrptc169mViXLWDX8" class="btn btn-outline-primary btn-sm" target="_blank">Submit Bug Report</a>
                     </div>
                 </div>
-                
             </div>
         </div>
-
         <script src="popup.js" defer></script>
-
-
     </body>
 </html>
-
-
 <style>
     /* ======== Adding CSS for TABS ======== */
 

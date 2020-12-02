@@ -20,9 +20,13 @@ if (settingsDiv) { settingsDiv.style.display = "none"; }
 let aboutDiv = document.getElementById("aboutDiv");
 if (aboutDiv) { aboutDiv.style.display = "none"; }
 
+//TODO: load any settings bound to account if there are any
+
 //=============================================================================================
 //==================================== Tab Control ============================================
 //=============================================================================================
+
+//if button is clicked, execute clickTab() function and switch to tab
 
 let remindMeBtn = document.getElementById("remindMeBtn");
 if (remindMeBtn) { remindMeBtn.addEventListener("click", function () {clickTab("remindMeDiv")}); }
@@ -44,6 +48,8 @@ if (aboutBtn) { aboutBtn.addEventListener("click", function () {clickTab("aboutD
 
 function clickTab(elementId) {
 
+    //hide all tabs and show elementId tab
+
     document.getElementById("remindMeDiv").style.display = "none";
     document.getElementById("templatesDiv").style.display = "none";
     document.getElementById("calculatorsDiv").style.display = "none";
@@ -51,13 +57,12 @@ function clickTab(elementId) {
     document.getElementById("aboutDiv").style.display = "none";
 
     document.getElementById(elementId).style.display = "block";
+
 }
 
 //=============================================================================================
 //======================================= Utils ===============================================
 //=============================================================================================
-
-
 
 function isStringNumber(value) { //string value eg "8.42"
     return parseFloat(value.match(/^-?\d*(\.\d+)?$/))>0;
@@ -105,8 +110,6 @@ function checkSpecialChar(title) {
 
 }
 
-
-
 //=============================================================================================
 //===================================== Templates =============================================
 //=============================================================================================
@@ -117,27 +120,19 @@ function checkSpecialChar(title) {
 //============================== Calculators Functionality ====================================
 //=============================================================================================
 
-// --------- Preset the two divs... ----------
+// Sets twosCalcDiv as default tab and hides surchargeCalcDiv
 let twosCalcDiv = document.getElementById("twosCalcDiv");
-if (twosCalcDiv) { 
-    twosCalcDiv.style.display = "block";
-}
+if (twosCalcDiv) { twosCalcDiv.style.display = "block"; }
 
 let surchargeCalcDiv = document.getElementById("surchargeCalcDiv");
-if (surchargeCalcDiv) { 
-    surchargeCalcDiv.style.display = "none"; 
-}
+if (surchargeCalcDiv) { surchargeCalcDiv.style.display = "none"; }
 
-//Calculators Page Tab control functionality
+//Swap between tabs onclick
 let twosCalcTab = document.getElementById("twosCalcTab");
-if (twosCalcTab) {
-    twosCalcTab.addEventListener("click", function () {clickCalcTab("twosCalcDiv")});
-}
+if (twosCalcTab) { twosCalcTab.addEventListener("click", function () {clickCalcTab("twosCalcDiv")}); }
 
 let surchargeCalcTab = document.getElementById("surchargeCalcTab");
-if (surchargeCalcTab) {
-    surchargeCalcTab.addEventListener("click", function () {clickCalcTab("surchargeCalcDiv")});
-}
+if (surchargeCalcTab) { surchargeCalcTab.addEventListener("click", function () {clickCalcTab("surchargeCalcDiv")}); }
 
 function clickCalcTab(elementId) {
 
@@ -218,9 +213,7 @@ function calculateSurcharge () {
 
 //copy button
 let copySurchargeBtn = document.getElementById("copySurchargeBtn");
-if (copySurchargeBtn) {
-    copySurchargeBtn.addEventListener("click", function () {copyText("surchargeAmount")});
-}
+if (copySurchargeBtn) { copySurchargeBtn.addEventListener("click", function () {copyText("surchargeAmount")});}
 
 //=============================================================================================
 //============================== Settings Functionality =======================================
@@ -234,25 +227,17 @@ if (copySurchargeBtn) {
 
 //Preset the two divs to show nothing just for now...
 let aboutMenuDiv = document.getElementById("aboutMenuDiv");
-if (aboutMenuDiv) { 
-    aboutMenuDiv.style.display = "block";
-}
+if (aboutMenuDiv) { aboutMenuDiv.style.display = "block"; }
 
 let reportMenuDiv = document.getElementById("reportMenuDiv");
-if (reportMenuDiv) { 
-    reportMenuDiv.style.display = "none"; 
-}
+if (reportMenuDiv) { reportMenuDiv.style.display = "none"; }
 
 //About Page Tab control functionality
 let aboutMenuTab = document.getElementById("aboutMenuTab");
-if (aboutMenuTab) {
-    aboutMenuTab.addEventListener("click", function () {clickNavTab("aboutMenuDiv")});
-}
+if (aboutMenuTab) { aboutMenuTab.addEventListener("click", function () {clickNavTab("aboutMenuDiv")}); }
 
 let reportMenuTab = document.getElementById("reportMenuTab");
-if (reportMenuTab) {
-    reportMenuTab.addEventListener("click", function () {clickNavTab("reportMenuDiv")});
-}
+if (reportMenuTab) { reportMenuTab.addEventListener("click", function () {clickNavTab("reportMenuDiv")}); }
 
 function clickNavTab(elementId) {
 

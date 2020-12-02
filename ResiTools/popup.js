@@ -2,30 +2,56 @@
 //====================================== Startup ==============================================
 //=============================================================================================
 
-//show only welcomeDiv on startup, set others to hidden
+//show only remindMeDiv, hide others.
+//TODO: Later to be dynamic via settings
 
-let launcherDiv = document.getElementById("launcherDiv");
-if (launcherDiv) { launcherDiv.style.display = "none"; }
+let remindMeDiv = document.getElementById("remindMeDiv");
+if (remindMeDiv) { remindMeDiv.style.display = "block"; }
 
 let templatesDiv = document.getElementById("templatesDiv");
-if (templatesDiv) {
-     templatesDiv.style.display = "none";
-    }
+if (templatesDiv) { templatesDiv.style.display = "none"; }
 
-let emailsDiv = document.getElementById("emailsDiv");
-if (emailsDiv) { emailsDiv.style.display = "none"; }
+let calculatorsDiv = document.getElementById("calculatorsDiv");
+if (calculatorsDiv) { calculatorsDiv.style.display = "none"; }
 
-let TWoSDiv = document.getElementById("TWoSDiv");
-if (TWoSDiv) { TWoSDiv.style.display = "none"; }
-
-let mySettingsDiv = document.getElementById("mySettingsDiv");
-if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
-
-let welcomeDiv = document.getElementById("welcomeDiv");
-if (welcomeDiv) { welcomeDiv.style.display = "block";}
+let settingsDiv = document.getElementById("settingsDiv");
+if (settingsDiv) { settingsDiv.style.display = "none"; }
 
 let aboutDiv = document.getElementById("aboutDiv");
-    if (aboutDiv) { aboutDiv.style.display = "none"; }
+if (aboutDiv) { aboutDiv.style.display = "none"; }
+
+//=============================================================================================
+//==================================== Tab Control ============================================
+//=============================================================================================
+
+let remindMeBtn = document.getElementById("remindMeBtn");
+if (remindMeBtn) { remindMeBtn.addEventListener("click", function () {clickTab("remindMeDiv")}); }
+
+let templatesBtn = document.getElementById("templatesBtn");
+if (templatesBtn) { templatesBtn.addEventListener("click", function () {clickTab("templatesDiv")}); }
+
+let emailBtn = document.getElementById("emailsBtn");
+if (emailBtn) { emailBtn.addEventListener("click", function () {clickTab("emailsDiv")}); }
+
+let calculatorsBtn = document.getElementById("calculatorsBtn");
+if (calculatorsBtn) { calculatorsBtn.addEventListener("click", function () {clickTab("calculatorsDiv")}); }
+
+let settingsBtn = document.getElementById("settingsBtn");
+if (settingsBtn) { settingsBtn.addEventListener("click", function () {clickTab("settingsDiv")}); }
+
+let aboutBtn = document.getElementById("aboutBtn");
+if (aboutBtn) { aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")}); }
+
+function clickTab(elementId) {
+
+    document.getElementById("remindMeDiv").style.display = "none";
+    document.getElementById("templatesDiv").style.display = "none";
+    document.getElementById("calculatorsDiv").style.display = "none";
+    document.getElementById("settingsDiv").style.display = "none";
+    document.getElementById("aboutDiv").style.display = "none";
+
+    document.getElementById(elementId).style.display = "block";
+}
 
 //=============================================================================================
 //======================================= Utils ===============================================
@@ -79,85 +105,7 @@ function checkSpecialChar(title) {
 
 }
 
-//=============================================================================================
-//==================================== Tab Control ============================================
-//=============================================================================================
 
-let launcherBtn = document.getElementById("launcherBtn");
-if (launcherBtn) {
-    launcherBtn.addEventListener("click", function () {clickTab("launcherDiv")});
-}
-
-let templatesBtn = document.getElementById("templatesBtn");
-if (templatesBtn) {
-    templatesBtn.addEventListener("click", function () {
-        clickTab("templatesDiv");
-        // loadTemplates();
-    });
-}
-
-let emailBtn = document.getElementById("emailsBtn");
-if (emailBtn) {
-    emailBtn.addEventListener("click", function () {clickTab("emailsDiv")});
-}
-
-let TWoSBtn = document.getElementById("TWoSBtn");
-if (TWoSBtn) {
-    TWoSBtn.addEventListener("click", function () {clickTab("TWoSDiv")});
-}
-
-let mySettingsBtn = document.getElementById("mySettingsBtn");
-if (mySettingsBtn) {
-    mySettingsBtn.addEventListener("click", function () {
-        clickTab("mySettingsDiv");
-        loadSettings();
-    });
-}
-
-let aboutBtn = document.getElementById("aboutBtn");
-if (aboutBtn) { 
-    aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")});
-}
-
-function clickTab(elementId) {
-
-    document.getElementById("launcherDiv").style.display = "none";
-    document.getElementById("templatesDiv").style.display = "none";
-    // document.getElementById("emailsDiv").style.display = "none";
-    document.getElementById("TWoSDiv").style.display = "none";
-    document.getElementById("welcomeDiv").style.display = "none";
-    document.getElementById("mySettingsDiv").style.display = "none";
-    document.getElementById("aboutDiv").style.display = "none";
-
-    document.getElementById(elementId).style.display = "block";
-}
-
-function loadSettings() {
-
-    //firstName
-    chrome.storage.sync.get(["firstName"], function (result) {
-        if (result.firstName != undefined) {
-            console.log("Retrieved Storage from Chrome: firstName");
-            document.getElementById("firstName").value = result.firstName;
-        }
-      });
-
-    //lastName
-    chrome.storage.sync.get(["lastName"], function (result) {
-        if (result.lastName != undefined) {
-            console.log("Retrieved Storage from Chrome: lastName");
-            document.getElementById("lastName").value = result.lastName;
-        }
-      });
-
-    //workEmail
-    chrome.storage.sync.get(["workEmail"], function (result) {
-        if (result.workEmail != undefined) {
-            console.log("Retrieved Storage from Chrome: workEmail");
-            document.getElementById("workEmail").value = result.workEmail;
-        }
-      });
-}
 
 //=============================================================================================
 //===================================== Templates =============================================
@@ -278,39 +226,7 @@ if (copySurchargeBtn) {
 //============================== Settings Functionality =======================================
 //=============================================================================================
 
-let saveSettingsBtn = document.getElementById("saveSettingsBtn");
-if (saveSettingsBtn) {
-    saveSettingsBtn.addEventListener("click", function () {saveSettings()});
-}
 
-function saveSettings() {
-    let firstName = document.getElementById("firstName");
-    let lastName = document.getElementById("lastName");
-    let workEmail = document.getElementById("workEmail");
-
-    //inputs must not be empty
-    if (firstName.value == "") {
-        alert("First name cannot be empty!");
-        firstName.focus();
-        return;
-    } else if (lastName.value === "") {
-        alert("Last name cannot be empty!");
-        lastName.focus();
-        return;
-    } else if (workEmail.value === "") {
-        alert("Work email cannot be empty!");
-        workEmail.focus();
-        return;
-    }
-
-    setStorage({
-        "firstName": firstName.value,
-        "lastName": lastName.value,
-        "workEmail": workEmail.value
-    });
-
-    alert("Settings successfully updated!");
-}
 
 //=============================================================================================
 //============================== About Page Functionality =====================================

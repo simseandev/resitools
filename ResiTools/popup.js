@@ -64,16 +64,10 @@ function clickTab(elementId) {
 //======================================= Utils ===============================================
 //=============================================================================================
 
-function getSync(key) { //get sync storage
-    chrome.storage.sync.get([key], function (result) {
-        return result;
+function setStorage(keyValues) {
+    chrome.storage.sync.set(keyValues, function () {
+        console.log("Storage has successfully been set.");
     });
-}
-
-function setSync(key, value) { //set sync storage
-    chrome.storage.sync.set({key: value}, function() {
-        console.log('Value is set to ' + value);
-      });
 }
 
 function isStringNumber(value) { //string value eg "8.42"
@@ -140,33 +134,20 @@ function addTemplate() {
     if (templateName === "") {
         alert("Template Name must not be empty!");
         return;
+    } else if (templateName.length >= 32) {
+        alert("Template Name must not be more than 32 characters!")
+        return;
     } else if (templateDescription === "") {
         alert("Template Description must not be empty!");
         return;
     }
 
-    //try and get current templates
-    let templates = getSync('templates');
-
-    //if templates are null, create list
-
-    if (templates == null) {
-        console.log('hello');
-    }
-
-    //if templates exist, add to list
-
-
-
-    //setSync('templates');
-    
-
-
-
-
-
+    storeTemplate(templateName, templateDescription.split('\n'));
 }
 
+function storeTemplate(templateName, templateDescription) {
+    
+}
 
 
 

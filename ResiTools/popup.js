@@ -2,73 +2,72 @@
 //====================================== Startup ==============================================
 //=============================================================================================
 
-//show only remindMeDiv, hide others.
-//TODO: Later to be dynamic via settings
+//show only welcomeDiv on startup, set others to hidden
 
-let remindMeDiv = document.getElementById("remindMeDiv");
-if (remindMeDiv) { remindMeDiv.style.display = "block"; }
+let launcherDiv = document.getElementById("launcherDiv");
+if (launcherDiv) { launcherDiv.style.display = "none"; }
 
 let templatesDiv = document.getElementById("templatesDiv");
-if (templatesDiv) { templatesDiv.style.display = "none"; }
+if (templatesDiv) {
+     templatesDiv.style.display = "none";
+    }
 
-let calculatorsDiv = document.getElementById("calculatorsDiv");
-if (calculatorsDiv) { calculatorsDiv.style.display = "none"; }
+let emailsDiv = document.getElementById("emailsDiv");
+if (emailsDiv) { emailsDiv.style.display = "none"; }
 
-let settingsDiv = document.getElementById("settingsDiv");
-if (settingsDiv) { settingsDiv.style.display = "none"; }
+let TWoSDiv = document.getElementById("TWoSDiv");
+if (TWoSDiv) { TWoSDiv.style.display = "none"; }
+
+let mySettingsDiv = document.getElementById("mySettingsDiv");
+if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
+
+let welcomeDiv = document.getElementById("welcomeDiv");
+if (welcomeDiv) {
+    getSettings();
+    welcomeDiv.style.display = "block"; 
+}
 
 let aboutDiv = document.getElementById("aboutDiv");
-if (aboutDiv) { aboutDiv.style.display = "none"; }
-
-//TODO: load any settings bound to account if there are any
-
-//=============================================================================================
-//==================================== Tab Control ============================================
-//=============================================================================================
-
-//if button is clicked, execute clickTab() function and switch to tab
-
-let remindMeBtn = document.getElementById("remindMeBtn");
-if (remindMeBtn) { remindMeBtn.addEventListener("click", function () {clickTab("remindMeDiv")}); }
-
-let templatesBtn = document.getElementById("templatesBtn");
-if (templatesBtn) { templatesBtn.addEventListener("click", function () {clickTab("templatesDiv")}); }
-
-let emailBtn = document.getElementById("emailsBtn");
-if (emailBtn) { emailBtn.addEventListener("click", function () {clickTab("emailsDiv")}); }
-
-let calculatorsBtn = document.getElementById("calculatorsBtn");
-if (calculatorsBtn) { calculatorsBtn.addEventListener("click", function () {clickTab("calculatorsDiv")}); }
-
-let settingsBtn = document.getElementById("settingsBtn");
-if (settingsBtn) { settingsBtn.addEventListener("click", function () {clickTab("settingsDiv")}); }
-
-let aboutBtn = document.getElementById("aboutBtn");
-if (aboutBtn) { aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")}); }
-
-function clickTab(elementId) {
-
-    //hide all tabs and show elementId tab
-
-    document.getElementById("remindMeDiv").style.display = "none";
-    document.getElementById("templatesDiv").style.display = "none";
-    document.getElementById("calculatorsDiv").style.display = "none";
-    document.getElementById("settingsDiv").style.display = "none";
-    document.getElementById("aboutDiv").style.display = "none";
-
-    document.getElementById(elementId).style.display = "block";
-
-}
+    if (aboutDiv) { aboutDiv.style.display = "none"; }
 
 //=============================================================================================
 //======================================= Utils ===============================================
 //=============================================================================================
 
-function setStorage(keyValues) {
-    chrome.storage.sync.set(keyValues, function () {
-        console.log("Storage has successfully been set.");
+function getSettings() {
+
+    //firstName
+    chrome.storage.sync.get(["firstName"], function (result) {
+        if (result.firstName == undefined) {
+            document.getElementById("configOK").style.display = "none";
+            document.getElementById("configNOK").style.display = "block";
+            return;
+        }
     });
+
+    //lastName
+    chrome.storage.sync.get(["lastName"], function (result) {
+        if (result.lastName == undefined) {
+            document.getElementById("configOK").style.display = "none";
+            document.getElementById("configNOK").style.display = "block";
+            return;
+        }
+    });
+
+    //workEmail
+    chrome.storage.sync.get(["workEmail"], function (result) {
+        if (result.workEmail == undefined) {
+            document.getElementById("configOK").style.display = "none";
+            document.getElementById("configNOK").style.display = "block";
+            return;
+        }
+    });
+    
+    document.getElementById("configOK").style.display = "block";
+    document.getElementById("configNOK").style.display = "none";
 }
+
+//these should really go in another file but we'll leave them here for now
 
 function isStringNumber(value) { //string value eg "8.42"
     return parseFloat(value.match(/^-?\d*(\.\d+)?$/))>0;
@@ -117,62 +116,410 @@ function checkSpecialChar(title) {
 }
 
 //=============================================================================================
-//===================================== Templates =============================================
+//==================================== Tab Control ============================================
 //=============================================================================================
 
+let launcherBtn = document.getElementById("launcherBtn");
+if (launcherBtn) {
+    launcherBtn.addEventListener("click", function () {clickTab("launcherDiv")});
+}
+
+let templatesBtn = document.getElementById("templatesBtn");
+if (templatesBtn) {
+    templatesBtn.addEventListener("click", function () {
+        clickTab("templatesDiv");
+        loadTemplates();
+    });
+}
+
+let emailBtn = document.getElementById("emailsBtn");
+if (emailBtn) {
+    emailBtn.addEventListener("click", function () {clickTab("emailsDiv")});
+}
+
+let TWoSBtn = document.getElementById("TWoSBtn");
+if (TWoSBtn) {
+    TWoSBtn.addEventListener("click", function () {clickTab("TWoSDiv")});
+}
+
+let mySettingsBtn = document.getElementById("mySettingsBtn");
+if (mySettingsBtn) {
+    mySettingsBtn.addEventListener("click", function () {
+        clickTab("mySettingsDiv");
+        loadSettings();
+    });
+}
+
+let aboutBtn = document.getElementById("aboutBtn");
+if (aboutBtn) { 
+    aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")});
+}
+
+function clickTab(elementId) {
+
+    document.getElementById("launcherDiv").style.display = "none";
+    document.getElementById("templatesDiv").style.display = "none";
+    document.getElementById("emailsDiv").style.display = "none";
+    document.getElementById("TWoSDiv").style.display = "none";
+    document.getElementById("welcomeDiv").style.display = "none";
+    document.getElementById("mySettingsDiv").style.display = "none";
+    document.getElementById("aboutDiv").style.display = "none";
+
+    document.getElementById(elementId).style.display = "block";
+}
+
+function loadSettings() {
+
+    //firstName
+    chrome.storage.sync.get(["firstName"], function (result) {
+        if (result.firstName != undefined) {
+            console.log("Retrieved Storage from Chrome: firstName");
+            document.getElementById("firstName").value = result.firstName;
+        }
+      });
+
+    //lastName
+    chrome.storage.sync.get(["lastName"], function (result) {
+        if (result.lastName != undefined) {
+            console.log("Retrieved Storage from Chrome: lastName");
+            document.getElementById("lastName").value = result.lastName;
+        }
+      });
+
+    //workEmail
+    chrome.storage.sync.get(["workEmail"], function (result) {
+        if (result.workEmail != undefined) {
+            console.log("Retrieved Storage from Chrome: workEmail");
+            document.getElementById("workEmail").value = result.workEmail;
+        }
+      });
+}
+
+//=============================================================================================
+//================================== Default Templates ========================================
+//=============================================================================================
+
+//check for selected
+
+//update template
+let updateTemplateBtn = document.getElementById("updateTemplateBtn");
+if (updateTemplateBtn) {
+    updateTemplateBtn.addEventListener("click", updateTemplate);
+}
+
+function updateTemplate () {
+    let confirmUpdate = confirm("Do you wish to update template?");
+    if (confirmUpdate == false) {
+        return;
+    }
+
+    //check title and desc are not empty
+    let updateName = document.getElementById("editTemplateName").value;
+    let updateDescription = document.getElementById("editTemplateDescription").value;
+
+    if (updateName === "") {
+        alert("Template name cannot be empty!");
+        return;
+    } else if (updateDescription === "") {
+        alert("Template description cannot be empty!");
+        return;
+    }
+
+    var templateId = document.getElementsByClassName("list-group-item active")[0].id;
+
+    chrome.storage.sync.get(["myTemplates"], function (result) {
+        if (result.myTemplates != undefined) {
+            console.log("Retrieved Storage from Chrome: myTemplates");
+            var myTemplates = result.myTemplates;
+            for (i = 0; i < myTemplates.length; i++) {
+                if (myTemplates[i][0] == templateId) {
+                    myTemplates.splice(i, 1);
+                    myTemplates.splice(i, 0, [updateName.replace(/\s+/g, '-'), updateDescription.split('\n')]);
+                    setStorage({"myTemplates": myTemplates});
+                    loadTemplates();
+                    $('#editTemplate').modal('hide');
+                    return;
+                }
+            }
+        }
+    });
+}
+
+//edit template, open modal with current information
+let editTemplateBtn = document.getElementById("editTemplateBtn");
+if (editTemplateBtn) {
+    editTemplateBtn.addEventListener("click", editTemplate);
+}
+
+function editTemplate() {
+    try {
+        var templateId = document.getElementsByClassName("list-group-item active")[0].id;
+        document.getElementById("editTemplateName").value = templateId.replace(/-/g, ' ');
+        $('#editTemplate').modal('show');
+        chrome.storage.sync.get(["myTemplates"], function (result) {
+            if (result.myTemplates != undefined) {
+                console.log("Retrieved Storage from Chrome: myTemplates");
+                var myTemplates = result.myTemplates;
+                for (i = 0; i < myTemplates.length; i++) {
+                    if (myTemplates[i][0] == templateId) {
+                        document.getElementById("editTemplateDescription").value = myTemplates[i][1].join('\n');
+                    }
+                }
+            }
+        });
+    } catch(err) {
+        console.log("editTemplate() Error: " + err);
+        return;
+    }
+}
+
+//delete button
+let deleteTemplateBtn = document.getElementById("deleteTemplateBtn");
+if (deleteTemplateBtn) {
+    deleteTemplateBtn.addEventListener("click", deleteTemplate);
+}
+
+function deleteTemplate() {
+    try {
+        var templateId = document.getElementsByClassName("list-group-item active")[0].id;
+        var confirmDeletion = confirm('Do you wish to delete template: "' + templateId.replace(/-/g, ' ') + '"');
+        if (confirmDeletion == true) {
+            //delete template with that id
+            chrome.storage.sync.get(["myTemplates"], function (result) {
+                if (result.myTemplates != undefined) {
+                    console.log("Retrieved Storage from Chrome: myTemplates");
+                    var myTemplates = result.myTemplates;
+                    for (i = 0; i < myTemplates.length; i++) {
+                        if (myTemplates[i][0] == templateId) {
+                            myTemplates.splice(i, 1);
+                            setStorage({"myTemplates": myTemplates});
+                            loadTemplates();
+                            return;
+                        }
+                    }
+                }
+            });
+        }
+        return;
+    } catch(err) {
+        console.log("deleteTemplate() Error: " + err);
+        return;
+    }
+}
+
+//add template
 let addTemplateBtn = document.getElementById("addTemplateBtn");
-if (addTemplateBtn) { addTemplateBtn.addEventListener("click", function () {addTemplate()}); }
+if (addTemplateBtn) {
+    addTemplateBtn.addEventListener("click", addTemplate);
+}
 
 function addTemplate() {
-
     let templateName = document.getElementById("templateName").value;
     let templateDescription = document.getElementById("templateDescription").value;
 
-    //TODO: other error checks, length and not already in use
-
-    //check inputs are valid
+    //check not empty
     if (templateName === "") {
         alert("Template Name must not be empty!");
-        return;
-    } else if (templateName.length >= 32) {
-        alert("Template Name must not be more than 32 characters!")
         return;
     } else if (templateDescription === "") {
         alert("Template Description must not be empty!");
         return;
+    } else if (checkSpecialChar(templateName)) {
+        alert("Template Name cannot contain special characters!")
+        return;
     }
 
-    storeTemplate(templateName, templateDescription.split('\n'));
+    templateDescription = templateDescription.split('\n');
+
+    storeName = templateName.replace(/\s+/g, '-');
+
+    //store template isn sync
+    storeTemplate(storeName, templateDescription);
+
 }
 
-function storeTemplate(templateName, templateDescription) {
-    
+function storeTemplate(name, description) {
+    //check if templates exist already
+    chrome.storage.sync.get(["myTemplates"], function (result) {
+        if (result.myTemplates != undefined) { //if templates don't exist, then create
+            console.log("Retrieved Storage from Chrome: myTemplates");
+            var myTemplates = result.myTemplates;
+            for (i = 0; i < myTemplates.length; i++) { // check doesn't exist
+                if (myTemplates[i][0] === name) {
+                    alert("Template Name already exists");
+                    return;
+                }
+            }
+            myTemplates.push([name, description]);
+            setStorage({"myTemplates": myTemplates.sort()})
+            console.log("Template " + name + " has been saved");
+        } else { //if they exist, myTemplates += new template
+            setStorage({"myTemplates": [[name, description]]});
+            console.log("Template " + name + " has been saved");
+        }
+
+        //load new templates, close and reset modal
+        loadTemplates();
+        $('#addTemplate').modal('hide');
+        document.getElementById("templateName").value = "";
+        document.getElementById("templateDescription").value = "";
+    });
 }
 
+function loadTemplates() {
+    document.querySelector(".list-group").innerHTML = "";
+    document.querySelector(".tab-content").innerHTML = "";
 
+    document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
+    document.getElementById("templateBlank").disabled = true;
 
+    chrome.storage.sync.get(["myTemplates"], function (result) {
+        if (result.myTemplates != undefined) { 
+            console.log("Retrieved Storage from Chrome: myTemplates");
 
+            document.querySelector(".tab-content").innerHTML = "";
 
+            document.getElementById("editTemplateBtn").disabled = false;
+            document.getElementById("deleteTemplateBtn").disabled = false;
+            document.getElementById("copyTemplateBtn").disabled = false;
 
+            var myTemplates = result.myTemplates;
 
+            if (myTemplates.length == 0) {
+                document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
+                document.getElementById("templateBlank").disabled = true;
+                document.getElementById("copyTemplateBtn").disabled = true;
+                document.getElementById("editTemplateBtn").disabled = true;
+                document.getElementById("deleteTemplateBtn").disabled = true;
+            }
+
+            for (var i = 0; i < myTemplates.length; i++) {
+                if (i == 0) {
+                    document.querySelector(".list-group").innerHTML += "<a class='list-group-item py-2 active list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
+                    document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane show active' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
+                } else {
+                document.querySelector(".list-group").innerHTML += "<a class='list-group-item py-2 list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
+                document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
+                }
+            }
+        }
+        return;
+      });
+}
+
+let copyTemplateBtn = document.getElementById("copyTemplateBtn");
+if (copyTemplateBtn) {
+    copyTemplateBtn.addEventListener("click", copyTemplate);
+}
+
+function copyTemplate() {
+    try {
+        var templateId = document.getElementsByClassName("list-group-item active")[0].id;
+        var description = document.getElementById("list-" + templateId).value;
+        copyTemplateText(description);
+    } catch(err) {
+        console.log("copyTemplate() Error: " + err);
+        return;
+    }
+}
 
 //=============================================================================================
-//============================== Calculators Functionality ====================================
+//============================== Internal Email Templates =====================================
 //=============================================================================================
 
-// Sets twosCalcDiv as default tab and hides surchargeCalcDiv
+let emailExceptionBtn = document.getElementById("emailExceptionBtn");
+if (emailExceptionBtn) {
+    emailExceptionBtn.addEventListener("click", function () {promptEmail(
+        "WFM@2degrees.nz",
+        " ",
+        "Exception - " + new Date().toLocaleDateString(), 
+        "Hi team,%0D%0DI have been doing X from X:XX to " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DPlease make an exception for this."
+    )});
+}
+
+let finishedLateBtn = document.getElementById("finishedLateBtn");
+if (finishedLateBtn) {
+    finishedLateBtn.addEventListener("click", function () {promptEmail(
+        "WFM@2degrees.nz", 
+        " ", 
+        "Finished Late - " + new Date().toLocaleDateString(), 
+        "Hi team,%0D%0DI have finished my shift at " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DCould I please have this time made up elsewhere, or alternatively may I submit an overtime form.", 
+    )});
+}
+
+let technicalDifficultiesBtn = document.getElementById("technicalDifficultiesBtn");
+if (technicalDifficultiesBtn) {
+    technicalDifficultiesBtn.addEventListener("click", function () {promptEmail(
+        "WFM@2degrees.nz",
+        " ",
+        "Technical Difficulties - " + new Date().toLocaleDateString(),
+        "Hi Team,%0D%0DI have been experiencing technical difficulties from X to " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DPlease make an exception for this."
+    )});
+}
+
+let emailLMNPBtn = document.getElementById("emailLMNPBtn");
+if (emailLMNPBtn) {
+    emailLMNPBtn.addEventListener("click", function () {promptEmail(
+        "lmnp@2degrees.nz",
+        " ",
+        "Port Number ASAP - *USER*/*CUSTNO.*", 
+        "Hi team,%0D%0DThe customer is now showing to be online.%0D%0DCould we please update the request to port their number over to ASAP.%0D%0DCustomer Details: X/X%0DPhone number: X"
+    )});
+}
+
+let modemReturnBtn = document.getElementById("modemReturnBtn");
+if (modemReturnBtn) {
+    modemReturnBtn.addEventListener("click", function () {promptEmail(
+        "nz.enquiries@brightstar.com",
+        "ResidentialHelpdesk@2degrees.nz",
+        "Confirm Modem Return - *B* NUMBER HERE*",
+        "Hi team,%0D%0DCould we please confirm that the modem has been returned:%0D%0D*B* NUMBER HERE*"
+    )});
+}
+
+//base email template, rather than populating many functions
+async function promptEmail(mailTo, cc, subject, body) {
+    var getFirstName;
+    chrome.storage.sync.get(["firstName"], function (result) {
+        if (result.firstName == undefined) {
+            getFirstName = "Kind regards";
+        } else {
+            console.log("name:" + result.firstName);
+            getFirstName = "Kind regards,%0D" + result.firstName;
+        }
+    });
+
+    await wait(10);
+
+    //replace /n with %0D%0 for new line
+    window.open('mailto:' + mailTo + '?cc=' + cc + '&subject=' + subject +'&body=' + body + "%0D%0D" + getFirstName);
+}
+
+//=============================================================================================
+//========================== Calculators Functionality ====================================
+//=============================================================================================
+
+// --------- Preset the two divs... ----------
 let twosCalcDiv = document.getElementById("twosCalcDiv");
-if (twosCalcDiv) { twosCalcDiv.style.display = "block"; }
+if (twosCalcDiv) { 
+    twosCalcDiv.style.display = "block";
+}
 
 let surchargeCalcDiv = document.getElementById("surchargeCalcDiv");
-if (surchargeCalcDiv) { surchargeCalcDiv.style.display = "none"; }
+if (surchargeCalcDiv) { 
+    surchargeCalcDiv.style.display = "none"; 
+}
 
-//Swap between tabs onclick
+//Calculators Page Tab control functionality
 let twosCalcTab = document.getElementById("twosCalcTab");
-if (twosCalcTab) { twosCalcTab.addEventListener("click", function () {clickCalcTab("twosCalcDiv")}); }
+if (twosCalcTab) {
+    twosCalcTab.addEventListener("click", function () {clickCalcTab("twosCalcDiv")});
+}
 
 let surchargeCalcTab = document.getElementById("surchargeCalcTab");
-if (surchargeCalcTab) { surchargeCalcTab.addEventListener("click", function () {clickCalcTab("surchargeCalcDiv")}); }
+if (surchargeCalcTab) {
+    surchargeCalcTab.addEventListener("click", function () {clickCalcTab("surchargeCalcDiv")});
+}
 
 function clickCalcTab(elementId) {
 
@@ -253,13 +600,47 @@ function calculateSurcharge () {
 
 //copy button
 let copySurchargeBtn = document.getElementById("copySurchargeBtn");
-if (copySurchargeBtn) { copySurchargeBtn.addEventListener("click", function () {copyText("surchargeAmount")});}
+if (copySurchargeBtn) {
+    copySurchargeBtn.addEventListener("click", function () {copyText("surchargeAmount")});
+}
 
 //=============================================================================================
 //============================== Settings Functionality =======================================
 //=============================================================================================
 
+let saveSettingsBtn = document.getElementById("saveSettingsBtn");
+if (saveSettingsBtn) {
+    saveSettingsBtn.addEventListener("click", function () {saveSettings()});
+}
 
+function saveSettings() {
+    let firstName = document.getElementById("firstName");
+    let lastName = document.getElementById("lastName");
+    let workEmail = document.getElementById("workEmail");
+
+    //inputs must not be empty
+    if (firstName.value == "") {
+        alert("First name cannot be empty!");
+        firstName.focus();
+        return;
+    } else if (lastName.value === "") {
+        alert("Last name cannot be empty!");
+        lastName.focus();
+        return;
+    } else if (workEmail.value === "") {
+        alert("Work email cannot be empty!");
+        workEmail.focus();
+        return;
+    }
+
+    setStorage({
+        "firstName": firstName.value,
+        "lastName": lastName.value,
+        "workEmail": workEmail.value
+    });
+
+    alert("Settings successfully updated!");
+}
 
 //=============================================================================================
 //============================== About Page Functionality =====================================
@@ -267,17 +648,25 @@ if (copySurchargeBtn) { copySurchargeBtn.addEventListener("click", function () {
 
 //Preset the two divs to show nothing just for now...
 let aboutMenuDiv = document.getElementById("aboutMenuDiv");
-if (aboutMenuDiv) { aboutMenuDiv.style.display = "block"; }
+if (aboutMenuDiv) { 
+    aboutMenuDiv.style.display = "block";
+}
 
 let reportMenuDiv = document.getElementById("reportMenuDiv");
-if (reportMenuDiv) { reportMenuDiv.style.display = "none"; }
+if (reportMenuDiv) { 
+    reportMenuDiv.style.display = "none"; 
+}
 
 //About Page Tab control functionality
 let aboutMenuTab = document.getElementById("aboutMenuTab");
-if (aboutMenuTab) { aboutMenuTab.addEventListener("click", function () {clickNavTab("aboutMenuDiv")}); }
+if (aboutMenuTab) {
+    aboutMenuTab.addEventListener("click", function () {clickNavTab("aboutMenuDiv")});
+}
 
 let reportMenuTab = document.getElementById("reportMenuTab");
-if (reportMenuTab) { reportMenuTab.addEventListener("click", function () {clickNavTab("reportMenuDiv")}); }
+if (reportMenuTab) {
+    reportMenuTab.addEventListener("click", function () {clickNavTab("reportMenuDiv")});
+}
 
 function clickNavTab(elementId) {
 

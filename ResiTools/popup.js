@@ -100,6 +100,36 @@ if (mySettingsBtn) { mySettingsBtn.addEventListener("click", function () {clickT
 let aboutBtn = document.getElementById("aboutBtn");
 if (aboutBtn) { aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")}); }
 
+// fade out
+
+function fadeOut(el){
+    el.style.opacity = 1;
+  
+    (function fade() {
+      if ((el.style.opacity -= .1) < 0) {
+        el.style.display = "none";
+      } else {
+        requestAnimationFrame(fade);
+      }
+    })();
+  }
+  
+  // fade in
+  
+  function fadeIn(el, display){
+    el.style.opacity = 0;
+    el.style.display = display || "block";
+  
+    (function fade() {
+      var val = parseFloat(el.style.opacity);
+      if (!((val += .1) > 1)) {
+        el.style.opacity = val;
+        requestAnimationFrame(fade);
+      }
+    })();
+  }
+
+
 function clickTab(elementId) {
 
     document.getElementById("notificationsDiv").style.display = "none";
@@ -109,7 +139,9 @@ function clickTab(elementId) {
     document.getElementById("mySettingsDiv").style.display = "none";
     document.getElementById("aboutDiv").style.display = "none";
 
-    document.getElementById(elementId).style.display = "block";
+    //document.getElementById(elementId).style.display = "block"
+
+    fadeIn(document.getElementById(elementId));
 }
 
 //=============================================================================================

@@ -5,17 +5,13 @@
 //show only welcomeDiv on startup, set others to hidden
 
 let notificationsDiv = document.getElementById("notificationsDiv");
-if (notificationsDiv) {
-    notificationsDiv.style.display = "block";
-}
+if (notificationsDiv) { notificationsDiv.style.display = "block"; }
 
 let remindersDiv = document.getElementById("remindersDiv");
 if (remindersDiv) { remindersDiv.style.display = "none"; }
 
 let templatesDiv = document.getElementById("templatesDiv");
-if (templatesDiv) {
-     templatesDiv.style.display = "none";
-}
+if (templatesDiv) { templatesDiv.style.display = "none"; }
 
 let TWoSDiv = document.getElementById("TWoSDiv");
 if (TWoSDiv) { TWoSDiv.style.display = "none"; }
@@ -25,44 +21,11 @@ if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
 
 
 let aboutDiv = document.getElementById("aboutDiv");
-    if (aboutDiv) { aboutDiv.style.display = "none"; }
+if (aboutDiv) { aboutDiv.style.display = "none"; }
 
 //=============================================================================================
 //======================================= Utils ===============================================
 //=============================================================================================
-
-function getSettings() {
-
-    //firstName
-    chrome.storage.sync.get(["firstName"], function (result) {
-        if (result.firstName == undefined) {
-            document.getElementById("configOK").style.display = "none";
-            document.getElementById("configNOK").style.display = "block";
-            return;
-        }
-    });
-
-    //lastName
-    chrome.storage.sync.get(["lastName"], function (result) {
-        if (result.lastName == undefined) {
-            document.getElementById("configOK").style.display = "none";
-            document.getElementById("configNOK").style.display = "block";
-            return;
-        }
-    });
-
-    //workEmail
-    chrome.storage.sync.get(["workEmail"], function (result) {
-        if (result.workEmail == undefined) {
-            document.getElementById("configOK").style.display = "none";
-            document.getElementById("configNOK").style.display = "block";
-            return;
-        }
-    });
-    
-    document.getElementById("configOK").style.display = "block";
-    document.getElementById("configNOK").style.display = "none";
-}
 
 //these should really go in another file but we'll leave them here for now
 
@@ -102,14 +65,12 @@ function wait(time) { //MUST BE ASYNC FUNCTION TO CALL THIS
 }
 
 function checkSpecialChar(title) {
-
     var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
     if (format.test(title)) {
         return true;
     } else {
         return false;
     }
-
 }
 
 //=============================================================================================
@@ -117,40 +78,27 @@ function checkSpecialChar(title) {
 //=============================================================================================
 
 let notificationsBtn = document.getElementById("notificationsBtn");
-if (notificationsBtn) {
-    notificationsBtn.addEventListener("click", function () {clickTab("notificationsDiv")})
-}
+if (notificationsBtn) { notificationsBtn.addEventListener("click", function () {clickTab("notificationsDiv")}) }
 
 let remindersBtn = document.getElementById("remindersBtn");
-if (remindersBtn) {
-    remindersBtn.addEventListener("click", function () {clickTab("remindersDiv")});
-}
+if (remindersBtn) { remindersBtn.addEventListener("click", function () {clickTab("remindersDiv")}); }
 
 let templatesBtn = document.getElementById("templatesBtn");
 if (templatesBtn) {
     templatesBtn.addEventListener("click", function () {
-        clickTab("templatesDiv");
-        loadTemplates();
+    clickTab("templatesDiv");
+    loadTemplates();
     });
 }
 
 let TWoSBtn = document.getElementById("TWoSBtn");
-if (TWoSBtn) {
-    TWoSBtn.addEventListener("click", function () {clickTab("TWoSDiv")});
-}
+if (TWoSBtn) { TWoSBtn.addEventListener("click", function () {clickTab("TWoSDiv")}); }
 
 let mySettingsBtn = document.getElementById("mySettingsBtn");
-if (mySettingsBtn) {
-    mySettingsBtn.addEventListener("click", function () {
-        clickTab("mySettingsDiv");
-        loadSettings();
-    });
-}
+if (mySettingsBtn) { mySettingsBtn.addEventListener("click", function () {clickTab("mySettingsDiv");}); }
 
 let aboutBtn = document.getElementById("aboutBtn");
-if (aboutBtn) { 
-    aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")});
-}
+if (aboutBtn) { aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")}); }
 
 function clickTab(elementId) {
 
@@ -162,33 +110,6 @@ function clickTab(elementId) {
     document.getElementById("aboutDiv").style.display = "none";
 
     document.getElementById(elementId).style.display = "block";
-}
-
-function loadSettings() {
-
-    //firstName
-    chrome.storage.sync.get(["firstName"], function (result) {
-        if (result.firstName != undefined) {
-            console.log("Retrieved Storage from Chrome: firstName");
-            document.getElementById("firstName").value = result.firstName;
-        }
-      });
-
-    //lastName
-    chrome.storage.sync.get(["lastName"], function (result) {
-        if (result.lastName != undefined) {
-            console.log("Retrieved Storage from Chrome: lastName");
-            document.getElementById("lastName").value = result.lastName;
-        }
-      });
-
-    //workEmail
-    chrome.storage.sync.get(["workEmail"], function (result) {
-        if (result.workEmail != undefined) {
-            console.log("Retrieved Storage from Chrome: workEmail");
-            document.getElementById("workEmail").value = result.workEmail;
-        }
-      });
 }
 
 //=============================================================================================
@@ -320,9 +241,9 @@ function addTemplate() {
     } else if (templateDescription === "") {
         alert("Template Description must not be empty!");
         return;
-    } else if (checkSpecialChar(templateName)) {
-        alert("Template Name cannot contain special characters!")
-        return;
+    //} else if (checkSpecialChar(templateName)) {
+        //alert("Template Name cannot contain special characters!")
+        //return;
     }
 
     templateDescription = templateDescription.split('\n');
@@ -363,17 +284,17 @@ function storeTemplate(name, description) {
 }
 
 function loadTemplates() {
-    document.querySelector(".list-group").innerHTML = "";
-    document.querySelector(".tab-content").innerHTML = "";
+    document.getElementById('myTemplates').innerHTML = "";
+    document.getElementById("templateContent").innerHTML = "";
 
-    document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
+    document.getElementById("templateContent").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
     document.getElementById("templateBlank").disabled = true;
 
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) { 
             console.log("Retrieved Storage from Chrome: myTemplates");
 
-            document.querySelector(".tab-content").innerHTML = "";
+            document.getElementById("templateContent").innerHTML = "";
 
             document.getElementById("editTemplateBtn").disabled = false;
             document.getElementById("deleteTemplateBtn").disabled = false;
@@ -382,7 +303,7 @@ function loadTemplates() {
             var myTemplates = result.myTemplates;
 
             if (myTemplates.length == 0) {
-                document.querySelector(".tab-content").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
+                document.getElementById("templateContent").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
                 document.getElementById("templateBlank").disabled = true;
                 document.getElementById("copyTemplateBtn").disabled = true;
                 document.getElementById("editTemplateBtn").disabled = true;
@@ -391,11 +312,11 @@ function loadTemplates() {
 
             for (var i = 0; i < myTemplates.length; i++) {
                 if (i == 0) {
-                    document.querySelector(".list-group").innerHTML += "<a class='list-group-item py-2 active list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
-                    document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane show active' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
+                    document.getElementById('myTemplates').innerHTML += "<a class='list-group-item py-2 active list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
+                    document.getElementById("templateContent").innerHTML += "<textarea class='tab-pane show active' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
                 } else {
-                document.querySelector(".list-group").innerHTML += "<a class='list-group-item py-2 list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
-                document.querySelector(".tab-content").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
+                document.getElementById('myTemplates').innerHTML += "<a class='list-group-item py-2 list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
+                document.getElementById("templateContent").innerHTML += "<textarea class='tab-pane' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
                 }
             }
         }
@@ -417,78 +338,6 @@ function copyTemplate() {
         console.log("copyTemplate() Error: " + err);
         return;
     }
-}
-
-//=============================================================================================
-//============================== Internal Email Templates =====================================
-//=============================================================================================
-
-let emailExceptionBtn = document.getElementById("emailExceptionBtn");
-if (emailExceptionBtn) {
-    emailExceptionBtn.addEventListener("click", function () {promptEmail(
-        "WFM@2degrees.nz",
-        " ",
-        "Exception - " + new Date().toLocaleDateString(), 
-        "Hi team,%0D%0DI have been doing X from X:XX to " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DPlease make an exception for this."
-    )});
-}
-
-let finishedLateBtn = document.getElementById("finishedLateBtn");
-if (finishedLateBtn) {
-    finishedLateBtn.addEventListener("click", function () {promptEmail(
-        "WFM@2degrees.nz", 
-        " ", 
-        "Finished Late - " + new Date().toLocaleDateString(), 
-        "Hi team,%0D%0DI have finished my shift at " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DCould I please have this time made up elsewhere, or alternatively may I submit an overtime form.", 
-    )});
-}
-
-let technicalDifficultiesBtn = document.getElementById("technicalDifficultiesBtn");
-if (technicalDifficultiesBtn) {
-    technicalDifficultiesBtn.addEventListener("click", function () {promptEmail(
-        "WFM@2degrees.nz",
-        " ",
-        "Technical Difficulties - " + new Date().toLocaleDateString(),
-        "Hi Team,%0D%0DI have been experiencing technical difficulties from X to " + new Date().toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true}) + ".%0D%0DPlease make an exception for this."
-    )});
-}
-
-let emailLMNPBtn = document.getElementById("emailLMNPBtn");
-if (emailLMNPBtn) {
-    emailLMNPBtn.addEventListener("click", function () {promptEmail(
-        "lmnp@2degrees.nz",
-        " ",
-        "Port Number ASAP - *USER*/*CUSTNO.*", 
-        "Hi team,%0D%0DThe customer is now showing to be online.%0D%0DCould we please update the request to port their number over to ASAP.%0D%0DCustomer Details: X/X%0DPhone number: X"
-    )});
-}
-
-let modemReturnBtn = document.getElementById("modemReturnBtn");
-if (modemReturnBtn) {
-    modemReturnBtn.addEventListener("click", function () {promptEmail(
-        "nz.enquiries@brightstar.com",
-        "ResidentialHelpdesk@2degrees.nz",
-        "Confirm Modem Return - *B* NUMBER HERE*",
-        "Hi team,%0D%0DCould we please confirm that the modem has been returned:%0D%0D*B* NUMBER HERE*"
-    )});
-}
-
-//base email template, rather than populating many functions
-async function promptEmail(mailTo, cc, subject, body) {
-    var getFirstName;
-    chrome.storage.sync.get(["firstName"], function (result) {
-        if (result.firstName == undefined) {
-            getFirstName = "Kind regards";
-        } else {
-            console.log("name:" + result.firstName);
-            getFirstName = "Kind regards,%0D" + result.firstName;
-        }
-    });
-
-    await wait(10);
-
-    //replace /n with %0D%0 for new line
-    window.open('mailto:' + mailTo + '?cc=' + cc + '&subject=' + subject +'&body=' + body + "%0D%0D" + getFirstName);
 }
 
 //=============================================================================================

@@ -238,12 +238,15 @@ function addTemplate() {
     if (templateName === "") {
         alert("Template Name must not be empty!");
         return;
+    } else if (templateName.length >= 32) {
+        alert("Template Name must not be more than 32 characters!");
+        return;
     } else if (templateDescription === "") {
         alert("Template Description must not be empty!");
         return;
-    //} else if (checkSpecialChar(templateName)) {
-        //alert("Template Name cannot contain special characters!")
-        //return;
+    } else if (checkSpecialChar(templateName)) {
+        alert("Template Name cannot contain special characters!")
+        return;
     }
 
     templateDescription = templateDescription.split('\n');
@@ -346,25 +349,17 @@ function copyTemplate() {
 
 // --------- Preset the two divs... ----------
 let twosCalcDiv = document.getElementById("twosCalcDiv");
-if (twosCalcDiv) { 
-    twosCalcDiv.style.display = "block";
-}
+if (twosCalcDiv) { twosCalcDiv.style.display = "block"; }
 
 let surchargeCalcDiv = document.getElementById("surchargeCalcDiv");
-if (surchargeCalcDiv) { 
-    surchargeCalcDiv.style.display = "none"; 
-}
+if (surchargeCalcDiv) { surchargeCalcDiv.style.display = "none"; }
 
 //Calculators Page Tab control functionality
 let twosCalcTab = document.getElementById("twosCalcTab");
-if (twosCalcTab) {
-    twosCalcTab.addEventListener("click", function () {clickCalcTab("twosCalcDiv")});
-}
+if (twosCalcTab) { twosCalcTab.addEventListener("click", function () {clickCalcTab("twosCalcDiv")}); }
 
 let surchargeCalcTab = document.getElementById("surchargeCalcTab");
-if (surchargeCalcTab) {
-    surchargeCalcTab.addEventListener("click", function () {clickCalcTab("surchargeCalcDiv")});
-}
+if (surchargeCalcTab) { surchargeCalcTab.addEventListener("click", function () {clickCalcTab("surchargeCalcDiv")}); }
 
 function clickCalcTab(elementId) {
 
@@ -376,19 +371,13 @@ function clickCalcTab(elementId) {
 
 // ---------- TWoS Calculator logic ----------
 let calculateBtn = document.getElementById("calculateBtn");
-if (calculateBtn) {
-    calculateBtn.addEventListener("click", calculateTimeWithoutService);
-}
+if (calculateBtn) { calculateBtn.addEventListener("click", calculateTimeWithoutService); }
 
 let copyAmountBtn = document.getElementById("copyAmountBtn");
-if (copyAmountBtn) {
-    copyAmountBtn.addEventListener("click", function () {copyText("resultAmount")});
-}
+if (copyAmountBtn) { copyAmountBtn.addEventListener("click", function () {copyText("resultAmount")}); }
 
 let copyStringBtn = document.getElementById("copyStringBtn");
-if (copyStringBtn) {
-    copyStringBtn.addEventListener("click", function () {copyText("resultString")});
-}
+if (copyStringBtn) { copyStringBtn.addEventListener("click", function () {copyText("resultString")}); }
 
 function calculateTimeWithoutService() {
     let monthlyCosts = document.getElementById("monthlyCosts").value;
@@ -445,47 +434,13 @@ function calculateSurcharge () {
 
 //copy button
 let copySurchargeBtn = document.getElementById("copySurchargeBtn");
-if (copySurchargeBtn) {
-    copySurchargeBtn.addEventListener("click", function () {copyText("surchargeAmount")});
-}
+if (copySurchargeBtn) { copySurchargeBtn.addEventListener("click", function () {copyText("surchargeAmount")}); }
 
 //=============================================================================================
 //============================== Settings Functionality =======================================
 //=============================================================================================
 
-let saveSettingsBtn = document.getElementById("saveSettingsBtn");
-if (saveSettingsBtn) {
-    saveSettingsBtn.addEventListener("click", function () {saveSettings()});
-}
 
-function saveSettings() {
-    let firstName = document.getElementById("firstName");
-    let lastName = document.getElementById("lastName");
-    let workEmail = document.getElementById("workEmail");
-
-    //inputs must not be empty
-    if (firstName.value == "") {
-        alert("First name cannot be empty!");
-        firstName.focus();
-        return;
-    } else if (lastName.value === "") {
-        alert("Last name cannot be empty!");
-        lastName.focus();
-        return;
-    } else if (workEmail.value === "") {
-        alert("Work email cannot be empty!");
-        workEmail.focus();
-        return;
-    }
-
-    setStorage({
-        "firstName": firstName.value,
-        "lastName": lastName.value,
-        "workEmail": workEmail.value
-    });
-
-    alert("Settings successfully updated!");
-}
 
 //=============================================================================================
 //============================== About Page Functionality =====================================
@@ -493,25 +448,17 @@ function saveSettings() {
 
 //Preset the two divs to show nothing just for now...
 let aboutMenuDiv = document.getElementById("aboutMenuDiv");
-if (aboutMenuDiv) { 
-    aboutMenuDiv.style.display = "block";
-}
+if (aboutMenuDiv) { aboutMenuDiv.style.display = "block"; }
 
 let reportMenuDiv = document.getElementById("reportMenuDiv");
-if (reportMenuDiv) { 
-    reportMenuDiv.style.display = "none"; 
-}
+if (reportMenuDiv) { reportMenuDiv.style.display = "none"; }
 
 //About Page Tab control functionality
 let aboutMenuTab = document.getElementById("aboutMenuTab");
-if (aboutMenuTab) {
-    aboutMenuTab.addEventListener("click", function () {clickNavTab("aboutMenuDiv")});
-}
+if (aboutMenuTab) { aboutMenuTab.addEventListener("click", function () {clickNavTab("aboutMenuDiv")}); }
 
 let reportMenuTab = document.getElementById("reportMenuTab");
-if (reportMenuTab) {
-    reportMenuTab.addEventListener("click", function () {clickNavTab("reportMenuDiv")});
-}
+if (reportMenuTab) { reportMenuTab.addEventListener("click", function () {clickNavTab("reportMenuDiv")}); }
 
 function clickNavTab(elementId) {
 

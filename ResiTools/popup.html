@@ -14,141 +14,65 @@
 
         <!-- Tab button links -->
         <div class="tab">
-            <button id="launcherBtn"> <i class="fa fa-plus-circle tabs"></i> Launcher</button>
+            <button id="notificationsBtn"> <i class="fa fa-bell tabs"></i> Notifications</button>
+            <button id="remindersBtn"> <i class="fa fa-calendar tabs"></i> RemindMe</button>
             <button id="templatesBtn"> <i class="fa fa-list-alt tabs"></i> Templates</button>
-            <button id="emailsBtn"> <i class="fa fa-envelope tabs"></i> Emails</button>
             <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> Calculators</button>
             <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button>
             <button id="aboutBtn"> <i class="fa fa-info-circle tabs"></i> About</button>
-
+            <br/>
+            <img src="images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:120px;height:120px;">
         </div>
     </head>
 
     <body>
         <!-- =========================================================================== -->
-        <!-- =============================== WELCOME DIV =============================== -->
+        <!-- =============================== Notifications DIV =============================== -->
         <!-- =========================================================================== -->
-        <div id="welcomeDiv">
-            <br/><br/><br/>
-            <img src="images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:350px;height:350px;">
-
-            <div id="configOK" class="configuredOK">
-                <p><i class="configOK fa fa-check"></i> Settings configured successfully.</p>
+        <div id="notificationsDiv">
+            <div class="divTitle">
+                <h4>Your Notifications</h4>
             </div>
 
-            <div id="configNOK" class="configuredNOK">
-                <p><i class="configNOK fa fa-exclamation"></i> Settings not configured.</p>
+            <div id="notifications">
+
             </div>
-            <br/>
+
+
         </div>
 
 
         <!-- Tab content -->
 
         <!-- =========================================================================== -->
-        <!-- ============================== LAUNCHER DIV =============================== -->
+        <!-- ============================== RemindMe DIV =============================== -->
         <!-- =========================================================================== -->
 
-        <div id="launcherDiv">
-            <br/>
-            <div>
-                <!-- <h5><span class="badge badge-secondary">COMING SOON!</span></h5> -->
+        <div id="remindersDiv">
+            <div class="divTitle">
+                <h4> Create a Reminder</h4>
             </div>
-            <div id="lfcDiv">
 
-                <div class="card" style="width: 26rem;" text-center> 
-                    <div class="card-header"><h6><i class="fa fa-truck tabs"></i> Wholesalers & LFCs</h6></div>
-                    <div class="card-body">
-                        <table class="launcherTable table-striped">
-                            <thead>
-                                <!-- <tr>
-                                    <th>Logo</th>
-                                    <th>Link</th>
-                                </tr> -->
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><img height="16" width="16" src="https://ccm.wialus.co.nz/favicon.ico"></td>
-                                    <td><a href="https://portal.chorus.co.nz/chorus-ssp-web/pages/LandingPage" target="_blank"> Chorus UFB Portal</a></td>
-                                    
-                                    <td><img height="16" width="16" src="https://ccm.wialus.co.nz/favicon.ico"></td>
-                                    <td><a href="https://checkmate.chorus.co.nz/" target="_blank"> Chorus Check Mate</a></td>
-                                </tr>
-                                <tr>
-                                    <td><img height="16" width="16" src="https://ccm.wialus.co.nz/favicon.ico"></td>
-                                    <td><a href="https://www.chorus.co.nz/ont-cable-request" target="_blank"> Chorus ONT PSU</a></td>
 
-                                    <td><img height="16" width="16" src="https://northpower.ufbportal.net.nz/favicon.ico"></td>
-                                    <td><a href="https://northpower.ufbportal.net.nz/v1-2-0" target="_blank"> NorthPower UFB Portal</a></td>
-                                </tr>
-                                <tr> 
-                                    <td><img height="16" width="16" src="https://login1.chorus.co.nz/favicon.ico"></td>
-                                    <td><a href="https://gateway.chorus.co.nz/ch/secure/portal/chorus/faults" target="_blank"> Chorus Gateway</a></td>
-
-                                    <td><img height="16" width="16" src="https://ccm.wialus.co.nz/favicon.ico"></td>
-                                    <td><a href="https://www.chorus.co.nz/outages" target="_blank"> Chorus Outage Map</a></td>
-                                </tr>
-                                <tr>
-                                    <td><img height="16" width="16" src="https://ibss.enable.net.nz/favicon.ico"></td>
-                                    <td><a href="https://ibss.enable.net.nz/order-management" target="_blank"> Enable UFB Portal</a></td>
-
-                                    <td><img height="16" width="16" src="https://portal.ultrafastfibre.co.nz/portal/favicon.ico"></td>
-                                    <td><a href="https://portal.ultrafastfibre.co.nz/portal" target="_blank"> UFF UFB Portal</a></td>
-                                </tr>
-                                <tr>
-                                    <td><img height="16" width="16" src="https://ccm.wialus.co.nz/favicon.ico"></td>
-                                    <td><a href="https://assurance.chorus.co.nz/" target="_blank"> Chorus Assurance</a></td>
-
-                                    <td><img height="16" width="16" src="https://www.ultrafastfibre.co.nz/favicon.ico"></td>
-                                    <td><a href="https://ultrafastfibre.statuspage.io/" target="_blank"> UFF Network Events</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div> 
-                
-                <div class="card" style="width: 26rem;" text-center>
-                    <div class="card-header"><h6><i class="fa fa-link tabs"></i> 2degrees Tools</h6></div>
-                    <div class="card-body">
-                        <table class="launcherTable table-striped">
-                            <thead>
-                                <!-- <tr>
-                                    <th>Logo</th>
-                                    <th>Link</th>
-                                </tr> -->
-                            </thead>
-                            <tbody>
-                                <tr>
-
-                                    <td><img height="16" width="16" src="https://secure.2degreesbroadband.co.nz/favicon.ico"></td>
-                                    <td><a href="https://2degreesnz.sharepoint.com/Pages/home.aspx" target="_blank"> SharePoint</a></td>
-
-                                    <td><img height="16" width="16" src="https://dashboard.affinitylogon.com/favicon.ico"></td>
-                                    <td><a href="https://dashboard.affinitylogon.com/" target="_blank"> Affinity</a></td>
-                                    
-                                </tr>
-                                <tr>
-
-                                    <td><img height="16" width="16" src="https://2degreescareers.wufoo.com/favicon.ico"></td>
-                                    <td><a href="https://2degreescareers.wufoo.com/forms/overtime-request-form-chch/" target="_blank"> Overtime Request</a></td>
-
-                                    <td><img height="16" width="16" src="https://cdn2.hubspot.net/hubfs/2074362/logo-01-2.svg"></td>
-                                    <td><a href="https://new.mariner7.com/home/dashboard.aspx" target="_blank"> Mariner 7</a></td>
-
-                                </tr>
-                            </tbody>                        
-                        </table>
-                    </div>
-                </div>
+            <div class="tab-content">
+                <textarea id="reminderDesc" class="form-control" placeholder="Details..." rows="6" cols="47"></textarea>
+                <br/><br/>
+                <a> Searching for an inline DateTime picker</a>
+                <br/><br/><br/>
+                <button class="btn btn-success"> Create</button>
             </div>
+
+
+
+
         </div>
 
         <!-- =========================================================================== -->
         <!-- ============================== TEMPLATES DIV ============================== -->
         <!-- =========================================================================== -->
         <div id="templatesDiv">
-            <div class="templatesTitle">
-                <h6>Templates</h6>
+            <div class="divTitle">
+                <h4>Templates</h4>
             </div>
 
             <div class="templateButtons">
@@ -214,27 +138,6 @@
         <!-- ============================================================================= -->
 
         <div id="emailsDiv">
-            <br/><br/>
-            <h2>Email Templates</h2><br/>
-            <div class="workforceEmails">
-                <h6>WFM:</h6>
-                <button id="emailExceptionBtn" class="btn btn-primary btn-sm">Exception</button>
-                <button id="finishedLateBtn" class="btn btn-primary btn-sm">Finished Late</button>
-                <button id="technicalDifficultiesBtn" class="btn btn-primary btn-sm">Technical Difficulties</button>
-
-            </div><br/>
-            <div class="provEmails">
-                <h6>Provisioning:</h6>
-                <button id="emailLMNPBtn" class="btn btn-primary btn-sm">Email lmnp</button>
-
-            </div><br/>
-            <div class="helpdeskEmails">
-                <h6>Helpdesk:</h6>
-                <button id="modemReturnBtn" class="btn btn-primary btn-sm">Confirm Modem Return</button>
-
-            </div>
-            
-
              
         </div>
 
@@ -312,35 +215,6 @@
         <!-- ============================== SETTINGS DIV ============================== -->
         <!-- ========================================================================== -->
         <div id="mySettingsDiv">
-            <br/>
-            
-            <table class="center">
-
-                <br/>
-
-                <h1>Settings</h1><br/>
-                <tr>
-                    <td><input type="text" class="form-control" id="firstName" placeholder="First Name" size="25"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="form-control" id="lastName" placeholder="Surname" size="25"></td>
-                </tr>
-                <tr>
-                    <td><input type="text" class="form-control" id="workEmail" placeholder="Work Email" size="25"></td>
-                </tr>
-
-            </table>
-
-            <br/>
-
-            <button id="saveSettingsBtn" class="btn btn-outline-primary">Save</button>
-
-            <br/>
-            <br/>
-
-            <div class="alert alert-light" role="alert" size="6">
-                *Emails may not work with empty fields
-            </div>
 
         </div>
 
@@ -423,7 +297,7 @@
         display: block;
         background-color: inherit;
         color: black;
-        padding: 22px 16px;
+        padding: 16px 13px;
         width: 100%;
         border: none;
         outline: none;
@@ -496,11 +370,12 @@
         text-align: center;
         display: inline-block;
     }
-    .templatesTitle {
+
+    .divTitle {
         text-align: left;
-        padding-left: 50px;
         padding-top: 10px;
-        padding-left: 160px;
+        padding-left: 170px;
+        color: darkgrey;
     }
     .templateButtons {
         float: right;

@@ -4,16 +4,18 @@
 
 //show only welcomeDiv on startup, set others to hidden
 
-let launcherDiv = document.getElementById("launcherDiv");
-if (launcherDiv) { launcherDiv.style.display = "none"; }
+let notificationsDiv = document.getElementById("notificationsDiv");
+if (notificationsDiv) {
+    notificationsDiv.style.display = "block";
+}
+
+let remindersDiv = document.getElementById("remindersDiv");
+if (remindersDiv) { remindersDiv.style.display = "none"; }
 
 let templatesDiv = document.getElementById("templatesDiv");
 if (templatesDiv) {
      templatesDiv.style.display = "none";
-    }
-
-let emailsDiv = document.getElementById("emailsDiv");
-if (emailsDiv) { emailsDiv.style.display = "none"; }
+}
 
 let TWoSDiv = document.getElementById("TWoSDiv");
 if (TWoSDiv) { TWoSDiv.style.display = "none"; }
@@ -21,11 +23,6 @@ if (TWoSDiv) { TWoSDiv.style.display = "none"; }
 let mySettingsDiv = document.getElementById("mySettingsDiv");
 if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
 
-let welcomeDiv = document.getElementById("welcomeDiv");
-if (welcomeDiv) {
-    getSettings();
-    welcomeDiv.style.display = "block"; 
-}
 
 let aboutDiv = document.getElementById("aboutDiv");
     if (aboutDiv) { aboutDiv.style.display = "none"; }
@@ -119,9 +116,14 @@ function checkSpecialChar(title) {
 //==================================== Tab Control ============================================
 //=============================================================================================
 
-let launcherBtn = document.getElementById("launcherBtn");
-if (launcherBtn) {
-    launcherBtn.addEventListener("click", function () {clickTab("launcherDiv")});
+let notificationsBtn = document.getElementById("notificationsBtn");
+if (notificationsBtn) {
+    notificationsBtn.addEventListener("click", function () {clickTab("notificationsDiv")})
+}
+
+let remindersBtn = document.getElementById("remindersBtn");
+if (remindersBtn) {
+    remindersBtn.addEventListener("click", function () {clickTab("remindersDiv")});
 }
 
 let templatesBtn = document.getElementById("templatesBtn");
@@ -130,11 +132,6 @@ if (templatesBtn) {
         clickTab("templatesDiv");
         loadTemplates();
     });
-}
-
-let emailBtn = document.getElementById("emailsBtn");
-if (emailBtn) {
-    emailBtn.addEventListener("click", function () {clickTab("emailsDiv")});
 }
 
 let TWoSBtn = document.getElementById("TWoSBtn");
@@ -157,11 +154,10 @@ if (aboutBtn) {
 
 function clickTab(elementId) {
 
-    document.getElementById("launcherDiv").style.display = "none";
+    document.getElementById("notificationsDiv").style.display = "none";
+    document.getElementById("remindersDiv").style.display = "none";
     document.getElementById("templatesDiv").style.display = "none";
-    document.getElementById("emailsDiv").style.display = "none";
     document.getElementById("TWoSDiv").style.display = "none";
-    document.getElementById("welcomeDiv").style.display = "none";
     document.getElementById("mySettingsDiv").style.display = "none";
     document.getElementById("aboutDiv").style.display = "none";
 

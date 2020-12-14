@@ -11,20 +11,18 @@
         <!--FONT AWESOME ICONS-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
             integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
-
         <!-- Tab button links -->
         <div class="tab">
-            <button id="notificationsBtn"> <i class="fa fa-bell tabs"></i> Notifications</button>
-            <button id="remindersBtn"> <i class="fa fa-calendar tabs"></i> RemindMe</button>
+            <!-- <button id="notificationsBtn"> <i class="fa fa-bell tabs"></i> Notifications</button> -->
+            <!-- <button id="remindersBtn"> <i class="fa fa-calendar tabs"></i> RemindMe</button> -->
             <button id="templatesBtn"> <i class="fa fa-list-alt tabs"></i> Templates</button>
             <button id="TWoSBtn"> <i class="fa fa-calculator tabs"></i> Calculators</button>
-            <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button>
+            <!-- <button id="mySettingsBtn"> <i class="fa fa-cog tabs"></i> Settings</button> -->
             <button id="aboutBtn"> <i class="fa fa-info-circle tabs"></i> About</button>
-            <br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/>
             <img src="images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:120px;height:120px;">
         </div>
     </head>
-
     <body>
         <!-- =========================================================================== -->
         <!-- =============================== Notifications DIV =============================== -->
@@ -33,27 +31,17 @@
             <div class="divTitle">
                 <h4>Your Notifications</h4>
             </div>
-
             <div id="notifications">
-
             </div>
-
-
         </div>
-
-
         <!-- Tab content -->
-
         <!-- =========================================================================== -->
         <!-- ============================== RemindMe DIV =============================== -->
         <!-- =========================================================================== -->
-
         <div id="remindersDiv">
             <div class="divTitle">
                 <h4> Create a Reminder</h4>
             </div>
-
-
             <div class="tab-content">
                 <textarea id="reminderDesc" class="form-control" placeholder="Details..." rows="6" cols="47"></textarea>
                 <br/><br/>
@@ -61,12 +49,7 @@
                 <br/><br/><br/>
                 <button class="btn btn-success"> Create</button>
             </div>
-
-
-
-
         </div>
-
         <!-- =========================================================================== -->
         <!-- ============================== TEMPLATES DIV ============================== -->
         <!-- =========================================================================== -->
@@ -74,26 +57,21 @@
             <div class="divTitle">
                 <h4>Templates</h4>
             </div>
-
             <div class="templateButtons">
                 <button type="button" class="addTemplateBtn btn btn-success btn-sm" data-toggle="modal" data-target="#addTemplate"><i class="fa fa-plus"></i></button><br/><br/><br/><br/><br/>
                 <button id="editTemplateBtn" type="button" class="editTemplateBtn btn btn-warning btn-sm" data-toggle="tooltip" title="Edit"><i class="fa fa-pen edit"></i></button><br/>
                 <button id="deleteTemplateBtn" type="button" class="btn btn-danger btn-sm" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i> </button>
             </div>
-            
                 <div class="list-group" id="myTemplates" role="tablist">
-                    
                 </div>
                 <br/>
                 <div class="tab-content" id="templateContent" rows="4" cols="35">
-                    
                 </div>
                 <br/>
-    
+
                 <div id="copyTemplateDiv">
                     <button id="copyTemplateBtn" class="copyTemplateBtn btn btn-outline-primary btn-sm">Copy</button>
                 </div>
-
                 <div id="editTemplate" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -112,7 +90,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="addTemplate" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -136,19 +113,12 @@
         <!-- ============================================================================= -->
         <!-- ================================ EMAILS DIV ================================= -->
         <!-- ============================================================================= -->
-
         <div id="emailsDiv">
              
         </div>
-
         <!-- ============================================================================= -->
         <!-- ============================== CALCULATORS DIV ============================== -->
         <!-- ============================================================================= -->
-
-        
-
-
-
         <div id="TWoSDiv">
 
             <br/>
@@ -212,7 +182,7 @@
                         </table>
                         <div class="alert alert-light" role="alert" size="6">
                             <br/>
-                            *Please note: Surcharge Calculator is set to calculate 1.75%.
+                            Surcharge Calculator is set to calculate 1.75%.
                         </div>
                     </table>
                 </div>
@@ -223,9 +193,7 @@
         <!-- ============================== SETTINGS DIV ============================== -->
         <!-- ========================================================================== -->
         <div id="mySettingsDiv">
-
         </div>
-
         <!-- ======================================================================= -->
         <!-- ============================== ABOUT DIV ============================== -->
         <!-- ======================================================================= -->
@@ -244,12 +212,11 @@
                 <div class="tab-pane fade show active" id="aboutMenuTab" role="tabpanel" aria-labelledby="about-tab">
                     <div class="card" style="width: 26rem;" text-center> 
                         <img src="images/resiToolsLaunch.png" alt="ResiTools" class="IMGcentre" style="width:125px;height:125px;">
-                        <div class="card-header">Version 1.0 - Initial Release</div>
+                        <div class="card-header">Version 1.1 - Initial Fixed Release - December 2020</div>
                         <div class="card-body">
                             <p class="card-text">
-                                ResiTools has been developed to make common residential team tasks quick and easy.
+                                ResiTools has been developed to make common residential tasks quick and easy.
                                 <br/><br/>Developed and maintained by Simon Lorimer and Sean Madondo.<br/><br/>
-                                &#169 SimSean Applications
                             </p>
                         </div>
                     </div>

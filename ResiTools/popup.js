@@ -5,7 +5,7 @@
 //show only welcomeDiv on startup, set others to hidden
 
 let notificationsDiv = document.getElementById("notificationsDiv");
-if (notificationsDiv) { notificationsDiv.style.display = "block"; }
+if (notificationsDiv) { notificationsDiv.style.display = "none"; }
 
 let remindersDiv = document.getElementById("remindersDiv");
 if (remindersDiv) { remindersDiv.style.display = "none"; }
@@ -14,11 +14,10 @@ let templatesDiv = document.getElementById("templatesDiv");
 if (templatesDiv) { templatesDiv.style.display = "none"; }
 
 let TWoSDiv = document.getElementById("TWoSDiv");
-if (TWoSDiv) { TWoSDiv.style.display = "none"; }
+if (TWoSDiv) { TWoSDiv.style.display = "block"; }
 
 let mySettingsDiv = document.getElementById("mySettingsDiv");
 if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
-
 
 let aboutDiv = document.getElementById("aboutDiv");
 if (aboutDiv) { aboutDiv.style.display = "none"; }
@@ -100,11 +99,8 @@ if (mySettingsBtn) { mySettingsBtn.addEventListener("click", function () {clickT
 let aboutBtn = document.getElementById("aboutBtn");
 if (aboutBtn) { aboutBtn.addEventListener("click", function () {clickTab("aboutDiv")}); }
 
-// fade out
-
-function fadeOut(el){
+function fadeOut(el){ // fade out
     el.style.opacity = 1;
-  
     (function fade() {
       if ((el.style.opacity -= .1) < 0) {
         el.style.display = "none";
@@ -112,14 +108,12 @@ function fadeOut(el){
         requestAnimationFrame(fade);
       }
     })();
-  }
+}
   
-  // fade in
   
-  function fadeIn(el, display){
+function fadeIn(el, display){ // fade in
     el.style.opacity = 0;
     el.style.display = display || "block";
-  
     (function fade() {
       var val = parseFloat(el.style.opacity);
       if (!((val += .1) > 1)) {
@@ -127,7 +121,7 @@ function fadeOut(el){
         requestAnimationFrame(fade);
       }
     })();
-  }
+}
 
 
 function clickTab(elementId) {
@@ -472,7 +466,7 @@ if (copySurchargeBtn) { copySurchargeBtn.addEventListener("click", function () {
 //============================== Settings Functionality =======================================
 //=============================================================================================
 
-
+// Coming soon
 
 //=============================================================================================
 //============================== About Page Functionality =====================================

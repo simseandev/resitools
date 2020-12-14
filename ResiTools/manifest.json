@@ -1,5 +1,5 @@
 {
-    "version": "1.0",
+    "version": "1.1",
     "manifest_version": 2,
     "name": "ResiTools",
     "description": "Productivity Tool for Residential Broadband",
@@ -14,7 +14,5 @@
         "scripts": ["popup.js"]
     },
     "permissions": ["storage"],
-
     "content_security_policy": "script-src 'self' https://ajax.googleapis.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://use.fontawesome.com; object-src 'self'"
-    
 }

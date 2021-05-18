@@ -32,15 +32,6 @@ function isStringNumber(value) { //string value eg "8.42"
     return parseFloat(value.match(/^-?\d*(\.\d+)?$/))>0;
 }
 
-function copyText(elementId) { //copy elements value to clipboard
-    var text = document.getElementById(elementId).value;
-    navigator.clipboard.writeText(text).then(function () {
-        console.log("Copying to clipboard was successful!");
-    }, function (err) {
-        console.error("Could not copy text: ", err);
-    });
-}
-
 function copyTemplateText(description) {
     navigator.clipboard.writeText(description).then(function () {
         console.log("Copying to clipboard was successful!");
@@ -49,22 +40,18 @@ function copyTemplateText(description) {
     });
 }
 
+function copyText(elementId) { //copy elements value to clipboard
+    copyTemplateText(document.getElementById(elementId).value);
+}
+
 function setStorage(keyValues) {
     chrome.storage.sync.set(keyValues, function () {
         console.log("Storage has successfully been set.");
     });
 }
 
-function wait(time) { //MUST BE ASYNC FUNCTION TO CALL THIS
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve();
-        }, time);
-    });
-}
-
 function checkSpecialChar(title) {
-    var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    let format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
     if (format.test(title)) {
         return true;
     } else {
@@ -110,12 +97,11 @@ function fadeOut(el){ // fade out
     })();
 }
   
-  
 function fadeIn(el, display){ // fade in
     el.style.opacity = 0;
     el.style.display = display || "block";
     (function fade() {
-      var val = parseFloat(el.style.opacity);
+      let val = parseFloat(el.style.opacity);
       if (!((val += .1) > 1)) {
         el.style.opacity = val;
         requestAnimationFrame(fade);
@@ -123,18 +109,14 @@ function fadeIn(el, display){ // fade in
     })();
 }
 
-
 function clickTab(elementId) {
-
     document.getElementById("notificationsDiv").style.display = "none";
     document.getElementById("remindersDiv").style.display = "none";
     document.getElementById("templatesDiv").style.display = "none";
     document.getElementById("TWoSDiv").style.display = "none";
     document.getElementById("mySettingsDiv").style.display = "none";
     document.getElementById("aboutDiv").style.display = "none";
-
     //document.getElementById(elementId).style.display = "block"
-
     fadeIn(document.getElementById(elementId));
 }
 
@@ -155,11 +137,9 @@ function updateTemplate () {
     if (confirmUpdate == false) {
         return;
     }
-
     //check title and desc are not empty
     let updateName = document.getElementById("editTemplateName").value;
     let updateDescription = document.getElementById("editTemplateDescription").value;
-
     if (updateName === "") {
         alert("Template name cannot be empty!");
         return;
@@ -167,13 +147,11 @@ function updateTemplate () {
         alert("Template description cannot be empty!");
         return;
     }
-
-    var templateId = document.getElementsByClassName("list-group-item active")[0].id;
-
+    let templateId = document.getElementsByClassName("list-group-item active")[0].id;
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) {
             console.log("Retrieved Storage from Chrome: myTemplates");
-            var myTemplates = result.myTemplates;
+            let myTemplates = result.myTemplates;
             for (i = 0; i < myTemplates.length; i++) {
                 if (myTemplates[i][0] == templateId) {
                     myTemplates.splice(i, 1);
@@ -196,13 +174,13 @@ if (editTemplateBtn) {
 
 function editTemplate() {
     try {
-        var templateId = document.getElementsByClassName("list-group-item active")[0].id;
+        let templateId = document.getElementsByClassName("list-group-item active")[0].id;
         document.getElementById("editTemplateName").value = templateId.replace(/-/g, ' ');
         $('#editTemplate').modal('show');
         chrome.storage.sync.get(["myTemplates"], function (result) {
             if (result.myTemplates != undefined) {
                 console.log("Retrieved Storage from Chrome: myTemplates");
-                var myTemplates = result.myTemplates;
+                let myTemplates = result.myTemplates;
                 for (i = 0; i < myTemplates.length; i++) {
                     if (myTemplates[i][0] == templateId) {
                         document.getElementById("editTemplateDescription").value = myTemplates[i][1].join('\n');
@@ -224,14 +202,14 @@ if (deleteTemplateBtn) {
 
 function deleteTemplate() {
     try {
-        var templateId = document.getElementsByClassName("list-group-item active")[0].id;
-        var confirmDeletion = confirm('Do you wish to delete template: "' + templateId.replace(/-/g, ' ') + '"');
+        let templateId = document.getElementsByClassName("list-group-item active")[0].id;
+        let confirmDeletion = confirm('Do you wish to delete template: "' + templateId.replace(/-/g, ' ') + '"');
         if (confirmDeletion == true) {
             //delete template with that id
             chrome.storage.sync.get(["myTemplates"], function (result) {
                 if (result.myTemplates != undefined) {
                     console.log("Retrieved Storage from Chrome: myTemplates");
-                    var myTemplates = result.myTemplates;
+                    let myTemplates = result.myTemplates;
                     for (i = 0; i < myTemplates.length; i++) {
                         if (myTemplates[i][0] == templateId) {
                             myTemplates.splice(i, 1);
@@ -274,11 +252,8 @@ function addTemplate() {
         alert("Template Name cannot contain special characters!")
         return;
     }
-
     templateDescription = templateDescription.split('\n');
-
     storeName = templateName.replace(/\s+/g, '-');
-
     //store template isn sync
     storeTemplate(storeName, templateDescription);
 
@@ -289,7 +264,7 @@ function storeTemplate(name, description) {
     chrome.storage.sync.get(["myTemplates"], function (result) {
         if (result.myTemplates != undefined) { //if templates don't exist, then create
             console.log("Retrieved Storage from Chrome: myTemplates");
-            var myTemplates = result.myTemplates;
+            let myTemplates = result.myTemplates;
             for (i = 0; i < myTemplates.length; i++) { // check doesn't exist
                 if (myTemplates[i][0] === name) {
                     alert("Template Name already exists");
@@ -329,7 +304,7 @@ function loadTemplates() {
             document.getElementById("deleteTemplateBtn").disabled = false;
             document.getElementById("copyTemplateBtn").disabled = false;
 
-            var myTemplates = result.myTemplates;
+            let myTemplates = result.myTemplates;
 
             if (myTemplates.length == 0) {
                 document.getElementById("templateContent").innerHTML = "<textarea id='templateBlank' rows='7' cols='50'></textarea>";
@@ -339,7 +314,7 @@ function loadTemplates() {
                 document.getElementById("deleteTemplateBtn").disabled = true;
             }
 
-            for (var i = 0; i < myTemplates.length; i++) {
+            for (let i = 0; i < myTemplates.length; i++) {
                 if (i == 0) {
                     document.getElementById('myTemplates').innerHTML += "<a class='list-group-item py-2 active list-group-item-action' id='" + myTemplates[i][0] + "' data-toggle='list' href='#list-" + myTemplates[i][0] + "' role='tab' aria-controls='" + myTemplates[i][0] +"'>" + myTemplates[i][0].replace(/-/g, ' '); + "</a>";
                     document.getElementById("templateContent").innerHTML += "<textarea class='tab-pane show active' id='list-" + myTemplates[i][0] + "' role='tabpanel' aria-labelledby='list-" + myTemplates[i][0] +"-list' rows='7' cols='50'>"+ myTemplates[i][1].join('\n') + "</textarea>";
@@ -360,8 +335,8 @@ if (copyTemplateBtn) {
 
 function copyTemplate() {
     try {
-        var templateId = document.getElementsByClassName("list-group-item active")[0].id;
-        var description = document.getElementById("list-" + templateId).value;
+        let templateId = document.getElementsByClassName("list-group-item active")[0].id;
+        let description = document.getElementById("list-" + templateId).value;
         copyTemplateText(description);
     } catch(err) {
         console.log("copyTemplate() Error: " + err);
@@ -388,10 +363,8 @@ let surchargeCalcTab = document.getElementById("surchargeCalcTab");
 if (surchargeCalcTab) { surchargeCalcTab.addEventListener("click", function () {clickCalcTab("surchargeCalcDiv")}); }
 
 function clickCalcTab(elementId) {
-
     document.getElementById("twosCalcDiv").style.display = "none";
     document.getElementById("surchargeCalcDiv").style.display = "none";
-
     document.getElementById(elementId).style.display = "block";
 }
 
@@ -409,7 +382,6 @@ function calculateTimeWithoutService() {
     let monthlyCosts = document.getElementById("monthlyCosts").value;
     let timeWithoutService = document.getElementById("timeWithoutService").value;
     let approvedBy = document.getElementById("approvedBy").value;
-
     if (monthlyCosts === "") {
         alert("Monthly Costs field cannot be empty!");
         return;
@@ -417,7 +389,6 @@ function calculateTimeWithoutService() {
         alert("Monthly Costs field must be a number!");
         return;
     } 
-
     if (timeWithoutService === "") {
         alert("Time Without Service field cannot be empty!");
         return;
@@ -425,14 +396,11 @@ function calculateTimeWithoutService() {
         alert("Time Without Service field must be a number!");
         return;
     }
-
     if (approvedBy === "") {
         alert("Approved by field cannot be empty!");
         return;
     }
-    
     let reversalAmount = ((monthlyCosts * 12 / 365) * timeWithoutService).toFixed(2);
-
     document.getElementById("resultAmount").value = reversalAmount;
     document.getElementById("resultString").value = "Hi team. Please reverse $" + reversalAmount + " for " + timeWithoutService + " days of TWoS. Approved by " + approvedBy + ".";
 }
@@ -445,7 +413,6 @@ if (calculateSurchargeBtn) {
 
 function calculateSurcharge () {
     let amount = document.getElementById("beforeSurcharge").value;
-    
     //check is number and not empty
     if (amount == "") {
         alert("Amount cannot be empty!");
@@ -454,7 +421,6 @@ function calculateSurcharge () {
         alert("Amount must be a number!");
         return;
     }
-
     document.getElementById("surchargeAmount").value = (parseInt(amount) * 1.0175).toFixed(2);
 }
 
@@ -466,7 +432,7 @@ if (copySurchargeBtn) { copySurchargeBtn.addEventListener("click", function () {
 //============================== Settings Functionality =======================================
 //=============================================================================================
 
-// Coming soon
+// TODO: Coming soon
 
 //=============================================================================================
 //============================== About Page Functionality =====================================
@@ -487,9 +453,7 @@ let reportMenuTab = document.getElementById("reportMenuTab");
 if (reportMenuTab) { reportMenuTab.addEventListener("click", function () {clickNavTab("reportMenuDiv")}); }
 
 function clickNavTab(elementId) {
-
     document.getElementById("aboutMenuDiv").style.display = "none";
     document.getElementById("reportMenuDiv").style.display = "none";
-
     document.getElementById(elementId).style.display = "block"; 
 }

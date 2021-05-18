@@ -1,14 +1,15 @@
+
+//=============================================================================================
+//====================================== popup.js =============================================
+//=============================================================================================
+
+//these should really go in another file but we'll leave them here for now
+
 //=============================================================================================
 //====================================== Startup ==============================================
 //=============================================================================================
 
-//show only welcomeDiv on startup, set others to hidden
-
-let notificationsDiv = document.getElementById("notificationsDiv");
-if (notificationsDiv) { notificationsDiv.style.display = "none"; }
-
-let remindersDiv = document.getElementById("remindersDiv");
-if (remindersDiv) { remindersDiv.style.display = "none"; }
+//show only TTWoSDiv on startup, set others to hidden
 
 let templatesDiv = document.getElementById("templatesDiv");
 if (templatesDiv) { templatesDiv.style.display = "none"; }
@@ -16,17 +17,21 @@ if (templatesDiv) { templatesDiv.style.display = "none"; }
 let TWoSDiv = document.getElementById("TWoSDiv");
 if (TWoSDiv) { TWoSDiv.style.display = "block"; }
 
-let mySettingsDiv = document.getElementById("mySettingsDiv");
-if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
-
 let aboutDiv = document.getElementById("aboutDiv");
 if (aboutDiv) { aboutDiv.style.display = "none"; }
+
+let notificationsDiv = document.getElementById("notificationsDiv");
+if (notificationsDiv) { notificationsDiv.style.display = "none"; }
+
+let remindersDiv = document.getElementById("remindersDiv");
+if (remindersDiv) { remindersDiv.style.display = "none"; }
+
+let mySettingsDiv = document.getElementById("mySettingsDiv");
+if (mySettingsDiv) { mySettingsDiv.style.display = "none"; }
 
 //=============================================================================================
 //======================================= Utils ===============================================
 //=============================================================================================
-
-//these should really go in another file but we'll leave them here for now
 
 function isStringNumber(value) { //string value eg "8.42"
     return parseFloat(value.match(/^-?\d*(\.\d+)?$/))>0;
@@ -110,21 +115,18 @@ function fadeIn(el, display){ // fade in
 }
 
 function clickTab(elementId) {
-    document.getElementById("notificationsDiv").style.display = "none";
-    document.getElementById("remindersDiv").style.display = "none";
     document.getElementById("templatesDiv").style.display = "none";
     document.getElementById("TWoSDiv").style.display = "none";
-    document.getElementById("mySettingsDiv").style.display = "none";
     document.getElementById("aboutDiv").style.display = "none";
-    //document.getElementById(elementId).style.display = "block"
+    document.getElementById("mySettingsDiv").style.display = "none";
+    document.getElementById("notificationsDiv").style.display = "none";
+    document.getElementById("remindersDiv").style.display = "none";
     fadeIn(document.getElementById(elementId));
 }
 
 //=============================================================================================
 //================================== Default Templates ========================================
 //=============================================================================================
-
-//check for selected
 
 //update template
 let updateTemplateBtn = document.getElementById("updateTemplateBtn");
@@ -165,7 +167,6 @@ function updateTemplate () {
         }
     });
 }
-
 //edit template, open modal with current information
 let editTemplateBtn = document.getElementById("editTemplateBtn");
 if (editTemplateBtn) {
